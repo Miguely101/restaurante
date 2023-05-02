@@ -22,6 +22,13 @@ return ('Bad Request');
     return ('Registado com sucesso!');
 };
 
+const login  = async (user) =>{
+    const pool = await connection;
+    const hashedPassowrd = await bcrypt.hash(user.password,10);
+   
+   if(user.nome == null ||user.password == null || user.email == null|| user.numero == null||user.morada == null)
+   return ('Bad Request');
+
 
 module.exports = {
     register ,
