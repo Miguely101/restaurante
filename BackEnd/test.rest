@@ -1,10 +1,13 @@
-POST http://localhost:3333/registar
+POST http://localhost:3333/register
 Content-Type: application/json
 
 {
-  "name": "mike",
+  "nome": "mike",
   "password": "123123",
-  "email": "rodri.midas@gmail.com"
+  "email": "rodri.midas@gmail.com",
+  "numero": "123123123",
+  "morada": "lisboa 123 123"
+
 }
 
 

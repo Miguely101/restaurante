@@ -1,5 +1,5 @@
 const { request, response } = require('express');
-const PostModel= require('../models/RestauranteModel');
+const PostModel= require('../models/AuthModel');
 
 
 //Create
