@@ -23,13 +23,22 @@ return ('Bad Request');
 };
 
 const login  = async (user) =>{
-    const pool = await connection;
-    const hashedPassowrd = await bcrypt.hash(user.password,10);
+   const pool = await connection;
+
+   const email = await pool.request()
+   .input('utilizador_email', sql.VarChar(80), user.email)
+   .query('SELECT * FROM tbl_utilizadores Where utilizador_email =  @utilizador_email');
+   const data = email.recordset[0];
+
+   if(data == undefined || data == null) return ("Email não existe.");
+   if(await bcrypt.compare(user.password,data.utilizador_senha)){
+    return ("Login feito com sucesso");
+   }else{
+    return ("Senha Errada");
+   }
+};
    
-   if(user.nome == null ||user.password == null || user.email == null|| user.numero == null||user.morada == null)
-   return ('Bad Request');
-
-
 module.exports = {
+    login,
     register ,
 };
