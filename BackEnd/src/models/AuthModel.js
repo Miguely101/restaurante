@@ -7,9 +7,17 @@ require("dotenv").config();
 const register  = async (user) =>{
  const pool = await connection;
  const hashedPassowrd = await bcrypt.hash(user.password,10);
+ 
+ const email = await pool.request()
+   .input('utilizador_email', sql.VarChar(80), user.email)
+   .query('SELECT * FROM tbl_utilizadores Where utilizador_email =  @utilizador_email');
+   const data = email.recordset[0];
 
-if(user.nome == null ||user.password == null || user.email == null|| user.numero == null||user.morada == null)
-return ('Bad Request');
+   let resp2 ={code:201, message:"Email existe."}
+   if(data != undefined || data != null) return (resp2);
+
+    if(user.nome == null ||user.password == null || user.email == null|| user.numero == null||user.morada == null)
+    return ('Bad Request');
 
  const result = await pool.request()
       .input('perm_id', sql.Int, 1)
@@ -19,8 +27,10 @@ return ('Bad Request');
       .input('utilizador_numero', sql.VarChar(20), user.numero)
       .input('utilizador_morada', sql.VarChar(100), user.morada)
       .query('INSERT INTO tbl_utilizadores (perm_id, utilizador_nome, utilizador_email, utilizador_senha, utilizador_numero, utilizador_morada) VALUES (@perm_id, @utilizador_nome, @utilizador_email, @utilizador_senha, @utilizador_numero, @utilizador_morada)');
-    return ('Registado com sucesso!');
+      let resp ={code:200, message:"Registado com sucesso"}
+      return (resp);
 };
+
 
 const login  = async (user) =>{
    const pool = await connection;
