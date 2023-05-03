@@ -12,7 +12,8 @@ const register = async(request, response) =>{
 const login = async(request, response) =>{
  
     let user = {email:request.body.email,password:request.body.password}
-    let resp = await PostModel.login(user); 
+    let resp = await PostModel.login(user);
+    console.log("veio do site"); 
     return response.status(201).json(resp);
 };
 

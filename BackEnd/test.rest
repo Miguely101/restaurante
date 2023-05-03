@@ -12,15 +12,6 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3333/confirm
-Content-Type: application/json
-
-{
-  "email": "rodri.midas@gmail.com",
-  "code": "58820"
-}
-
-###
 
 POST http://localhost:3333/login
 Content-Type: application/json
@@ -30,31 +21,3 @@ Content-Type: application/json
   "password": "123123"
 }
 ###
-POST http://localhost:3333/token
-Content-Type: application/json
-
-{
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6Ik1pZ3VlbCIsImltYWdlbSI6Imh0dHBzOi8vbWVkaWEuZGlzY29yZGFwcC5uZXQvYXR0YWNobWVudHMvMTA0NjcyMTQ3MTI5ODQwNDQyMy8xMDg1OTQ1MzM4NjA4NzUwNjQyLzMyMjM3OTkzMV8xMjIzODI2MDY4MjMwOTM5XzEyODgyNzU1Mzc3NzI3MzE0MDNfbi5wbmc_d2lkdGg9NjYyJmhlaWdodD02NjIiLCJlbWFpbCI6Im1pZ3VlbGFsbWVpZGFhbkBnbWFpbC5jb20iLCJhdGl2YWRhIjoxLCJwZXJtaXNzaW9ucyI6OCwiaWF0IjoxNjgwMDg0MzA5fQ.rO6QRpiB39S4hlocLJaMA7xUABUElObfah_YaHjRh6I"
-}
-###
-DELETE  http://localhost:3333/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IlJvZHJpZ28iLCJpbWFnZW0iOiIwIiwiZW1haWwiOiJtaWRvZXNyb2RyaWdvQGdtYWlsLmNvbSIsImF0aXZhZGEiOjAsInBlcm1pc3Npb25zIjo4LCJpYXQiOjE2Nzc3NDA1MzEsImV4cCI6MTY3Nzc0MTEzMX0.cDPsw5NYSxG7LUFVuwN5UgMVaFDRYyaZM9cZ3ZTU80s
-###
-GET http://localhost:3333/book
-###
-GET http://localhost:3333/book/55
-###
-POST http://localhost:3333/comment
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6Ik1pZ3VlbCIsImltYWdlbSI6IjAiLCJlbWFpbCI6Im1pZ3VlbGFsbWVpZGFhbkBnbWFpbC5jb20iLCJhdGl2YWRhIjowLCJwZXJtaXNzaW9ucyI6OCwiaWF0IjoxNjc4NjUyMTQwLCJleHAiOjE2Nzg2NTI3NDB9.Y2G_8WAd9kC1EJl1spZaE0gQL6-ZbQWDqh6wWcL9URM
-Content-Type: application/json
-
-{
-  "content": "isto é outro comentário de teste!",
-  "avaliacao":3,
-  "id_livro":55
-}
-###
-GET http://localhost:3333/comment/55
-###
-POST http://localhost:3333/book
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6Ik1pZ3VlbCIsImltYWdlbSI6Imh0dHBzOi8vbWVkaWEuZGlzY29yZGFwcC5uZXQvYXR0YWNobWVudHMvMTA0NjcyMTQ3MTI5ODQwNDQyMy8xMDg1OTQ1MzM4NjA4NzUwNjQyLzMyMjM3OTkzMV8xMjIzODI2MDY4MjMwOTM5XzEyODgyNzU1Mzc3NzI3MzE0MDNfbi5wbmc_d2lkdGg9NjYyJmhlaWdodD02NjIiLCJlbWFpbCI6Im1pZ3VlbGFsbWVpZGFhbkBnbWFpbC5jb20iLCJhdGl2YWRhIjoxLCJwZXJtaXNzaW9ucyI6OCwiaWF0IjoxNjgwMDg1OTQ0LCJleHAiOjE2ODAwODY1NDR9.c_Gi-NWd2EcgRGvvQxJvuCZfeGG76f4Oa1siRZ0BGtE
