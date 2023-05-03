@@ -10,14 +10,18 @@ const register = async(request, response) =>{
 };
 
 const login = async(request, response) =>{
- 
     let user = {email:request.body.email,password:request.body.password}
     let resp = await PostModel.login(user);
-    console.log("veio do site"); 
+ 
     return response.status(201).json(resp);
 };
 
+const userCheck = async(request,response)=>{
+ return response.status(201).json(request.user)
+}
+
 module.exports = {
+    userCheck,
     login,
    register ,
 };

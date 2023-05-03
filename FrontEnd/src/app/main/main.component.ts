@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApIServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ApIServiceService) { }
+
+  username = "Null"
+
 
   ngOnInit(): void {
+    this.service.getUserData().subscribe((response) => {
+      this.username = response.nome;
+    })
+  }
+
+
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('token') !== null;
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
   }
 
 }

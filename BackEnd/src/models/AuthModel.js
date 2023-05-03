@@ -1,7 +1,7 @@
 const connection = require('./connection');
 const bcrypt = require('bcrypt');
 const sql = require('mssql');
-
+const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
 const register  = async (user) =>{
@@ -32,7 +32,13 @@ const login  = async (user) =>{
 
    if(data == undefined || data == null) return ("Email não existe.");
    if(await bcrypt.compare(user.password,data.utilizador_senha)){
-    return ("Login feito com sucesso");
+
+    let userData ={id:data.utilizador_id,nome:data.utilizador_nome,email:data.utilizador_email,numero:data.utilizador_numero,morada:data.utilizador_morada}
+    const accessToken = jwt.sign(userData, process.env.ACCESS_TOKEN)
+
+    let resp ={code:200, accessToken}
+
+    return (resp);
    }else{
     return ("Senha Errada");
    }

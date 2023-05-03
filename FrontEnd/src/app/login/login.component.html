@@ -17,6 +17,7 @@
                       <input [(ngModel)]="senha" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                       <div class="validate"></div>
                    </div>
+                   <div class="validate text-center">{{error3}}</div>
                 </div>
                 <br>
                 <div class="text-center"><button (click)="login()" type="submit">Login</button></div>

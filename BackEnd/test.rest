@@ -21,3 +21,7 @@ Content-Type: application/json
   "password": "123123"
 }
 ###
+GET http://localhost:3333/usercheck
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6Im1pa2UiLCJlbWFpbCI6InJvZHJpLm1pZGFzQGdtYWlsLmNvbSIsIm51bWVybyI6IjEyMzEyMzEyMyIsIm1vcmFkYSI6Imxpc2JvYSAxMjMgMTIzIiwiaWF0IjoxNjgzMTQ2NjY4fQ.q0v24iCa1o1wUbvr080zoo-SB15rbgIgWRZ16MzJjKY
+###

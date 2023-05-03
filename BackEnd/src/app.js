@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const whitelist = ['http://localhost:3333', 'http://localhost','http://localhost:4200'];
 const corsOptions = {
+  
   origin: function (origin, callback) {
     if (!origin ||whitelist.indexOf(origin) !== -1) {
       callback(null, true)
