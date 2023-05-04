@@ -2,23 +2,38 @@
 
 
 <div class="card">
-    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Quantity</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                <td>{{ product.code }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.quantity }}</td>
-            </tr>
-        </ng-template>
+    <p-table [value]="Users" [tableStyle]="{ 'min-width': '20rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Permissão</th>
+          <th>Email</th>
+          <th>Morada</th>
+          <th>Nome</th>
+          <th>Telemovel</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{ user.utilizador_id }}</td>
+
+          <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+                <p-dropdown [options]="perms" [(ngModel)]="selectedPerm"></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+                {{user.perm_id }}
+            </ng-template>
+          </p-cellEditor>
+          </td>
+
+          <td>{{ user.utilizador_email }}</td>
+          <td>{{ user.utilizador_morada }}</td>
+          <td>{{ user.utilizador_nome }}</td>
+          <td>{{ user.utilizador_numero }} </td>
+        </tr>
+      </ng-template>
     </p-table>
 </div>
 

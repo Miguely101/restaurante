@@ -58,7 +58,8 @@ const getAllusers = async()=>{
    const pool = await connection;
    const email = await pool.request()
    .query('SELECT * FROM tbl_utilizadores');
-   const data = email.recordset[0];
+   const data = email.recordset;
+   console.log(data)
    return data;
 }
    

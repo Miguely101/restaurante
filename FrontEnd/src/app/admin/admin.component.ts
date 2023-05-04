@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MegaMenuItem, PrimeIcons} from 'primeng/api';
 import { ApIServiceService } from '../api-service.service';
+import { User } from '../models/usersModels';
 
 
 @Component({
@@ -13,8 +14,9 @@ export class AdminComponent implements OnInit {
   constructor(private service:ApIServiceService) { }
  
   items: MegaMenuItem[] = [];
-  products:any;
-  cols: any;
+  Users: User[] = [];
+  perms: any[] = [];
+  selectedPerm: any;
 
   ngOnInit() {
       this.items = [
@@ -130,11 +132,18 @@ export class AdminComponent implements OnInit {
           }
       ]
 
+ 
+
       this.service.getUsers().subscribe((response) => {
-       this.products = response;
+       this.Users = this.Users.concat(response);;
        console.log(response);
       })
  
-
+      this.perms = [{label: 'Cliente', value: '1'},{label: 'Funcionario', value: '2'},{label: 'Admin', value: '3'}]
+      
   }
+
+  onRowEditSave(user: User) {
+   console.log(user.utilizador_nome);
+}
 }

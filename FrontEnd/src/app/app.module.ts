@@ -14,6 +14,12 @@ import { AdminComponent } from './admin/admin.component';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {DataViewModule} from 'primeng/dataview';
 import { TableModule } from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const appRoute: Routes = [
@@ -33,12 +39,18 @@ const appRoute: Routes = [
     AdminComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    ToastModule,
+    DialogModule,
+    DropdownModule,
+    InputTextModule,
     TableModule,
     DataViewModule,
     MegaMenuModule,
     FormsModule,
     HttpClientModule,
     BrowserModule,
+    ButtonModule,
     RouterModule.forRoot(appRoute)
   ],
   providers: [ApIServiceService],
