@@ -25,6 +25,11 @@ const getAllusers = async(request,response)=>{
     return response.status(201).json(data)
 }
 
+const UpdateUsers =  async(request,response)=>{
+    let data = await PostModel.getAllusers();
+    return response.status(201).json(data)
+}
+
 module.exports = {
     getAllusers,
     userCheck,

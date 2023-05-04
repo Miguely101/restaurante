@@ -1,6 +1,6 @@
 <p-megaMenu [model]="items" ></p-megaMenu>
 
-
+<p-messages [style]="{'margin':'20px'}" [(value)]="msgs1" [enableService]="false"></p-messages>
 <div class="card">
     <p-table [value]="Users" [tableStyle]="{ 'min-width': '20rem' }">
       <ng-template pTemplate="header">
@@ -20,14 +20,14 @@
           <td pEditableColumn>
           <p-cellEditor>
             <ng-template pTemplate="input">
-                <p-dropdown [options]="perms" [(ngModel)]="selectedPerm"></p-dropdown>
+                <p-dropdown [options]="perms" [(ngModel)]="selectedPerm" [style]="{'width':'65%'}"></p-dropdown>
+                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-text"  (click)="onRowEditSave(user)"></button>
             </ng-template>
             <ng-template pTemplate="output">
                 {{user.perm_id }}
             </ng-template>
           </p-cellEditor>
           </td>
-
           <td>{{ user.utilizador_email }}</td>
           <td>{{ user.utilizador_morada }}</td>
           <td>{{ user.utilizador_nome }}</td>

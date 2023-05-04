@@ -20,6 +20,9 @@ import {DropdownModule} from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {RippleModule} from 'primeng/ripple';
 
 
 const appRoute: Routes = [
@@ -39,6 +42,9 @@ const appRoute: Routes = [
     AdminComponent
   ],
   imports: [
+    RippleModule,
+    MessageModule,
+    MessagesModule,
     BrowserAnimationsModule,
     ToastModule,
     DialogModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MegaMenuItem, PrimeIcons} from 'primeng/api';
+import { MegaMenuItem, MessageService,Message} from 'primeng/api';
 import { ApIServiceService } from '../api-service.service';
 import { User } from '../models/usersModels';
 
@@ -7,16 +7,18 @@ import { User } from '../models/usersModels';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
+  providers: [MessageService]
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private service:ApIServiceService) { }
+  constructor(private service:ApIServiceService, private messageService: MessageService) { }
  
   items: MegaMenuItem[] = [];
   Users: User[] = [];
   perms: any[] = [];
   selectedPerm: any;
+  msgs1: Message[] = [];
 
   ngOnInit() {
       this.items = [
@@ -144,6 +146,8 @@ export class AdminComponent implements OnInit {
   }
 
   onRowEditSave(user: User) {
-   console.log(user.utilizador_nome);
+    const index = this.Users.findIndex(p => p.utilizador_id == user.utilizador_id);
+    this.Users[index].perm_id =this.selectedPerm;
+    this.msgs1 = [{severity:'success', summary:'Edição', detail:'A permissão de ' +  user.utilizador_nome + " foi atualizada"}]
 }
 }
