@@ -43,7 +43,7 @@ const login  = async (user) =>{
    if(data == undefined || data == null) return ("Email não existe.");
    if(await bcrypt.compare(user.password,data.utilizador_senha)){
 
-    let userData ={id:data.utilizador_id,nome:data.utilizador_nome,email:data.utilizador_email,numero:data.utilizador_numero,morada:data.utilizador_morada}
+    let userData ={id:data.utilizador_id,nome:data.utilizador_nome,email:data.utilizador_email,numero:data.utilizador_numero,morada:data.utilizador_morada,perm:data.perm_id}
     const accessToken = jwt.sign(userData, process.env.ACCESS_TOKEN)
 
     let resp ={code:200, accessToken}
