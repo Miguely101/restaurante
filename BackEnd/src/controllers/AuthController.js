@@ -20,8 +20,14 @@ const userCheck = async(request,response)=>{
  return response.status(201).json(request.user)
 }
 
+const getAllusers = async(request,response)=>{
+    let data = await PostModel.getAllusers();
+    return response.status(201).json(data)
+}
+
 module.exports = {
+    getAllusers,
     userCheck,
     login,
-   register ,
+    register ,
 };

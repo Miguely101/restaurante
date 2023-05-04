@@ -9,7 +9,10 @@ Content-Type: application/json
   "morada": "lisboa 123 123"
 
 }
+###
 
+GET http://localhost:3333/user
+Content-Type: application/json
 
 ###
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MegaMenuItem, PrimeIcons} from 'primeng/api';
+import { ApIServiceService } from '../api-service.service';
 
 
 @Component({
@@ -9,9 +10,11 @@ import { MegaMenuItem, PrimeIcons} from 'primeng/api';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ApIServiceService) { }
  
   items: MegaMenuItem[] = [];
+  products:any;
+  cols: any;
 
   ngOnInit() {
       this.items = [
@@ -126,6 +129,12 @@ export class AdminComponent implements OnInit {
               ]
           }
       ]
+
+      this.service.getUsers().subscribe((response) => {
+       this.products = response;
+       console.log(response);
+      })
+ 
 
   }
 }

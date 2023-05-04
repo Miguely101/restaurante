@@ -53,8 +53,17 @@ const login  = async (user) =>{
     return ("Senha Errada");
    }
 };
+
+const getAllusers = async()=>{
+   const pool = await connection;
+   const email = await pool.request()
+   .query('SELECT * FROM tbl_utilizadores');
+   const data = email.recordset[0];
+   return data;
+}
    
 module.exports = {
+   getAllusers,
     login,
     register ,
 };

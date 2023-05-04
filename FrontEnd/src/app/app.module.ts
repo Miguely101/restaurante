@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {DataViewModule} from 'primeng/dataview';
+import { TableModule } from 'primeng/table';
+
 
 const appRoute: Routes = [
   {path:'home',component: MainComponent},
@@ -31,6 +33,7 @@ const appRoute: Routes = [
     AdminComponent
   ],
   imports: [
+    TableModule,
     DataViewModule,
     MegaMenuModule,
     FormsModule,

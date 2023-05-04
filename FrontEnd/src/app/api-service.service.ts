@@ -25,4 +25,10 @@ export class ApIServiceService {
     // Make API call with headers
     return this.http.get(`${this.baseUrl}/usercheck`, { headers });
   }
+
+  
+  getUsers(){
+    return this.http.get(`${this.baseUrl}/user`);
+  }
+  
 }
