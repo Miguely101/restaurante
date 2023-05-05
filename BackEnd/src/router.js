@@ -10,6 +10,7 @@ router.get('/restaurants',registerController.getAllRestaurantes);
 router.post('/register',AuthController.register);
 router.get('/usercheck',authenticateToken ,AuthController.userCheck);
 router.get('/user',AuthController.getAllusers);
+router.put('/user',AuthController.updateUsers)
 router.post('/login',AuthController.login);
 
 module.exports = router;

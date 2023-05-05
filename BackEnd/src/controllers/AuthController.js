@@ -2,7 +2,7 @@ const { request, response } = require('express');
 const PostModel= require('../models/AuthModel');
 
 
-//Create
+
 const register = async(request, response) =>{
     let user = {nome:request.body.nome, email:request.body.email, morada:request.body.morada, numero:request.body.numero,password:request.body.password}
     let resp = await PostModel.register(user); 
@@ -25,12 +25,13 @@ const getAllusers = async(request,response)=>{
     return response.status(201).json(data)
 }
 
-const UpdateUsers =  async(request,response)=>{
-    let data = await PostModel.getAllusers();
+const updateUsers =  async(request,response)=>{
+    let data = await PostModel.updateUser(request.body);
     return response.status(201).json(data)
 }
 
 module.exports = {
+    updateUsers,
     getAllusers,
     userCheck,
     login,

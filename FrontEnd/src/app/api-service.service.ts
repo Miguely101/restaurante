@@ -18,6 +18,10 @@ export class ApIServiceService {
     console.log(userData);
     return this.http.post(`${this.baseUrl}/login`,userData);
   }
+
+  userUpdate(userData:any): Observable<any>{
+    return this.http.put(`${this.baseUrl}/user`,userData);
+  }
   
   getUserData(): Observable<any> {
     // Add authorization header to request
