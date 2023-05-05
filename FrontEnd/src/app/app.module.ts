@@ -23,6 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {RippleModule} from 'primeng/ripple';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import {CalendarModule} from 'primeng/calendar';
+import {GMapModule} from 'primeng/gmap';
 
 
 const appRoute: Routes = [
@@ -42,6 +45,9 @@ const appRoute: Routes = [
     AdminComponent
   ],
   imports: [
+    GMapModule,
+    CalendarModule,
+    DynamicDialogModule,
     RippleModule,
     MessageModule,
     MessagesModule,

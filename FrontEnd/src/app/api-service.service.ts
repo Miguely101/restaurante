@@ -20,6 +20,7 @@ export class ApIServiceService {
   }
 
   userUpdate(userData:any): Observable<any>{
+    console.log(userData);
     return this.http.put(`${this.baseUrl}/user`,userData);
   }
   
