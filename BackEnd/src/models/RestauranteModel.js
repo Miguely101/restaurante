@@ -5,7 +5,7 @@ require("dotenv").config();
 const  getAllRestaurantes  = async () =>{
  const pool = await connection;
  const result = await pool.request().query('SELECT * FROM tbl_restaurantes');
- return result
+ return result.recordset;
 };
 
 

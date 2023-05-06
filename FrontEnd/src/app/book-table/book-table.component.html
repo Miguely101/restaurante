@@ -1,6 +1,10 @@
+
 <p-calendar [(ngModel)]="value" inputId="time" placeholder="Data" [style]="{'margin-bottom': '10px'}"></p-calendar>
 <p-dropdown [options]="horas" [(ngModel)]="selectedHora" [style]="{'margin-bottom': '10px'}"></p-dropdown>
+
 <input type="number" pInputText placeholder="Numero de pessoas" [style]="{'margin-left': '20px'}"/>
-<p-dropdown  [options]="horas" [(ngModel)]="selectedHora" [style]="{'margin-bottom': '10px'}"></p-dropdown>
-<p-gmap [options]="options" [overlays]="overlays" [style]="{'width':'100%','height':'320px'}" ></p-gmap>
+
+<p-dropdown (onChange)="changeLoc(gmap.getMap())" [options]="restaurantes" [(ngModel)]="selectedResc" [style]="{'margin-bottom': '10px'}"></p-dropdown>
+
+<p-gmap #gmap [options]="options" [overlays]="overlays" [style]="{'width':'100%','height':'320px'}" ></p-gmap>
 <p-button label="Completar Reserva" [style]="{'margin-top': '10px'}"></p-button>

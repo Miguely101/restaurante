@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import{ HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../app/models/usersModels';
-
+import { Restaurant } from '../app/models/restaurantModel';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,12 @@ export class ApIServiceService {
     return this.http.get(`${this.baseUrl}/usercheck`, { headers });
   }
 
-  
+
+  getRestaurantes(): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(`${this.baseUrl}/restaurants`);
+  }
+
+ 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/user`);
   }
