@@ -33,6 +33,15 @@ export class ApIServiceService {
     return this.http.get(`${this.baseUrl}/usercheck`, { headers });
   }
 
+  makeReserva(body:any): Observable<any> {
+    // Add authorization header to request
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+    // Make API call with headers
+    return this.http.post(`${this.baseUrl}/createreserva`,body,{ headers });
+  }
+
 
   getRestaurantes(): Observable<Restaurant[]> {
     return this.http.get<Restaurant[]>(`${this.baseUrl}/restaurants`);

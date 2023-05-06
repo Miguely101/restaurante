@@ -12,11 +12,12 @@ export class BookTableComponent implements OnInit {
   constructor(private service: ApIServiceService) { }
    overlays!:any;
    options!: any;
-   value!:any;
    horas:any[]= [];
    selectedHora!:any;
    restaurantes!: any[];
    selectedResc!:any;
+   selectedData!:any;
+   selectedPessoas!:any;
    map!: google.maps.Map;
 
   ngOnInit(): void {
@@ -46,7 +47,7 @@ export class BookTableComponent implements OnInit {
       new google.maps.Marker({position: {lat: 38.710794603260105 , lng: -9.137678107111583}, title:"Menu do Chefe"})
   ];
 
-    this.service.getRestaurantes().subscribe((response) => {
+  this.service.getRestaurantes().subscribe((response) => {
       this.restaurantes = response.map((item) => {
         return {
           label: item.restaurante_morada + "-" + item.restaurante_localidade,
@@ -55,17 +56,33 @@ export class BookTableComponent implements OnInit {
           longitude: item.longitude,
         };
       });
-    });
+  });
   }
 
   changeLoc(map:any){
-  const index = this.restaurantes.findIndex(p => p.value == this.selectedResc);
+    const index = this.restaurantes.findIndex(p => p.value == this.selectedResc);
     const lng = parseFloat(this.restaurantes[index].latitude); // convert to float
     const lat = parseFloat(this.restaurantes[index].longitude); // convert to float
     this.options.center = {lat: parseInt(lat.toString(), 10), lng: parseInt(lng.toString(), 10)}; // convert to integer and assign to map.center
     const newCenter = {lat: lat, lng: lng};
     map.setCenter(newCenter);
     map.setZoom(20)
+  }
+
+  makeReserva(){
+    const index = this.restaurantes.findIndex(p => p.value == this.selectedResc);
+    const body = {
+      restaurante_id: this.selectedResc,
+      reserva_data: this.selectedData,
+      reserva_hora: this.selectedHora,
+      reserva_pessoas: this.selectedPessoas
+    }
+    
+    this.service.makeReserva(body).subscribe((response) => {
+      console.log(response);
+    })
+
+
   }
 }
 

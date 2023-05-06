@@ -42,3 +42,14 @@ Content-Type: application/json
   "morada": "lisboa 123 123"
 
 }
+###
+POST http://localhost:3333/createreserva
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwibm9tZSI6Ik1pZ3VlbCBBbG1laWRhIiwiZW1haWwiOiJ4cHRvczMyNEBnbWFpbC5jb20iLCJudW1lcm8iOiI5MzYyNzQ2ODEiLCJtb3JhZGEiOiJFc3RyYWRhIGRvcyBBbGFtb3MsIFByw6lkaW8gMjEsIDPCukMiLCJwZXJtIjozLCJpYXQiOjE2ODM0MDI5NDN9.vz_0xY_Urvs7EuBCx_otr1dxN3bvXY-Yd1hrO4Uhk5o
+
+{
+  "restaurante_id": 1,
+  "reserva_data": "05/02/2023",
+  "reserva_hora": 12
+}
+###

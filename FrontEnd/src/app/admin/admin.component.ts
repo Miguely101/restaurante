@@ -14,19 +14,14 @@ export class AdminComponent implements OnInit {
 
   constructor(private service:ApIServiceService, private messageService: MessageService) { }
  
-  items: MegaMenuItem[] = [];
+
   Users: User[] = [];
   perms: any[] = [];
   selectedPerm: any;
   msgs1: Message[] = [];
 
   ngOnInit() {
-      this.items = [
-          {label: 'Users', icon: 'pi pi-fw pi-users',},
-          {label: 'Reservas', icon: 'pi pi-fw pi-calendar'},
-          {label: 'Pedidos', icon: 'pi pi-fw pi-cog'},
-          {label: 'Voltar', icon: 'pi pi-fw pi-cog'}
-      ]
+
 
       this.service.getUsers().subscribe((response) => {
        this.Users = this.Users.concat(response);

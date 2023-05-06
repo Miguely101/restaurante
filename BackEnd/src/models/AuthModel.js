@@ -39,7 +39,7 @@ const login  = async (user) =>{
    .input('utilizador_email', sql.VarChar(80), user.email)
    .query('SELECT * FROM tbl_utilizadores Where utilizador_email =  @utilizador_email');
    const data = email.recordset[0];
-
+   console.log(data)
    if(data == undefined || data == null) return ("Email não existe.");
    if(await bcrypt.compare(user.password,data.utilizador_senha)){
 

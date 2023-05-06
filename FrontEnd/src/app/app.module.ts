@@ -26,15 +26,24 @@ import {RippleModule} from 'primeng/ripple';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import {CalendarModule} from 'primeng/calendar';
 import {GMapModule} from 'primeng/gmap';
-
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { ReservasComponent } from './reservas/reservas.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const appRoute: Routes = [
-  {path:'home',component: MainComponent},
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'admin',component:AdminComponent}
-]
-
+  {path: 'home', component: MainComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {
+    path: 'admin',
+    component: AdminHomeComponent,
+    children: [
+      {path: 'users', component: AdminComponent},
+      {path: 'reservas', component: ReservasComponent},
+    ]
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,9 +51,13 @@ const appRoute: Routes = [
     MainComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    NavbarAdminComponent,
+    ReservasComponent,
+    AdminHomeComponent
   ],
   imports: [
+    FullCalendarModule, 
     GMapModule,
     CalendarModule,
     DynamicDialogModule,
