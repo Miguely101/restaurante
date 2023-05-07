@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core'
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { ApIServiceService } from '../api-service.service';
+
+
 @Component({
   selector: 'app-reservas',
   templateUrl: './reservas.component.html',
@@ -22,11 +25,14 @@ export class ReservasComponent implements OnInit {
                 selectMirror: true,
                 dayMaxEvents: true,
   };
-
-  constructor() { }
+  reservas!:[];
+  constructor(private service:ApIServiceService) { }
 
   ngOnInit(): void {
-    
+    this.service.getReservas().subscribe((response) => {
+      this.reservas = response;
+      console.log(response)
+     })
   }
 
 }

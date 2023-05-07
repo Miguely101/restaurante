@@ -53,3 +53,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwibm9tZSI6I
   "reserva_hora": 12
 }
 ###
+GET http://localhost:3333/reserva
+
+{
+  "restaurante_id": 1,
+  "reserva_data": "05/02/2023",
+  "reserva_hora": 12
+}
+###
+GET http://localhost:3333/reserva

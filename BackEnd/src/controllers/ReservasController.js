@@ -8,7 +8,12 @@ const createReserva  = async(request, response) =>{
     return response.status(201).json(resp);
 };
 
+const getAllReserva  = async(request, response) =>{
+    let resp = await PostModel.getAllReserva();
+    return response.status(201).json(resp);
+};
 
 module.exports = {
+    getAllReserva, 
     createReserva  
 };

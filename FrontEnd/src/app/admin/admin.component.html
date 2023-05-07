@@ -1,6 +1,6 @@
-<p-messages [style]="{'margin':'20px'}" [(value)]="msgs1" [enableService]="false"></p-messages>
+
 <div class="card">
-    <p-table [value]="Users" [tableStyle]="{ 'min-width': '20rem' }">
+    <p-table [value]="Users" [tableStyle]="{ 'min-width': '20rem' }"  [scrollable]="true" scrollHeight="50rem" [virtualScroll]="true" [virtualScrollItemSize]="46">
       <ng-template pTemplate="header">
         <tr>
           <th>Id</th>
@@ -34,5 +34,4 @@
       </ng-template>
     </p-table>
 </div>
-
 
