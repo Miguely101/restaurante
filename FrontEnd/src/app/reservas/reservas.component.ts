@@ -3,11 +3,12 @@ import { CalendarOptions } from '@fullcalendar/core'
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { ApIServiceService } from '../api-service.service';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-reservas',
   templateUrl: './reservas.component.html',
+  providers: [DatePipe],
   styleUrls: ['./reservas.component.scss']
 })
 export class ReservasComponent implements OnInit {
@@ -26,7 +27,7 @@ export class ReservasComponent implements OnInit {
                 dayMaxEvents: true,
   };
   reservas!:[];
-  constructor(private service:ApIServiceService) { }
+  constructor(private service:ApIServiceService ,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.service.getReservas().subscribe((response) => {
@@ -34,5 +35,7 @@ export class ReservasComponent implements OnInit {
       console.log(response)
      })
   }
-
+  formatDate(date: string): string {
+    return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
+  }
 }

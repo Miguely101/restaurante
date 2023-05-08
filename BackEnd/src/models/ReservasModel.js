@@ -11,11 +11,13 @@ const createReserva  = async (reserva, user) =>{
       .input('reserva_data', sql.Date, reserva.reserva_data)
       .input('reserva_hora', sql.Int, reserva.reserva_hora)
       .input('reserva_pessoas', sql.Int, reserva.reserva_pessoas)
-      .input('reserva_estado', sql.Int, "Pendente")
-      .query('INSERT INTO tbl_reservas (reserva_estado,reserva_pessoas,restaurante_id , utilizador_id , reserva_data, reserva_hora) VALUES (@reserva_estado, @reserva_pessoas,@restaurante_id, @utilizador_id , @reserva_data, @reserva_hora)');
+      .input('reserva_estado', sql.VarChar(50), "Pendente")
+      .query('INSERT INTO tbl_reservas (reservas_estado,reserva_pessoas,restaurante_id , utilizador_id , reserva_data, reserva_hora) VALUES (@reserva_estado, @reserva_pessoas,@restaurante_id, @utilizador_id , @reserva_data, @reserva_hora)');
       let resp = "Reserva efetuada com sucesso";
       return (resp);
 };
+
+
 
 
 const getAllReserva  = async (reserva, user) =>{
@@ -26,7 +28,16 @@ const getAllReserva  = async (reserva, user) =>{
     return (result.recordset);
    };
 
+   const  getAllMessasOnById  = async (id) =>{
+    const pool = await connection;
+   
+    const result = await pool.request()
+    .query('SELECT mesas.mesa_id, mesas.mesa_lugares FROM tbl_mesas AS mesas INNER JOIN tbl_restaurantes AS restaurantes ON mesas.restaurante_id = restaurantes.restaurante_id LEFT JOIN tbl_reservas AS reservas ON mesas.mesa_id = reservas.mesa_id WHERE reservas.reserva_id IS NULL AND restaurantes.restaurante_id = @restaurante_id;');
+    return (result.recordset);
+   };
+ 
 module.exports = {
+    getAllMessasOnById,
     getAllReserva,
     createReserva 
 };

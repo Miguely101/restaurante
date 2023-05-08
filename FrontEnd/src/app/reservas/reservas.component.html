@@ -3,20 +3,24 @@
       <full-calendar [style]="{'height':'320px'}" [options]="calendarOptions"></full-calendar>
     </div>
     <div class="col-md-6">
-      <p-table [value]="reservas" [tableStyle]="{'min-width': '50rem'}" [style]="{'height':'320px'}"  [scrollable]="true" scrollHeight="250px" [virtualScroll]="true" [virtualScrollItemSize]="46">
+      <p-table [value]="reservas" [tableStyle]="{'min-width': '50rem'}" [style]="{'height':'320px'}"  [scrollable]="true" scrollHeight="500px" [virtualScroll]="true" [virtualScrollItemSize]="46" [columnResizeMode]="'expand'"> 
         <ng-template pTemplate="header">
           <tr>
             <th>Id</th>
             <th>Utilizador</th>
-            <th>Data</th>
+            <th>Nº Pessoas</th>
+            <th>Data/Hora</th>
+            <th>Estado</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
           <tr>
             <td>{{product.reserva_id}}</td>
             <td>{{product.utilizador_id}}</td>
-            <td>{{product.reserva_data}} - {{product.reserva_hora}}:00</td>
-          </tr>
+            <td>{{product.reserva_pessoas}} - Pessoas</td>
+            <td>{{formatDate(product.reserva_data)}}/{{product.reserva_hora}}:00</td>
+            <td>{{product.reservas_estado}}</td>
+          </tr>           
         </ng-template>
       </p-table>
     </div>

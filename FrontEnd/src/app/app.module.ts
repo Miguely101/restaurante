@@ -30,6 +30,7 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { ReservaEditarComponent } from './reserva-editar/reserva-editar.component';
 
 const appRoute: Routes = [
   {path: 'home', component: MainComponent},
@@ -54,7 +55,8 @@ const appRoute: Routes = [
     AdminComponent,
     NavbarAdminComponent,
     ReservasComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    ReservaEditarComponent
   ],
   imports: [
     FullCalendarModule, 
