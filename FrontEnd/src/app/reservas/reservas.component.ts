@@ -32,7 +32,7 @@ export class ReservasComponent implements OnInit {
 
   reservas!:[];
   restaurantes!: any[];
-  selectedResc!:any;
+  selectedResc:any = 1;
   number = 1;
   ref!: DynamicDialogRef;
  
@@ -68,13 +68,14 @@ export class ReservasComponent implements OnInit {
   formatDate(date: string): string {
     return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
   }
-  show() {
+  show(dat:any) {
     this.ref = this.dialogService.open(ReservaEditarComponent, {
         header: 'Reserva Editar',
         width: '70%',
         contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "500px"},
         baseZIndex: 10000,
         data: {
+          pessoas: dat,
           selectedResc: this.selectedResc
         }
     });

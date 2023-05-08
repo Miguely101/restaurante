@@ -10,16 +10,33 @@ import { ApIServiceService } from '../api-service.service';
 })
 export class ReservaEditarComponent implements OnInit {
   selectedResc!: any;
-  list1:any[] = []
-  list2:any[] = []
-  constructor( private service:ApIServiceService ,public ref: DynamicDialogRef, public config: DynamicDialogConfig,) { }
+
+  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig,private service:ApIServiceService) { }
+  
+  list1: any[] = [];
+
+  list2: any[]= [];
+
+  list1count:number = 1
+  list2count:number = 0
+  counts:number = 0;
+  isDisabled = true;
 
   ngOnInit(): void {
-    this.service.getReservasById(this.selectedResc).subscribe((response) => {
+    this.counts = this.config.data.pessoas
+    this.service.getMesasById(this.config.data.selectedResc).subscribe((response) => {
       this.list1 = response;
-      console.log(response)
+      this.list1count = this.list1.length * 2;
      })
-     
+    
   }
-
+  count(){
+    this.list1count = this.list1.length * 2;
+    this.list2count = this.list2.length * 2;
+    if(this.list2count > this.counts){
+      this.isDisabled = false
+    }else{
+      this.isDisabled = true
+    }
+  }
 }

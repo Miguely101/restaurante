@@ -1,0 +1,13 @@
+<p-pickList [source]="list1" [target]="list2" sourceHeader="Mesas Disponíveis - {{list1count}}" targetHeader="Selecionadas {{list2count}} / {{counts}}" [dragdrop]="true"
+[responsive]="true" [sourceStyle]="{'height':'20rem'}" [targetStyle]="{'height':'20rem'}" filterBy="mesa_id"
+sourceFilterPlaceholder="Nº Mesa" targetFilterPlaceholder="Nº Mesa" (onMoveToTarget)="count()" (onMoveToSource)="count()" (onMoveAllToTarget)="count()" (onMoveAllToSource)="count()">
+    <ng-template let-x pTemplate="item">
+        <div>
+            <div> Numero da Mesa: {{x.mesa_id}}</div>
+            <div> Numero de Lugares: {{x.mesa_lugares}}</div>
+        </div>
+    </ng-template>
+</p-pickList>
+<div style="display: flex; justify-content: center;">
+    <button pButton pRipple type="button" label="Terminar" class="p-button-raised" [style]="{'min-width': '90%', 'margin': '30px'}"  [disabled]="isDisabled"></button>
+  </div>

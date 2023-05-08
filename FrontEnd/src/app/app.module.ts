@@ -31,6 +31,7 @@ import { ReservasComponent } from './reservas/reservas.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ReservaEditarComponent } from './reserva-editar/reserva-editar.component';
+import {PickListModule} from 'primeng/picklist';
 
 const appRoute: Routes = [
   {path: 'home', component: MainComponent},
@@ -60,6 +61,7 @@ const appRoute: Routes = [
     ReservaEditarComponent
   ],
   imports: [
+    PickListModule,
     FullCalendarModule, 
     GMapModule,
     CalendarModule,

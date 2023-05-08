@@ -18,7 +18,7 @@
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
-          <tr (click)="show()">
+          <tr (click)="show(product.reserva_pessoas)">
             <td>{{product.reserva_id}}</td>
             <td>{{product.utilizador_id}}</td>
             <td>{{product.reserva_pessoas}} - Pessoas</td>
