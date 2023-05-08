@@ -34,7 +34,7 @@ export class ReservasComponent implements OnInit {
   restaurantes!: any[];
   selectedResc!:any;
   number = 1;
- ref!: DynamicDialogRef;
+  ref!: DynamicDialogRef;
  
   constructor(private service:ApIServiceService ,private datePipe: DatePipe,public dialogService: DialogService) { }
 
@@ -59,7 +59,6 @@ export class ReservasComponent implements OnInit {
   }
 
   changeLoc(){
-    console.log(this.selectedResc)
     this.service.getReservasById(this.selectedResc).subscribe((response) => {
       this.reservas = response;
       console.log(response)
@@ -74,7 +73,10 @@ export class ReservasComponent implements OnInit {
         header: 'Reserva Editar',
         width: '70%',
         contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "500px"},
-        baseZIndex: 10000
+        baseZIndex: 10000,
+        data: {
+          selectedResc: this.selectedResc
+        }
     });
 }
 

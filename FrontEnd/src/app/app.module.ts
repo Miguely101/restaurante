@@ -47,6 +47,7 @@ const appRoute: Routes = [
 ];
 @NgModule({
   declarations: [
+    
     AppComponent,
     BookTableComponent,
     MainComponent,
