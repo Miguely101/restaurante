@@ -44,12 +44,16 @@ export class ApIServiceService {
 
 
   getRestaurantes(): Observable<Restaurant[]> {
-    return this.http.get<Restaurant[]>(`${this.baseUrl}/restaurants`);
+    return this.http.get<Restaurant[]>(`${this.baseUrl}/restaurantes`);
   }
 
   getReservas(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/reserva`);
   }
+
+  getReservasById(id:any): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/reserva/${id}`);
+  }  
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/user`);

@@ -13,12 +13,18 @@ const getAllReserva  = async(request, response) =>{
     return response.status(201).json(resp);
 };
 
+const getAllReservaById  = async(request, response) =>{
+    let resp = await PostModel.getAllReservaById(request.params.id);
+    return response.status(201).json(resp);
+};
+
 const getAllMessasOnById  = async(request, response) =>{
     let resp = await PostModel.getAllMessasOnById(request.params.id);
     return response.status(201).json(resp);
 };
 
 module.exports = {
+    getAllReservaById,
     getAllMessasOnById,
     getAllReserva, 
     createReserva  

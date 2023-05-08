@@ -61,7 +61,7 @@ GET http://localhost:3333/reserva
   "reserva_hora": 12
 }
 ###
-GET http://localhost:3333/reserva
+GET http://localhost:3333/reserva/5
 ###
 GET http://localhost:3333/mesas/1
 

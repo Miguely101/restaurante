@@ -36,7 +36,6 @@ export class BookTableComponent implements OnInit {
           longitude: item.longitude,
         };
       });
-      console.log(this.restaurantes);
     });
 
     this.overlays = [

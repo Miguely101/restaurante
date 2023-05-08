@@ -19,9 +19,20 @@ export class AdminComponent implements OnInit {
   perms: any[] = [];
   selectedPerm: any;
   msgs1: Message[] = [];
-
+  restaurantes!: any[];
+  selectedResc!:any
   ngOnInit() {
 
+    this.service.getRestaurantes().subscribe((response) => {
+      this.restaurantes = response.map((item) => {
+        return {
+          label: item.restaurante_morada + "-" + item.restaurante_localidade,
+          value: item.restaurante_id,
+          latitude: item.latitude,
+          longitude: item.longitude,
+        };
+      });
+    });
 
       this.service.getUsers().subscribe((response) => {
        this.Users = this.Users.concat(response);
