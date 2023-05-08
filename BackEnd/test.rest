@@ -62,3 +62,7 @@ GET http://localhost:3333/reserva
 }
 ###
 GET http://localhost:3333/reserva
+###
+GET http://localhost:3333/mesas/1
+
+

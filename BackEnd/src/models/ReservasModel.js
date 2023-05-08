@@ -32,7 +32,8 @@ const getAllReserva  = async (reserva, user) =>{
     const pool = await connection;
    
     const result = await pool.request()
-    .query('SELECT mesas.mesa_id, mesas.mesa_lugares FROM tbl_mesas AS mesas INNER JOIN tbl_restaurantes AS restaurantes ON mesas.restaurante_id = restaurantes.restaurante_id LEFT JOIN tbl_reservas AS reservas ON mesas.mesa_id = reservas.mesa_id WHERE reservas.reserva_id IS NULL AND restaurantes.restaurante_id = @restaurante_id;');
+    .input('restaurante_id',sql.Int, id)
+    .query('SELECT mesas.mesa_id, mesas.mesa_lugares FROM tbl_mesas AS mesas INNER JOIN tbl_restaurantes AS restaurantes ON mesas.restaurante_id = restaurantes.restaurante_id LEFT JOIN tbl_reservaMesas AS reservas ON mesas.mesa_id = reservas.mesa_id WHERE reservas.reserva_id IS NULL AND restaurantes.restaurante_id = @restaurante_id');
     return (result.recordset);
    };
  

@@ -14,7 +14,7 @@ const getAllReserva  = async(request, response) =>{
 };
 
 const getAllMessasOnById  = async(request, response) =>{
-    let resp = await PostModel.getAllReserva();
+    let resp = await PostModel.getAllMessasOnById(request.params.id);
     return response.status(201).json(resp);
 };
 
