@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApIServiceService } from '../api-service.service';
+import {DynamicDialogRef} from 'primeng/dynamicdialog';
+import {DynamicDialogConfig} from 'primeng/dynamicdialog';
 /// <reference types="@types/googlemaps" />
 
 @Component({
@@ -9,7 +11,7 @@ import { ApIServiceService } from '../api-service.service';
 })
 export class BookTableComponent implements OnInit {
 
-  constructor(private service: ApIServiceService) { }
+  constructor(private service: ApIServiceService,public config: DynamicDialogConfig,public ref: DynamicDialogRef) { }
    overlays!:any;
    options!: any;
    horas:any[]= [];
@@ -81,7 +83,7 @@ export class BookTableComponent implements OnInit {
       console.log(response);
     })
 
-
+    this.ref.close();
   }
 }
 
