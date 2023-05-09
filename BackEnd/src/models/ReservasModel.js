@@ -45,9 +45,28 @@ const  getAllReservaById  = async (id) =>{
     .input('restaurante_id',sql.Int,id)
     .query('SELECT * FROM tbl_reservas where restaurante_id = @restaurante_id');
     return (result.recordset);
-   };
+};
 
+const  setMesasReservas = async (array,id) =>{
+    const pool = await connection;
+   console.log(id)
+    for (let i = 0; i < array.length; i++) {
+        const { mesa_id } = array[i];
+        const result = await pool.request()
+        .input('reserva_id', sql.Int, id)
+        .input('mesa_id', sql.Int, mesa_id)
+        .query('INSERT INTO tbl_reservaMesas (reserva_id, mesa_id) values (@reserva_id, @mesa_id)')
+    
+      }
+      const result2 = await pool.request()
+      .input('reserva_id', sql.Int, id)
+      .input('reserva_estado',sql.VarChar(50), "Aceite")
+      .query('UPDATE tbl_reservas SET reservas_estado = @reserva_estado where reserva_id=@reserva_id ');  
+
+      return ("Reserva Confirmada")
+};
 module.exports = {
+    setMesasReservas,
     getAllReservaById,
     getAllMessasOnById,
     getAllReserva,

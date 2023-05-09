@@ -30,6 +30,13 @@ export class ReservaEditarComponent implements OnInit {
      })
     
   }
+
+  send(){
+    this.service.setMesas(this.list2,this.config.data.ids).subscribe((response) => {
+      console.log(this.config.data.ids)
+      console.log(response)
+     })
+  }
   count(){
     this.list1count = this.list1.length * 2;
     this.list2count = this.list2.length * 2;

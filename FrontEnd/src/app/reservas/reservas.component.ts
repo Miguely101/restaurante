@@ -68,7 +68,7 @@ export class ReservasComponent implements OnInit {
   formatDate(date: string): string {
     return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
   }
-  show(dat:any) {
+  show(dat:any,low:any) {
     this.ref = this.dialogService.open(ReservaEditarComponent, {
         header: 'Reserva Editar',
         width: '70%',
@@ -76,6 +76,7 @@ export class ReservasComponent implements OnInit {
         baseZIndex: 10000,
         data: {
           pessoas: dat,
+          ids: low,
           selectedResc: this.selectedResc
         }
     });

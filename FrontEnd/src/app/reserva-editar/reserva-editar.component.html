@@ -9,5 +9,5 @@ sourceFilterPlaceholder="Nº Mesa" targetFilterPlaceholder="Nº Mesa" (onMoveToT
     </ng-template>
 </p-pickList>
 <div style="display: flex; justify-content: center;">
-    <button pButton pRipple type="button" label="Terminar" class="p-button-raised" [style]="{'min-width': '90%', 'margin': '30px'}"  [disabled]="isDisabled"></button>
+    <button (click)="send()" pButton pRipple type="button" label="Terminar" class="p-button-raised" [style]="{'min-width': '90%', 'margin': '30px'}"  [disabled]="isDisabled"></button>
   </div>

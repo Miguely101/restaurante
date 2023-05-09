@@ -65,8 +65,9 @@ const getAllusers = async()=>{
 }
 
 const updateUser = async (user) =>{
+
    const pool = await connection;
-   console.log(user)
+ 
    const result = await pool.request()
    .input('perm_id', sql.Int,user.perm_id)
    .input('utilizador_id', sql.Int, user.utilizador_id)

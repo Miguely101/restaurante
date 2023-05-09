@@ -22,8 +22,13 @@ const getAllMessasOnById  = async(request, response) =>{
     let resp = await PostModel.getAllMessasOnById(request.params.id);
     return response.status(201).json(resp);
 };
+const setMesasReservas  = async(request, response) =>{
+    let resp = await PostModel.setMesasReservas(request.body,request.params.id);
+    return response.status(201).json(resp);
+};
 
 module.exports = {
+    setMesasReservas,
     getAllReservaById,
     getAllMessasOnById,
     getAllReserva, 

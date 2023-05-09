@@ -13,6 +13,7 @@ router.get('/usercheck',authenticateToken ,AuthController.userCheck);
 router.post('/createreserva',authenticateToken ,ReservaController.createReserva);
 router.get('/mesas/:id',ReservaController.getAllMessasOnById);
 router.get('/reserva',ReservaController.getAllReserva);
+router.put('/reserva/:id',ReservaController.setMesasReservas);
 router.get('/reserva/:id',ReservaController.getAllReservaById);
 router.get('/user',AuthController.getAllusers);
 router.put('/user',AuthController.updateUsers)

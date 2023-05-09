@@ -59,6 +59,11 @@ export class ApIServiceService {
     return this.http.get<any>(`${this.baseUrl}/mesas/${ids}`);
   }
   
+  setMesas(array:any,ids:any): Observable<any> {
+    console.log(array)
+    console.log(ids)
+    return this.http.put<any>(`${this.baseUrl}/reserva/${ids}`,array);
+  }
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/user`);
