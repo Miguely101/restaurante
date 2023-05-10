@@ -40,7 +40,7 @@ export class ReservaEditarComponent implements OnInit {
   count(){
     this.list1count = this.list1.length * 2;
     this.list2count = this.list2.length * 2;
-    if(this.list2count > this.counts){
+    if(this.list2count >= this.counts){
       this.isDisabled = false
     }else{
       this.isDisabled = true

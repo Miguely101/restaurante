@@ -32,8 +32,8 @@ const getAllReserva  = async (reserva, user) =>{
     const pool = await connection;
    
     const result = await pool.request()
-    .input('restaurante_id',sql.Int, id)
-    .query('SELECT mesas.mesa_id, mesas.mesa_lugares FROM tbl_mesas AS mesas INNER JOIN tbl_restaurantes AS restaurantes ON mesas.restaurante_id = restaurantes.restaurante_id LEFT JOIN tbl_reservaMesas AS reservas ON mesas.mesa_id = reservas.mesa_id WHERE reservas.reserva_id IS NULL AND restaurantes.restaurante_id = @restaurante_id');
+    .input('restaurant_id', sql.Int, id)
+    .query(`EXEC GetMesasDisponiveis @restaurant_id = @restaurant_id`);
     return (result.recordset);
    };
 
@@ -49,7 +49,6 @@ const  getAllReservaById  = async (id) =>{
 
 const  setMesasReservas = async (array,id) =>{
     const pool = await connection;
-   console.log(id)
     for (let i = 0; i < array.length; i++) {
         const { mesa_id } = array[i];
         const result = await pool.request()
