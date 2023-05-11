@@ -24,7 +24,7 @@ export class ReservaEditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.counts = this.config.data.pessoas
-    this.service.getMesasById(this.config.data.selectedResc).subscribe((response) => {
+    this.service.getMesasById(this.config.data.selectedResc,this.config.data.ids).subscribe((response) => {
       this.list1 = response;
       this.list1count = this.list1.length * 2;
      })

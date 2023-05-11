@@ -7,6 +7,15 @@ import { DatePipe } from '@angular/common';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ReservaEditarComponent } from '../reserva-editar/reserva-editar.component';
 
+interface Reserva {
+  reserva_id: number;
+  restaurante_id: number;
+  utilizador_id: number;
+  reserva_data: Date;
+  reserva_hora: number;
+  reservas_estado: string;
+}
+
 @Component({
   selector: 'app-reservas',
   templateUrl: './reservas.component.html',
@@ -52,16 +61,16 @@ export class ReservasComponent implements OnInit {
       });
     });
 
-    this.service.getReservasById(this.number).subscribe((response) => {
-      this.reservas = response;
-      console.log(response)
-     })
+    this.service.getReservasById(this.number).subscribe((response) => { 
+      this.reservas = response.filter((item: Reserva) =>(item.reservas_estado === 'Pendente'));
+
+    });
+
   }
 
   changeLoc(){
     this.service.getReservasById(this.selectedResc).subscribe((response) => {
-      this.reservas = response;
-      console.log(response)
+      this.reservas = response.filter((item: Reserva) =>(item.reservas_estado === 'Pendente'));
      })
   }
   
@@ -69,6 +78,7 @@ export class ReservasComponent implements OnInit {
     return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
   }
   show(dat:any,low:any) {
+    console.log(low)
     this.ref = this.dialogService.open(ReservaEditarComponent, {
         header: 'Reserva Editar',
         width: '70%',

@@ -11,7 +11,7 @@ router.get('/restaurantes',registerController.getAllRestaurantes);
 router.post('/register',AuthController.register);
 router.get('/usercheck',authenticateToken ,AuthController.userCheck);
 router.post('/createreserva',authenticateToken ,ReservaController.createReserva);
-router.get('/mesas/:id',ReservaController.getAllMessasOnById);
+router.get('/mesas/:id/:id2',ReservaController.getAllMessasOnById);
 router.get('/reserva',ReservaController.getAllReserva);
 router.put('/reserva/:id',ReservaController.setMesasReservas);
 router.get('/reserva/:id',ReservaController.getAllReservaById);
