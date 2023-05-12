@@ -36,6 +36,7 @@ export class ReservaEditarComponent implements OnInit {
       console.log(this.config.data.ids)
       console.log(response)
      })
+     this.ref.close();
   }
   count(){
     this.list1count = this.list1.length * 2;

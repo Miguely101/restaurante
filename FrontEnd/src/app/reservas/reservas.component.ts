@@ -6,12 +6,13 @@ import { ApIServiceService } from '../api-service.service';
 import { DatePipe } from '@angular/common';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ReservaEditarComponent } from '../reserva-editar/reserva-editar.component';
+import { ThisReceiver } from '@angular/compiler';
 
 interface Reserva {
   reserva_id: number;
   restaurante_id: number;
   utilizador_id: number;
-  reserva_data: Date;
+  reserva_data: string;
   reserva_hora: number;
   reservas_estado: string;
 }
@@ -33,12 +34,12 @@ export class ReservasComponent implements OnInit {
                     center: 'title',
                     right: 'dayGridMonth,timeGridDay'
                 },
-                editable: true,
-                selectable:true,
-                selectMirror: true,
-                dayMaxEvents: true,
+                editable: false,
+                selectable:false,
+                selectMirror: false,
+                dayMaxEvents: false,
   };
-
+  events: { title: string, date: string }[] = [];
   reservas!:[];
   restaurantes!: any[];
   selectedResc:any = 1;
@@ -49,7 +50,32 @@ export class ReservasComponent implements OnInit {
 
 
   ngOnInit(): void {
-     
+
+    this.service.getReservasById(this.number).subscribe((response) => {
+      this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
+  
+  
+      response.forEach((item: Reserva) => {
+        if (item.reservas_estado === 'Aceite') {
+          const date = new Date(item.reserva_data);
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          const hour = String(item.reserva_hora).padStart(2, '0');
+  
+          const event = {
+            title: `Reserva ${item.reserva_id}`,
+            date: `${year}-${month}-${day}T${hour}:00`,
+          };
+          this.events.push(event);
+        }
+      });
+  
+      // Update the calendar options with the updated events array
+      this.calendarOptions = { ...this.calendarOptions, ...{ events: this.events } };
+    });
+
+
     this.service.getRestaurantes().subscribe((response) => {
       this.restaurantes = response.map((item) => {
         return {
@@ -61,36 +87,67 @@ export class ReservasComponent implements OnInit {
       });
     });
 
-    this.service.getReservasById(this.number).subscribe((response) => { 
-      this.reservas = response.filter((item: Reserva) =>(item.reservas_estado === 'Pendente'));
-
-    });
-
   }
 
-  changeLoc(){
+  changeLoc() {
     this.service.getReservasById(this.selectedResc).subscribe((response) => {
-      this.reservas = response.filter((item: Reserva) =>(item.reservas_estado === 'Pendente'));
-     })
+      this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
+  
+      // Clear the events array before populating it with new events
+      this.events = [];
+      this.reservas = [];
+
+      response.forEach((item: Reserva) => {
+        if (item.reservas_estado === 'Aceite') {
+          const date = new Date(item.reserva_data);
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          const hour = String(item.reserva_hora).padStart(2, '0');
+  
+          const event = {
+            title: `Reserva ${item.reserva_id}`,
+            date: `${year}-${month}-${day}T${hour}:00`,
+          };
+          this.events.push(event);
+        }
+      });
+  
+      // Update the calendar options with the updated events array
+      this.calendarOptions = { ...this.calendarOptions, ...{ events: this.events } };
+    });
   }
+  
   
   formatDate(date: string): string {
     return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
   }
-  show(dat:any,low:any) {
-    console.log(low)
-    this.ref = this.dialogService.open(ReservaEditarComponent, {
-        header: 'Reserva Editar',
-        width: '70%',
-        contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "500px"},
-        baseZIndex: 10000,
-        data: {
-          pessoas: dat,
-          ids: low,
-          selectedResc: this.selectedResc
-        }
-    });
-}
 
-  
+  show(dat: any, low: any) {
+    console.log(low);
+    this.ref = this.dialogService.open(ReservaEditarComponent, {
+      header: 'Reserva Editar',
+      width: '70%',
+      contentStyle: {"max-height": "500px", "overflow": "auto", "min-height": "500px"},
+      baseZIndex: 10000,
+      data: {
+        pessoas: dat,
+        ids: low,
+        selectedResc: this.selectedResc
+      }
+    });
+
+    this.ref.onClose.subscribe(() => {
+      this.changeLoc(); 
+    });
+
+  }
 }
+  
+  
+  
+  
+  
+
+
+
