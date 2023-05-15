@@ -4,7 +4,7 @@ const PostModel= require('../models/PratosModel');
 
 
 const getAllpratos = async(request,response)=>{
-    let data = await PostModel.getAllpratosById();
+    let data = await PostModel.getAllpratos();
     return response.status(201).json(data)
 }
 

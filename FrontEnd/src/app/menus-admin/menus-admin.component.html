@@ -6,21 +6,19 @@
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                        <th>Category</th>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-product>
+                <ng-template pTemplate="body" let-x>
                     <tr>
-
+                        <td><img [src]="'assets/img/pratos/' + x.prato_imagem" [alt]="" width="100" class="shadow-4" /></td>
+                        <th>{{x.prato_nome}}</th>
+                        <th>{{x.prato_preco}}€</th>
+                        <th>{{x.pratoTipo_id}}</th>
                     </tr>
-                </ng-template>
-                <ng-template pTemplate="summary">
-                    <div class="flex align-items-center justify-content-between">
-
-                    </div>
                 </ng-template>
             </p-table>
         </div>

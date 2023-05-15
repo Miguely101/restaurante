@@ -69,5 +69,11 @@ export class ApIServiceService {
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/user`);
   }
-  
+
+  getAllPratos(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}/pratos`);
+  }
+  getAllPratosTipos(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}/pratostipos`);
+  }
 }

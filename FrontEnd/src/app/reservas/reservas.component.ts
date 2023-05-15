@@ -91,11 +91,12 @@ export class ReservasComponent implements OnInit {
 
   changeLoc() {
     this.service.getReservasById(this.selectedResc).subscribe((response) => {
+      this.reservas = [];
       this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
   
       // Clear the events array before populating it with new events
       this.events = [];
-      this.reservas = [];
+
 
       response.forEach((item: Reserva) => {
         if (item.reservas_estado === 'Aceite') {
