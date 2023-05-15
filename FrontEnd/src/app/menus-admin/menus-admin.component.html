@@ -1,0 +1,81 @@
+<div class="container" style="width: 100%;">
+    <div class="row">
+        <div class="col-6" style="margin-top: 20px;">
+            <p-table [value]="list1" [tableStyle]="{'min-width': '60rem'}">
+                <ng-template pTemplate="caption">
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="flex align-items-center justify-content-between">
+
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+
+        <div class="col-6" style="margin-top: 20px;">
+            <p-table [value]="list2" dataKey="name" [tableStyle]="{'min-width': '60rem'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 5rem"></th>
+                        <th pSortableColumn="name">Nome <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product let-expanded="expanded">
+                    <tr>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="rowexpansion" let-product>
+                    <tr>
+                        <td colspan="7">
+                            <div class="p-3">
+                                <p-table [value]="product.orders" dataKey="id">
+                                    <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="id">Id <p-sortIcon field="price"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="customer">Customer <p-sortIcon field="customer"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="amount">Amount <p-sortIcon field="amount"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon>
+                        </th>
+                        <th style="width: 4rem"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-order>
+                    <tr>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="6">There are no order for this product yet.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        </td>
+        </tr>
+        </ng-template>
+        </p-table>
+    </div>
+</div>
+</div>

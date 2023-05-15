@@ -16,6 +16,7 @@ export class NavbarAdminComponent implements OnInit {
     this.items = [
       {label: 'Users', icon: 'pi pi-fw pi-users',command: () => this.changePageUsers(),},
       {label: 'Reservas', icon: 'pi pi-fw pi-calendar',command: () => this.changePageReservas()},
+      {label: 'Menus', icon: 'pi pi-fw pi-cog',command: () => this.changePageMenu()},
       {label: 'Pedidos', icon: 'pi pi-fw pi-cog'},
       {label: 'Voltar', icon: 'pi pi-fw pi-cog',command: () => this.changePageVoltar()}
   ]
@@ -41,5 +42,9 @@ export class NavbarAdminComponent implements OnInit {
       }
    });
     this.router.navigate(['/home']);
+  }
+
+  changePageMenu(){
+    this.router.navigate(['/admin/menus']);
   }
 }

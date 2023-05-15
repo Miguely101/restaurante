@@ -32,6 +32,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ReservaEditarComponent } from './reserva-editar/reserva-editar.component';
 import {PickListModule} from 'primeng/picklist';
+import { MenusAdminComponent } from './menus-admin/menus-admin.component';
+import { PratoAdminComponent } from './prato-admin/prato-admin.component';
+
 
 const appRoute: Routes = [
   {path: 'home', component: MainComponent},
@@ -43,12 +46,13 @@ const appRoute: Routes = [
     children: [
       {path: 'users', component: AdminComponent},
       {path: 'reservas', component: ReservasComponent},
+      {path: 'menus', component: MenusAdminComponent},
     ]
   },
 ];
 @NgModule({
   declarations: [
-    
+
     AppComponent,
     BookTableComponent,
     MainComponent,
@@ -58,9 +62,12 @@ const appRoute: Routes = [
     NavbarAdminComponent,
     ReservasComponent,
     AdminHomeComponent,
-    ReservaEditarComponent
+    ReservaEditarComponent,
+    MenusAdminComponent,
+    PratoAdminComponent
   ],
   imports: [
+    DataViewModule,
     PickListModule,
     FullCalendarModule, 
     GMapModule,

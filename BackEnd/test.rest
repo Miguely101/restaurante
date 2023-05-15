@@ -64,5 +64,17 @@ GET http://localhost:3333/reserva
 GET http://localhost:3333/reserva/5
 ###
 GET http://localhost:3333/mesas/1
+###
+GET http://localhost:3333/pratos
+###
+GET http://localhost:3333/pratostipos
+###
+POST http://localhost:3333/pratos
+Content-Type: application/json
 
-
+{
+  "prato_nome":"Sumo de Laranja",
+  "prato_preco": 2.22,
+  "pratoTipo_id": 7,
+  "prato_imagem":"sumolaranja.png"
+}
