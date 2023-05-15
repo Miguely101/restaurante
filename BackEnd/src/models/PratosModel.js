@@ -6,7 +6,7 @@ const  getAllpratos  = async () =>{
     const pool = await connection;
    
     const result = await pool.request()
-    .query('SELECT * FROM tbl_pratos');
+    .query('SELECT tbl_pratos.prato_id,tbl_pratos.prato_imagem,tbl_pratos.prato_nome,tbl_pratos.prato_preco, pratosTipos.pratoTipo_nome AS pratoTipo FROM tbl_pratos JOIN tbl_pratosTipos AS pratosTipos ON tbl_pratos.pratoTipo_id = pratosTipos.pratoTipo_id');
     return (result.recordset);
 };
 const  getAllTipos = async () =>{

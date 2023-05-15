@@ -9,6 +9,7 @@ import { ApIServiceService } from '../api-service.service';
 export class MenusAdminComponent implements OnInit {
     list1!: any[];
     list2!: any[];
+    selecteds!: any;
 
   constructor(private service:ApIServiceService) { }
 

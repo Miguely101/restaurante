@@ -3,6 +3,7 @@ import{ HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../app/models/usersModels';
 import { Restaurant } from '../app/models/restaurantModel';
+import { a } from '@fullcalendar/resource/internal-common';
 
 @Injectable({
   providedIn: 'root'
@@ -70,10 +71,10 @@ export class ApIServiceService {
     return this.http.get<User[]>(`${this.baseUrl}/user`);
   }
 
-  getAllPratos(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUrl}/pratos`);
+  getAllPratos(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/pratos`);
   }
-  getAllPratosTipos(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUrl}/pratostipos`);
+  getAllPratosTipos(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/pratostipos`);
   }
 }

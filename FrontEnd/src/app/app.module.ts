@@ -34,6 +34,7 @@ import { ReservaEditarComponent } from './reserva-editar/reserva-editar.componen
 import {PickListModule} from 'primeng/picklist';
 import { MenusAdminComponent } from './menus-admin/menus-admin.component';
 import { PratoAdminComponent } from './prato-admin/prato-admin.component';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 const appRoute: Routes = [
@@ -67,6 +68,7 @@ const appRoute: Routes = [
     PratoAdminComponent
   ],
   imports: [
+    FileUploadModule,
     DataViewModule,
     PickListModule,
     FullCalendarModule, 
