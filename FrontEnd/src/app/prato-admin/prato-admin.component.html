@@ -3,4 +3,4 @@
     <label for="float-input">Nome</label>
 </span>
 <p-dropdown  [options]="tipos"  [style]="{'margin-bottom': '10px'}"></p-dropdown>
-<p-fileUpload (onUpload)="onBasicUpload($event)"  mode="basic" name="demo[]" url="assets/img/pratos/"  [auto]="true" chooseLabel="Escolher Imagem"></p-fileUpload>
+<p-fileUpload name="myfile[]" [customUpload]="true" (uploadHandler)="onBasicUpload($event)"></p-fileUpload>

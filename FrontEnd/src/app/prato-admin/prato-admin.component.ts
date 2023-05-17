@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApIServiceService } from '../api-service.service';
+import { FileUpload } from 'primeng/fileupload';
 
 @Component({
   selector: 'app-prato-admin',
@@ -22,9 +23,10 @@ export class PratoAdminComponent implements OnInit {
     });
   }
   onBasicUpload(event: any): void {
-    const file = event.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
-    console.log(file)
+    const uploadedFiles: FileUpload[] = event.files;
+    for (const file of uploadedFiles) {
+      console.log(file.name); 
+
+    }
   }
 }
