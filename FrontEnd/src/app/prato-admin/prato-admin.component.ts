@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApIServiceService } from '../api-service.service';
 import { FileUpload } from 'primeng/fileupload';
 
+
 @Component({
   selector: 'app-prato-admin',
   templateUrl: './prato-admin.component.html',
@@ -22,11 +23,17 @@ export class PratoAdminComponent implements OnInit {
       });
     });
   }
-  onBasicUpload(event: any): void {
-    const uploadedFiles: FileUpload[] = event.files;
-    for (const file of uploadedFiles) {
-      console.log(file.name); 
-
+  onBasicUpload(event: any) {
+    console.log(event.files[0].)
+  }
+  convertBinaryStringToVarbinary(binaryString: string): Uint8Array {
+    const length = binaryString.length;
+    const bytes = new Uint8Array(length);
+  
+    for (let i = 0; i < length; i++) {
+      bytes[i] = binaryString.charCodeAt(i) & 0xff;
     }
+  
+    return bytes;
   }
 }
