@@ -15,7 +15,9 @@ export class PratoAdminComponent implements OnInit {
   myimage: any;
   base64code: any;
   valor!:any;
-
+  prato!:any[];
+  prato_nomes!:any;
+  tipoSelected!:any;
   constructor(private service:ApIServiceService) { }
 
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class PratoAdminComponent implements OnInit {
     const file = event.files[0];
     console.log(file.name);
     this.convertToBase64(file)
+    
   }
   
   convertToBase64(file: File) {
@@ -44,6 +47,12 @@ export class PratoAdminComponent implements OnInit {
       this.myimage = d
       this.base64code = d
     })
+
+
+  this.prato = [{prato_nome: this.prato_nomes,prato_preco: this.valor,pratoTipo_id:this.tipoSelected , prato_imagem:this.base64code}]
+    this.service.makePrato(this.prato).subscribe((response) => {
+      console.log(response)
+    });
 
   }
   readFile(file: File, subscriber: Subscriber<any>) {
@@ -57,6 +66,9 @@ export class PratoAdminComponent implements OnInit {
       subscriber.error(error);
       subscriber.complete();
     };
+
+  
+
   }
  
 }

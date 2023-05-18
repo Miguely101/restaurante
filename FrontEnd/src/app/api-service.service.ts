@@ -43,6 +43,12 @@ export class ApIServiceService {
     return this.http.post(`${this.baseUrl}/createreserva`,body,{ headers });
   }
 
+  makePrato(body:any): Observable<any> {
+  
+    // Make API call with headers
+    return this.http.post(`${this.baseUrl}/pratos`,body);
+  }
+
 
   getRestaurantes(): Observable<Restaurant[]> {
     return this.http.get<Restaurant[]>(`${this.baseUrl}/restaurantes`);
