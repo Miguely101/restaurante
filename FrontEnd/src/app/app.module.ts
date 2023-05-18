@@ -35,7 +35,7 @@ import {PickListModule} from 'primeng/picklist';
 import { MenusAdminComponent } from './menus-admin/menus-admin.component';
 import { PratoAdminComponent } from './prato-admin/prato-admin.component';
 import {FileUploadModule} from 'primeng/fileupload';
-
+import {InputNumberModule} from 'primeng/inputnumber';
 
 const appRoute: Routes = [
   {path: 'home', component: MainComponent},
@@ -68,6 +68,7 @@ const appRoute: Routes = [
     PratoAdminComponent
   ],
   imports: [
+    InputNumberModule,
     FileUploadModule,
     DataViewModule,
     PickListModule,

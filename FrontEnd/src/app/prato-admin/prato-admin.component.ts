@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApIServiceService } from '../api-service.service';
 import { FileUpload } from 'primeng/fileupload';
+import { Observable, Subscriber } from 'rxjs';
 
 
 @Component({
@@ -11,6 +12,10 @@ import { FileUpload } from 'primeng/fileupload';
 export class PratoAdminComponent implements OnInit {
 
   tipos!: any[]
+  myimage: any;
+  base64code: any;
+  valor!:any;
+
   constructor(private service:ApIServiceService) { }
 
   ngOnInit(): void {
@@ -23,17 +28,35 @@ export class PratoAdminComponent implements OnInit {
       });
     });
   }
+
   onBasicUpload(event: any) {
-    console.log(event.files[0].)
+    const file = event.files[0];
+    console.log(file.name);
+    this.convertToBase64(file)
   }
-  convertBinaryStringToVarbinary(binaryString: string): Uint8Array {
-    const length = binaryString.length;
-    const bytes = new Uint8Array(length);
   
-    for (let i = 0; i < length; i++) {
-      bytes[i] = binaryString.charCodeAt(i) & 0xff;
-    }
-  
-    return bytes;
+  convertToBase64(file: File) {
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+    observable.subscribe((d) => {
+      console.log(d)
+      this.myimage = d
+      this.base64code = d
+    })
+
   }
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+    filereader.readAsDataURL(file);
+    filereader.onload = () => {
+      subscriber.next(filereader.result);
+      subscriber.complete();
+    };
+    filereader.onerror = (error) => {
+      subscriber.error(error);
+      subscriber.complete();
+    };
+  }
+ 
 }

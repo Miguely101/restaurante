@@ -1,10 +1,9 @@
-<app-prato-admin></app-prato-admin>
 <div class="container" style="width: 100%;">
     <div class="row">
         <div class="col-6" style="margin-top: 20px;width: 50%;">
             <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
                 <ng-template pTemplate="caption">
-                    <button pButton pRipple type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
+                    <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
                     <button pButton pRipple type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
                 </ng-template>
                 <ng-template pTemplate="header">
@@ -24,7 +23,7 @@
                             <p-tableCheckbox [value]="x"></p-tableCheckbox>
                         </td>
                         <th>{{x.prato_nome}}</th>
-                        <td><img [src]="'assets/img/pratos/' + x.prato_imagem" [alt]="" width="100" class="shadow" /></td>
+                        <td><img [src]="x.prato_imagem" [alt]="" width="100" class="shadow" /></td>
                         <th>{{x.prato_preco}}€</th>
                         <th>{{x.pratoTipo}}</th>
                     </tr>

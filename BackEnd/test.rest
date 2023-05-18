@@ -76,5 +76,5 @@ Content-Type: application/json
   "prato_nome":"Sumo de Laranja",
   "prato_preco": 2.22,
   "pratoTipo_id": 7,
-  "prato_imagem":"sumolaranja.png"
+  "prato_imagem":""
 }
