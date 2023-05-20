@@ -18,8 +18,14 @@ const getAllTipos = async(request,response)=>{
     return response.status(201).json(data)
 }
 
+const deletePrato = async(request,response)=>{
+    let data = await PostModel.deletePrato(request.body);
+    return response.status(201).json(data)
+}
+
 
 module.exports = {
+    deletePrato,
     createPrato,
     getAllpratos,
     getAllTipos

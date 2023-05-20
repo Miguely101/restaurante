@@ -15,7 +15,7 @@ export class PratoAdminComponent implements OnInit {
   myimage: any;
   base64code: any;
   valor!:any;
-  prato!:any[];
+  prato!:any;
   prato_nomes!:any;
   tipoSelected!:any;
   constructor(private service:ApIServiceService) { }
@@ -46,10 +46,11 @@ export class PratoAdminComponent implements OnInit {
       console.log(d)
       this.myimage = d
       this.base64code = d
+      this.prato = {prato_nome: this.prato_nomes,prato_preco: this.valor,pratoTipo_id:this.tipoSelected , prato_imagem:d}
     })
 
 
-  this.prato = [{prato_nome: this.prato_nomes,prato_preco: this.valor,pratoTipo_id:this.tipoSelected , prato_imagem:this.base64code}]
+
     this.service.makePrato(this.prato).subscribe((response) => {
       console.log(response)
     });

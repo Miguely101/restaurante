@@ -3,12 +3,12 @@
     <div class="row" style="margin-left: 10%;">
       <div class="col-sm-4">
         <div class="p-field">
-          <input placeholder="Nome" id="float-input" type="text" class="p-inputtext p-col-12" />
+          <input [(ngModel)]="prato_nomes" placeholder="Nome" id="float-input" type="text" class="p-inputtext p-col-12" />
         </div>
       </div>
       <div class="col-sm-4" >
         <div class="p-field">
-          <p-dropdown [options]="tipos"></p-dropdown>
+          <p-dropdown [options]="tipos"  [(ngModel)]="tipoSelected"></p-dropdown>
         </div>
       </div>
     </div>

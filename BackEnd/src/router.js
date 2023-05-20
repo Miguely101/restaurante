@@ -12,6 +12,7 @@ require('dotenv').config();
 router.post('/pratos',PratosController.createPrato);
 router.get('/pratos',PratosController.getAllpratos);
 router.get('/pratostipos',PratosController.getAllTipos);
+router.put('/pratosdelete',PratosController.deletePrato);
 //Restaurante
 router.get('/restaurantes',registerController.getAllRestaurantes);
 //Reservas

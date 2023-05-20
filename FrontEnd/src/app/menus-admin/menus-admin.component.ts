@@ -31,4 +31,12 @@ export class MenusAdminComponent implements OnInit {
         baseZIndex: 10000
     });
 }
+
+delete(){
+  const pratos = this.selecteds.map((obj: { prato_id: any; }) => obj.prato_id);
+  console.log(pratos)
+  this.service.deletePratos(pratos).subscribe((response) => {
+    console.log(response)
+   })
+}
 }
