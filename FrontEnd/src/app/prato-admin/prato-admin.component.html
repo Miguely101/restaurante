@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="p-field">
-          <p-inputNumber aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
+          <p-inputNumber  aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
             decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
             mode="currency" currency="EUR" class="p-inputnumber p-col-12"></p-inputNumber>
         </div>
@@ -29,6 +29,6 @@
   
 
   <div class="container d-flex justify-content-center">
-    <p-fileUpload  mode="advanced" name="myfile" [customUpload]="true" (uploadHandler)="onBasicUpload($event)"></p-fileUpload>
+    <p-fileUpload mode="advanced" name="myfile" [customUpload]="true" (uploadHandler)="onBasicUpload($event)" ></p-fileUpload>
   </div>
   

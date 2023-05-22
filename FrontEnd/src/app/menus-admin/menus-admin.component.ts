@@ -41,6 +41,7 @@ export class MenusAdminComponent implements OnInit {
 
     this.ref.onClose.subscribe(() => {
      this.load()
+     this.messageService.add({severity:'success', summary: 'Adicionado', detail: " + Item adicionado"});
     });
 }
 
@@ -58,7 +59,7 @@ async delete(){
   await this.service.deletePratos(pratos).subscribe((response) => {
     console.log(response)
    })
-   this.messageService.add({severity:'warn', summary: 'Apagado', detail: this.selecteds.length + " Itens apagados."});
+   this.messageService.add({severity:'warn', summary: 'Apagado', detail: this.selecteds.length + " - Itens apagados."});
   // Remove the deleted objects from the list
   this.list1 = this.list1.filter((obj: { prato_id: any }) => !pratos.includes(obj.prato_id));
   this.selecteds = [];

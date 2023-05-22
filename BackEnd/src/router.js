@@ -8,6 +8,8 @@ const router = express.Router();
 require('dotenv').config();
 
 
+
+
 //Pratos
 router.post('/pratos',PratosController.createPrato);
 router.get('/pratos',PratosController.getAllpratos);
