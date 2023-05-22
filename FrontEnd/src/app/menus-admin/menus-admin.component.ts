@@ -1,27 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { aW } from '@fullcalendar/core/internal-common';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ApIServiceService } from '../api-service.service';
 import { PratoAdminComponent } from '../prato-admin/prato-admin.component';
+import {MessageService} from 'primeng/api';
+interface ListItem {
+  prato_id: any,
+  prato_nome: any
+}
 
 @Component({
   selector: 'app-menus-admin',
   templateUrl: './menus-admin.component.html',
   styleUrls: ['./menus-admin.component.scss'],
-  providers:[DialogService]
+  providers:[DialogService, MessageService]
 })
+
+
 export class MenusAdminComponent implements OnInit {
-    list1!: any[];
+
+  
+
+    list1!: ListItem[];
     list2!: any[];
-    selecteds!: any;
+    selecteds!: any[];
     ref!: DynamicDialogRef;
 
-  constructor(private service:ApIServiceService,public dialogService: DialogService,) { }
+  constructor(private service:ApIServiceService,public dialogService: DialogService,private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.service.getAllPratos().subscribe((response) => {
-      this.list1 = this.list1 =(response);
-      console.log(response)
-     })
+    this.load()
   }
   show() {
     this.ref = this.dialogService.open(PratoAdminComponent, {
@@ -30,13 +38,30 @@ export class MenusAdminComponent implements OnInit {
         contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "200px"},
         baseZIndex: 10000
     });
+
+    this.ref.onClose.subscribe(() => {
+     this.load()
+    });
 }
 
-delete(){
-  const pratos = this.selecteds.map((obj: { prato_id: any; }) => obj.prato_id);
-  console.log(pratos)
-  this.service.deletePratos(pratos).subscribe((response) => {
+
+load(){
+  this.list1= [];
+  this.service.getAllPratos().subscribe((response) => {
+    this.list1 = this.list1 =(response);
     console.log(response)
    })
 }
+async delete(){
+ 
+  const pratos = this.selecteds.map((obj: { prato_id: any; }) => obj.prato_id);
+  await this.service.deletePratos(pratos).subscribe((response) => {
+    console.log(response)
+   })
+   this.messageService.add({severity:'warn', summary: 'Apagado', detail: this.selecteds.length + " Itens apagados."});
+  // Remove the deleted objects from the list
+  this.list1 = this.list1.filter((obj: { prato_id: any }) => !pratos.includes(obj.prato_id));
+  this.selecteds = [];
+}
+
 }

@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { ApIServiceService } from '../api-service.service';
 import { FileUpload } from 'primeng/fileupload';
 import { Observable, Subscriber } from 'rxjs';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 
 @Component({
   selector: 'app-prato-admin',
   templateUrl: './prato-admin.component.html',
-  styleUrls: ['./prato-admin.component.scss']
+  styleUrls: ['./prato-admin.component.scss'],
+
 })
 export class PratoAdminComponent implements OnInit {
 
   tipos!: any[]
-  myimage: any;
-  base64code: any;
   valor!:any;
   prato!:any;
   prato_nomes!:any;
   tipoSelected!:any;
-  constructor(private service:ApIServiceService) { }
+  constructor(private service:ApIServiceService,public ref: DynamicDialogRef) { }
 
   ngOnInit(): void {
     this.service.getAllPratosTipos().subscribe((response) => {
@@ -31,31 +31,30 @@ export class PratoAdminComponent implements OnInit {
     });
   }
 
-  onBasicUpload(event: any) {
+  async onBasicUpload(event: any) {
     const file = event.files[0];
-    console.log(file.name);
-    this.convertToBase64(file)
-    
+    await this.convertToBase64(file)
+
   }
   
-  convertToBase64(file: File) {
+  async convertToBase64(file: File) {
     const observable = new Observable((subscriber: Subscriber<any>) => {
       this.readFile(file, subscriber);
     });
-    observable.subscribe((d) => {
-      console.log(d)
-      this.myimage = d
-      this.base64code = d
-      this.prato = {prato_nome: this.prato_nomes,prato_preco: this.valor,pratoTipo_id:this.tipoSelected , prato_imagem:d}
+    
+    await observable.subscribe((d) => {
+      this.prato = {prato_nome: this.prato_nomes,prato_preco: this.valor,pratoTipo_id:this.tipoSelected , prato_imagem:d}  
+      this.service.makePrato(this.prato).subscribe((response) => {
+        console.log(response)
+        this.ref.close();
+      });
+
     })
+    
 
-
-
-    this.service.makePrato(this.prato).subscribe((response) => {
-      console.log(response)
-    });
 
   }
+
   readFile(file: File, subscriber: Subscriber<any>) {
     const filereader = new FileReader();
     filereader.readAsDataURL(file);
@@ -67,8 +66,6 @@ export class PratoAdminComponent implements OnInit {
       subscriber.error(error);
       subscriber.complete();
     };
-
-  
 
   }
  

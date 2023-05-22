@@ -37,6 +37,7 @@ import { PratoAdminComponent } from './prato-admin/prato-admin.component';
 import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
 
+
 const appRoute: Routes = [
   {path: 'home', component: MainComponent},
   {path: 'login', component: LoginComponent},

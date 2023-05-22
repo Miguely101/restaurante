@@ -1,10 +1,12 @@
+<p-toast></p-toast>
 <div class="container" style="width: 100%;">
     <div class="row">
         <div class="col-6" style="margin-top: 20px;width: 50%;">
             <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
                 <ng-template pTemplate="caption">
                     <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
-                    <button pButton (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
+                    <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
+        
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
