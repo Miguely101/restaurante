@@ -86,4 +86,9 @@ export class ApIServiceService {
   deletePratos(array:any): Observable<any[]>{
     return this.http.put<any[]>(`${this.baseUrl}/pratosdelete`,array);
   }
+
+  editPrato(pratodata:any): Observable<any>{
+    return this.http.put(`${this.baseUrl}/pratoedit`,pratodata);
+  }
+  
 }

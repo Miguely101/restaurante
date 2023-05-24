@@ -78,3 +78,13 @@ Content-Type: application/json
   "pratoTipo_id": 7,
   "prato_imagem":""
 }
+###
+PUT http://localhost:3333/pratoedit
+Content-Type: application/json
+
+{
+  "prato_id":127,
+  "prato_nome":"Sumo de Laranja",
+  "prato_preco": 1.50,
+  "pratoTipo_id": 11
+}

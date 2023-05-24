@@ -4,9 +4,10 @@
         <div class="col-6" style="margin-top: 20px;width: 50%;">
             <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
                 <ng-template pTemplate="caption">
+                    <h2>Pratos</h2>
                     <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
                     <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
-        
+                    
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
@@ -26,7 +27,7 @@
                         </td>
                         <th>{{x.prato_nome}}</th>
                         <td><img [src]="x.prato_imagem" [alt]="" width="100" class="shadow" /></td>
-                        <th>{{x.prato_preco}}€</th>
+                        <th >{{x.prato_preco}}€</th>
                         <th>{{x.pratoTipo}}</th>
                     </tr>
                 </ng-template>
@@ -35,55 +36,49 @@
 
 
         <div class="col-6" style="margin-top: 20px; width: 50%;">
-            <p-table [value]="list2" dataKey="name" [tableStyle]="{'width': '100%'}">
+            <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
+                <ng-template pTemplate="caption">
+                    <h2>Menus</h2>
+                    <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
+                    <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
+                </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th style="width: 5rem"></th>
-                        <th pSortableColumn="name">Nome <p-sortIcon field="name"></p-sortIcon>
+                        <th style="width: 4rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                         </th>
+                        <th>Nome</th>
+                        <th>Imagem</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-product let-expanded="expanded">
+                <ng-template pTemplate="body" let-x>
                     <tr>
+                        <td>
+                            <p-tableCheckbox [value]="x"></p-tableCheckbox>
+                        </td>
+                        <th>{{x.prato_nome}}</th>
+                        <td><img [src]="x.prato_imagem" [alt]="" width="100" class="shadow" /></td>
 
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="rowexpansion" let-product>
-                    <tr>
-                        <td colspan="7">
-                            <div class="p-3">
-                                <p-table [value]="product.orders" dataKey="id">
-                                    <ng-template pTemplate="header">
-                    <tr>
-                        <th pSortableColumn="id">Id <p-sortIcon field="price"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="customer">Customer <p-sortIcon field="customer"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="amount">Amount <p-sortIcon field="amount"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon>
-                        </th>
-                        <th style="width: 4rem"></th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-order>
-                    <tr>
+                        <td pEditableColumn>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <p-inputNumber (onFocus)="startChange(x)"  aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
+                            decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                            mode="currency" currency="EUR" class="p-inputnumber p-col-12" (onBlur)="saveChange(x)"></p-inputNumber>
+                              </ng-template>
+                            <ng-template pTemplate="output" >
+                              <th (click)="startChange(x)">{{x.prato_preco}}€</th>
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
 
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="emptymessage">
-                    <tr>
-                        <td colspan="6">There are no order for this product yet.</td>
+                        <th>{{x.pratoTipo}}</th>
                     </tr>
                 </ng-template>
             </p-table>
-        </div>
-        </td>
-        </tr>
-        </ng-template>
-        </p-table>
+
     </div>
 </div>
 </div>

@@ -9,11 +9,14 @@ require('dotenv').config();
 
 
 
-
+//Menus
+router.get('/menu',PratosController.getAllpratos);
+router.get('/menuitems',PratosController.getAllpratos);
 //Pratos
 router.post('/pratos',PratosController.createPrato);
 router.get('/pratos',PratosController.getAllpratos);
 router.get('/pratostipos',PratosController.getAllTipos);
+router.put('/pratoedit',PratosController.editPrato);
 router.put('/pratosdelete',PratosController.deletePrato);
 //Restaurante
 router.get('/restaurantes',registerController.getAllRestaurantes);

@@ -6,7 +6,8 @@ import { PratoAdminComponent } from '../prato-admin/prato-admin.component';
 import {MessageService} from 'primeng/api';
 interface ListItem {
   prato_id: any,
-  prato_nome: any
+  prato_nome: any,
+  prato_preco:any,
 }
 
 @Component({
@@ -25,11 +26,27 @@ export class MenusAdminComponent implements OnInit {
     list2!: any[];
     selecteds!: any[];
     ref!: DynamicDialogRef;
+    valor!: any;
 
   constructor(private service:ApIServiceService,public dialogService: DialogService,private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.load()
+  }
+
+  startChange(prato:any){
+    this.valor = prato.prato_preco
+  }
+
+  saveChange(prato:any){
+    var prato2 = {prato_nome:prato.prato_nome,prato_id:prato.prato_id,prato_preco:this.valor} 
+    console.log(prato);
+    this.service.editPrato(prato2).subscribe((response) => {
+      console.log(response)
+     })
+    this.messageService.add({severity:'success', summary: 'Editado', detail: "Item " +  prato.prato_nome + " Editado."});
+    const index = this.list1.findIndex(p => p.prato_id == prato.prato_id);
+    this.list1[index].prato_preco =this.valor;
   }
   show() {
     this.ref = this.dialogService.open(PratoAdminComponent, {

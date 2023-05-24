@@ -42,23 +42,21 @@ const deletePrato = async (prato) =>{
     return (resp)
 };
 
-const editPratoById = async (PratoId) =>{
+const editPrato = async (prato) =>{
 
     const pool = await connection;
   
     const result = await pool.request()
-    .input('perm_id', sql.Int,user.perm_id)
-    .input('utilizador_id', sql.Int, user.utilizador_id)
-    .input('utilizador_nome', sql.VarChar(50), user.utilizador_nome)
-    .input('utilizador_email', sql.VarChar(80), user.utilizador_email)
-    .input('utilizador_numero', sql.VarChar(20), user.utilizador_numero)
-    .input('utilizador_morada', sql.VarChar(100), user.utilizador_morada)
-    .query('UPDATE tbl_utilizadores SET perm_id = @perm_id, utilizador_nome = @utilizador_nome, utilizador_email = @utilizador_email, utilizador_numero = @utilizador_numero, utilizador_morada = @utilizador_morada WHERE utilizador_id = @utilizador_id');
+    .input('prato_id', sql.Int, prato.prato_id)
+    .input('prato_nome', sql.VarChar(50), prato.prato_nome)
+    .input('prato_preco', sql.Numeric(10,2), prato.prato_preco)
+    .query('UPDATE tbl_pratos SET prato_nome = @prato_nome, prato_preco = @prato_preco WHERE prato_id = @prato_id');
     return ("Sucesso");
  }
 
 
 module.exports = {
+    editPrato,
     deletePrato,
     createPrato,
     getAllpratos,

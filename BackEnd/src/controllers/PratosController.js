@@ -23,8 +23,13 @@ const deletePrato = async(request,response)=>{
     return response.status(201).json(data)
 }
 
+const editPrato = async(request,response)=>{
+    let data = await PostModel.editPrato(request.body);
+    return response.status(201).json(data)
+}
 
 module.exports = {
+    editPrato,
     deletePrato,
     createPrato,
     getAllpratos,
