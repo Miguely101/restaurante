@@ -41,6 +41,23 @@ const deletePrato = async (prato) =>{
     let resp ={code:200, message:"Prato apagado"}
     return (resp)
 };
+
+const editPratoById = async (PratoId) =>{
+
+    const pool = await connection;
+  
+    const result = await pool.request()
+    .input('perm_id', sql.Int,user.perm_id)
+    .input('utilizador_id', sql.Int, user.utilizador_id)
+    .input('utilizador_nome', sql.VarChar(50), user.utilizador_nome)
+    .input('utilizador_email', sql.VarChar(80), user.utilizador_email)
+    .input('utilizador_numero', sql.VarChar(20), user.utilizador_numero)
+    .input('utilizador_morada', sql.VarChar(100), user.utilizador_morada)
+    .query('UPDATE tbl_utilizadores SET perm_id = @perm_id, utilizador_nome = @utilizador_nome, utilizador_email = @utilizador_email, utilizador_numero = @utilizador_numero, utilizador_morada = @utilizador_morada WHERE utilizador_id = @utilizador_id');
+    return ("Sucesso");
+ }
+
+
 module.exports = {
     deletePrato,
     createPrato,
