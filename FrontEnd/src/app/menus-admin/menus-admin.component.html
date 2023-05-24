@@ -2,43 +2,10 @@
 <div class="container" style="width: 100%;">
     <div class="row">
         <div class="col-6" style="margin-top: 20px;width: 50%;">
+
             <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
                 <ng-template pTemplate="caption">
                     <h2>Pratos</h2>
-                    <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
-                    <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
-                    
-                </ng-template>
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th style="width: 4rem">
-                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                        </th>
-                        <th>Nome</th>
-                        <th>Imagem</th>
-                        <th>Preço</th>
-                        <th>Categoria</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-x>
-                    <tr>
-                        <td>
-                            <p-tableCheckbox [value]="x"></p-tableCheckbox>
-                        </td>
-                        <th>{{x.prato_nome}}</th>
-                        <td><img [src]="x.prato_imagem" [alt]="" width="100" class="shadow" /></td>
-                        <th >{{x.prato_preco}}€</th>
-                        <th>{{x.pratoTipo}}</th>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </div>
-
-
-        <div class="col-6" style="margin-top: 20px; width: 50%;">
-            <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
-                <ng-template pTemplate="caption">
-                    <h2>Menus</h2>
                     <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
                     <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
                 </ng-template>
@@ -78,6 +45,42 @@
                     </tr>
                 </ng-template>
             </p-table>
+
+            
+        </div>
+
+
+        <div class="col-6" style="margin-top: 20px; width: 50%;">
+            <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
+                <ng-template pTemplate="caption">
+                    <h2>Menus</h2>
+                    <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
+                    <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
+                    
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 4rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th>Nome</th>
+                        <th>Imagem</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-x>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="x"></p-tableCheckbox>
+                        </td>
+                        <th>{{x.prato_nome}}</th>
+                        <td><img [src]="x.prato_imagem" [alt]="" width="100" class="shadow" /></td>
+                        <th >{{x.prato_preco}}€</th>
+                        <th>{{x.pratoTipo}}</th>
+                    </tr>
+                </ng-template>
+            </p-table>  
 
     </div>
 </div>
