@@ -1,12 +1,23 @@
-<input pInputText [(ngModel)]="prato_nomes" placeholder="Nome" id="float-input" type="text"/>
-<p-dropdown [options]="tipos"  [(ngModel)]="tipoSelected"></p-dropdown>
-   
+<div class="container1">
 
-<p-inputNumber  aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
-decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
-mode="currency" currency="EUR" class="p-inputnumber p-col-12"></p-inputNumber>
+    <div class="containerall">
 
-<div >
-<p-fileUpload mode="advanced" name="myfile" [customUpload]="true" (uploadHandler)="onBasicUpload($event)" ></p-fileUpload>
+        <div class="containeroption">
+            <input pInputText [(ngModel)]="prato_nomes" placeholder="Nome" id="float-input" type="text"/>
+            <p-dropdown [options]="tipos"  [(ngModel)]="tipoSelected"></p-dropdown>
+        </div>
+        
+        <div class="containerquantity">
+            <p-inputNumber aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
+            decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+            mode="currency" currency="EUR" class="p-inputnumber p-col-12"></p-inputNumber>
+        </div>
+
+    </div>
+
+    <div >
+    <p-fileUpload mode="advanced" name="myfile" [customUpload]="true" (uploadHandler)="onBasicUpload($event)" ></p-fileUpload>~
+    </div>
+
+
 </div>
-  
