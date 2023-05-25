@@ -12,7 +12,7 @@ require('dotenv').config();
 
 //Menus
 router.get('/menu',MenuController.getAllmenus);
-router.get('/menuitems',PratosController.getAllpratos);
+router.get('/menuitems/:id',MenuController.getItemsMenu);
 //Pratos
 router.post('/pratos',PratosController.createPrato);
 router.get('/pratos',PratosController.getAllpratos);

@@ -51,7 +51,7 @@
 
 
         <div class="col-6" style="margin-top: 20px; width: 50%;">
-            <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
+            <p-table [value]="list2" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds2">
                 <ng-template pTemplate="caption">
                     <h2>Menus</h2>
                     <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
@@ -64,20 +64,16 @@
                             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                         </th>
                         <th>Nome</th>
-                        <th>Imagem</th>
                         <th>Preço</th>
-                        <th>Categoria</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-x>
                     <tr>
-                        <td>
-                            <p-tableCheckbox [value]="x"></p-tableCheckbox>
-                        </td>
-                        <th>{{x.prato_nome}}</th>
-                        <td><img [src]="x.prato_imagem" [alt]="" width="100" class="shadow" /></td>
-                        <th >{{x.prato_preco}}€</th>
-                        <th>{{x.pratoTipo}}</th>
+                    <td>
+                        <p-tableCheckbox [value]="x"></p-tableCheckbox>
+                    </td>
+                    <th>{{x.menu_nome}}</th>
+                    <th>{{x.menu_preco}}</th>
                     </tr>
                 </ng-template>
             </p-table>  

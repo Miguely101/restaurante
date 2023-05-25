@@ -10,7 +10,14 @@ const  getAllmenus  = async () =>{
     return (result.recordset);
 };
 
-
+const getItemsMenu = async (id)=>{
+    const pool = await connection;
+   
+    const result = await pool.request()
+    .query('SELECT * FROM tbl_relMenu where menu_id =' + id);
+    return (result.recordset);
+};
 module.exports = {
+    getItemsMenu,
     getAllmenus
 };
