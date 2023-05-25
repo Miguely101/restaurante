@@ -3,6 +3,7 @@ const registerController = require('./controllers/RestauranteController')
 const AuthController = require('./controllers/AuthController')
 const ReservaController = require('./controllers/ReservasController')
 const PratosController = require('./controllers/PratosController')
+const MenuController = require('./controllers/MenuController')
 const { authenticateToken } = require('./models/TokenModel');
 const router = express.Router();
 require('dotenv').config();
@@ -10,7 +11,7 @@ require('dotenv').config();
 
 
 //Menus
-router.get('/menu',PratosController.getAllpratos);
+router.get('/menu',MenuController.getAllmenus);
 router.get('/menuitems',PratosController.getAllpratos);
 //Pratos
 router.post('/pratos',PratosController.createPrato);
