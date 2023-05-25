@@ -36,6 +36,7 @@ import { MenusAdminComponent } from './menus-admin/menus-admin.component';
 import { PratoAdminComponent } from './prato-admin/prato-admin.component';
 import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { MeunItemsComponent } from './meun-items/meun-items.component';
 
 
 const appRoute: Routes = [
@@ -66,7 +67,8 @@ const appRoute: Routes = [
     AdminHomeComponent,
     ReservaEditarComponent,
     MenusAdminComponent,
-    PratoAdminComponent
+    PratoAdminComponent,
+    MeunItemsComponent
   ],
   imports: [
     InputNumberModule,

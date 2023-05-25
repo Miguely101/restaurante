@@ -4,6 +4,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ApIServiceService } from '../api-service.service';
 import { PratoAdminComponent } from '../prato-admin/prato-admin.component';
 import {MessageService} from 'primeng/api';
+import { MeunItemsComponent } from '../meun-items/meun-items.component';
 interface ListItem {
   prato_id: any,
   prato_nome: any,
@@ -63,6 +64,19 @@ export class MenusAdminComponent implements OnInit {
     });
 }
 
+show2() {
+  this.ref = this.dialogService.open(MeunItemsComponent, {
+      header: 'Menu',
+      width: '70%',
+      contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "200px"},
+      baseZIndex: 10000
+  });
+
+  this.ref.onClose.subscribe(() => {
+   this.load()
+   this.messageService.add({severity:'success', summary: 'Adicionado', detail: " + Item adicionado"});
+  });
+}
 
 load(){
   this.list1= [];
