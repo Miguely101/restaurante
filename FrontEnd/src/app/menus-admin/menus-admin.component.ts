@@ -52,7 +52,7 @@ export class MenusAdminComponent implements OnInit {
   show() {
     this.ref = this.dialogService.open(PratoAdminComponent, {
         header: 'Prato',
-        width: '70%',
+        width: '55%',
         contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "200px"},
         baseZIndex: 10000
     });

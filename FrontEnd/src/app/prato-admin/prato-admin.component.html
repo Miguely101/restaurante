@@ -8,15 +8,19 @@
         </div>
         
         <div class="containerquantity">
-            <p-inputNumber aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
+            <p-inputNumber [size]="42.5" [min]= "0" aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
             decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
-            mode="currency" currency="EUR" class="p-inputnumber p-col-12"></p-inputNumber>
+            mode="currency" currency="EUR"></p-inputNumber>
         </div>
 
-    </div>
+        <div class="fixe2">
 
-    <div >
-    <p-fileUpload mode="advanced" name="myfile" [customUpload]="true" (uploadHandler)="onBasicUpload($event)" ></p-fileUpload>~
+            <div class="fixe" >
+            <p-fileUpload class="p-fileUpload" chooseLabel="Escolher" uploadLabel="Confirmar" cancelLabel="Cancelar" mode="advanced" name="myfile" [customUpload]="true" (uploadHandler)="onBasicUpload($event)" ></p-fileUpload>
+            </div>
+
+        </div>
+    
     </div>
 
 
