@@ -8,6 +8,13 @@ const getAllmenus = async(request,response)=>{
     return response.status(201).json(data)
 }
 
+
+const getItemsMenu = async(request,response)=>{
+    let data = await PostModel.getItemsMenu(request.params.id);
+    return response.status(201).json(data)
+}
+
 module.exports = {
+    getItemsMenu, 
     getAllmenus,
 };

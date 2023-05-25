@@ -88,3 +88,7 @@ Content-Type: application/json
   "prato_preco": 1.50,
   "pratoTipo_id": 11
 }
+
+###
+GET http://localhost:3333/menuitems/1
+Content-Type: application/json

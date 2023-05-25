@@ -90,5 +90,9 @@ export class ApIServiceService {
   editPrato(pratodata:any): Observable<any>{
     return this.http.put(`${this.baseUrl}/pratoedit`,pratodata);
   }
+
+  getAllMenus(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/menu`);
+  }
   
 }

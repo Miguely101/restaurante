@@ -25,6 +25,7 @@ export class MenusAdminComponent implements OnInit {
     list1!: ListItem[];
     list2!: any[];
     selecteds!: any[];
+    selecteds2!: any[];
     ref!: DynamicDialogRef;
     valor!: any;
 
@@ -65,8 +66,14 @@ export class MenusAdminComponent implements OnInit {
 
 load(){
   this.list1= [];
+  this.list2 =[];
   this.service.getAllPratos().subscribe((response) => {
     this.list1 = this.list1 =(response);
+    console.log(response)
+   })
+
+   this.service.getAllMenus().subscribe((response) => {
+    this.list2 = this.list2 =(response);
     console.log(response)
    })
 }
