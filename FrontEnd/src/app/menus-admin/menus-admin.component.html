@@ -55,7 +55,7 @@
                 <ng-template pTemplate="caption">
                     <h2>Menus</h2>
                     <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
-                    <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
+                    <button pButton  [disabled]="(selecteds2 ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
                     
                 </ng-template>
                 <ng-template pTemplate="header">
@@ -68,11 +68,11 @@
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-x>
-                    <tr (click)="show2()">
+                    <tr>
                     <td>
                         <p-tableCheckbox [value]="x"></p-tableCheckbox>
                     </td>
-                    <td>{{x.menu_nome}}</td>
+                    <td (click)="show2(x.menu_id)" >{{x.menu_nome}}</td>
                     <td>{{x.menu_preco}} €</td>
                     </tr>
                 </ng-template>

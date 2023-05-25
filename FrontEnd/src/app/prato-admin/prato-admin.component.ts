@@ -46,7 +46,7 @@ export class PratoAdminComponent implements OnInit {
       this.prato = {prato_nome: this.prato_nomes,prato_preco: this.valor,pratoTipo_id:this.tipoSelected , prato_imagem:d}  
       this.service.makePrato(this.prato).subscribe((response) => {
         console.log(response)
-        this.ref.close();
+        this.ref.close(true);
       });
 
     })

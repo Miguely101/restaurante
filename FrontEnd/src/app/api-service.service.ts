@@ -94,5 +94,7 @@ export class ApIServiceService {
   getAllMenus(): Observable<any[]>{
     return this.http.get<any[]>(`${this.baseUrl}/menu`);
   }
-  
+  getAllMenusItems(ids:any): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/menuitems/${ids}`);
+  }
 }

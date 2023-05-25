@@ -58,18 +58,25 @@ export class MenusAdminComponent implements OnInit {
         baseZIndex: 10000
     });
 
-    this.ref.onClose.subscribe(() => {
+    this.ref.onClose.subscribe((data:any) => {
      this.load()
-     this.messageService.add({severity:'success', summary: 'Adicionado', detail: " + Item adicionado"});
+     if(data == true){
+      this.messageService.add({severity:'success', summary: 'Adicionado', detail: " + Item adicionado"});
+     }
+     
     });
 }
 
-show2() {
+show2(id:any) {
   this.ref = this.dialogService.open(MeunItemsComponent, {
       header: 'Menu',
       width: '70%',
       contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "200px"},
-      baseZIndex: 10000
+      baseZIndex: 10000,
+      data: {
+        ids: id,
+      }
+      
   });
 
   this.ref.onClose.subscribe(() => {
