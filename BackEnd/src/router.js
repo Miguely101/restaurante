@@ -8,6 +8,7 @@ const { authenticateToken } = require('./models/TokenModel');
 const router = express.Router();
 require('dotenv').config();
 
+//infoCalls
 
 
 //Menus
@@ -36,4 +37,5 @@ router.put('/user',AuthController.updateUsers)
 router.post('/login',AuthController.login);
 router.post('/register',AuthController.register);
 router.get('/usercheck',authenticateToken ,AuthController.userCheck);
+//21
 module.exports = router;
