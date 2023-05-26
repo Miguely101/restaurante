@@ -1,3 +1,7 @@
+<input pInputText [(ngModel)]="menu_nomes" placeholder="Nome" id="float-input" type="text"/>
+<p-inputNumber [size]="42.5" [min]= "0" aria-placeholder="Preço" [(ngModel)]="valor" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.25"
+    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+mode="currency" currency="EUR"></p-inputNumber>
 <p-pickList [source]="list1" [target]="list2" sourceHeader="Pratos" targetHeader="Menu" [dragdrop]="false"
 [responsive]="true" [sourceStyle]="{'height':'20rem'}" [targetStyle]="{'height':'20rem'}" filterBy="prato_nome"
 sourceFilterPlaceholder="Nome do prato" targetFilterPlaceholder="Nome do prato">
@@ -7,4 +11,4 @@ sourceFilterPlaceholder="Nome do prato" targetFilterPlaceholder="Nome do prato">
 </p-pickList> 
 <div style="display: flex; justify-content: center;">
     <button (click)="send()" pButton pRipple type="button" label="Terminar" class="p-button-raised" [style]="{'min-width': '90%', 'margin': '30px'}"  ></button>
-  </div>
+</div>

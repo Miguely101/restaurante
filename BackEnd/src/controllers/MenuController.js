@@ -1,7 +1,10 @@
 const { request, response } = require('express');
 const PostModel= require('../models/MenuModel');
 
-
+const CreateMenus = async(request,response)=>{
+    let data = await PostModel.CreateMenus(request.body);
+    return response.status(201).json(data)
+}
 
 const getAllmenus = async(request,response)=>{
     let data = await PostModel.getAllmenus();
@@ -17,4 +20,5 @@ const getItemsMenu = async(request,response)=>{
 module.exports = {
     getItemsMenu, 
     getAllmenus,
+    CreateMenus,
 };

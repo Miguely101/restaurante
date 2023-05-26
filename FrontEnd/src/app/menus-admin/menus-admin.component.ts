@@ -5,6 +5,7 @@ import { ApIServiceService } from '../api-service.service';
 import { PratoAdminComponent } from '../prato-admin/prato-admin.component';
 import {MessageService} from 'primeng/api';
 import { MeunItemsComponent } from '../meun-items/meun-items.component';
+import { MenuAddComponent } from '../menu-add/menu-add.component';
 interface ListItem {
   prato_id: any,
   prato_nome: any,
@@ -69,7 +70,7 @@ export class MenusAdminComponent implements OnInit {
 
 show2(id:any) {
   this.ref = this.dialogService.open(MeunItemsComponent, {
-      header: 'Menu',
+      header: 'Editar Menu',
       width: '70%',
       contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "200px"},
       baseZIndex: 10000,
@@ -79,9 +80,27 @@ show2(id:any) {
       
   });
 
-  this.ref.onClose.subscribe(() => {
-   this.load()
-   this.messageService.add({severity:'success', summary: 'Adicionado', detail: " + Item adicionado"});
+  this.ref.onClose.subscribe((data) => {
+   if(data == true){
+    this.load()
+    this.messageService.add({severity:'success', summary: 'Editado', detail: " + Menu Editado"});
+   } 
+  });
+}
+
+show3() {
+  this.ref = this.dialogService.open(MenuAddComponent, {
+      header: 'Criar Menu',
+      width: '70%',
+      contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "200px"},
+      baseZIndex: 10000,
+  });
+
+  this.ref.onClose.subscribe((data) => {
+   if(data == true){
+    this.messageService.add({severity:'success', summary: 'Adicionado', detail: " + Menu adicionado"});
+    this.load()
+   }
   });
 }
 

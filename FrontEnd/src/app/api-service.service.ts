@@ -97,4 +97,7 @@ export class ApIServiceService {
   getAllMenusItems(ids:any): Observable<any[]>{
     return this.http.get<any[]>(`${this.baseUrl}/menuitems/${ids}`);
   }
+  makeMenu(body:any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/menu`,body);
+  }
 }

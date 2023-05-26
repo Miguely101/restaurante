@@ -54,7 +54,7 @@
             <p-table [value]="list2" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds2">
                 <ng-template pTemplate="caption">
                     <h2>Menus</h2>
-                    <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
+                    <button pButton pRipple (click)="show3()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
                     <button pButton  [disabled]="(selecteds2 ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
                     
                 </ng-template>

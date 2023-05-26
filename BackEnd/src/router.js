@@ -11,6 +11,7 @@ require('dotenv').config();
 
 
 //Menus
+router.post('/menu',MenuController.CreateMenus);
 router.get('/menu',MenuController.getAllmenus);
 router.get('/menuitems/:id',MenuController.getItemsMenu);
 //Pratos

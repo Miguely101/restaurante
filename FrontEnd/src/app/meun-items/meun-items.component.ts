@@ -17,6 +17,10 @@ export class MeunItemsComponent implements OnInit {
     this.load()
   }
 
+  send(){
+    
+  }
+
   load(){
     this.list1= [];
     this.list2= [];

@@ -37,9 +37,11 @@ import { PratoAdminComponent } from './prato-admin/prato-admin.component';
 import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { MeunItemsComponent } from './meun-items/meun-items.component';
+import { MenuAddComponent } from './menu-add/menu-add.component';
 
 
 const appRoute: Routes = [
+  {path:'',redirectTo:'/home',pathMatch:'full'},
   {path: 'home', component: MainComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -68,7 +70,8 @@ const appRoute: Routes = [
     ReservaEditarComponent,
     MenusAdminComponent,
     PratoAdminComponent,
-    MeunItemsComponent
+    MeunItemsComponent,
+    MenuAddComponent
   ],
   imports: [
     InputNumberModule,
