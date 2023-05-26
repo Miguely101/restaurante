@@ -1,0 +1,37 @@
+<div class="card">
+    <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name" layout="grid">
+        <ng-template pTemplate="header">
+            <div class="flex flex-column md:flex-row md:justify-content-between">
+                <span class="p-input-icon-left mb-2 md:mb-0">
+                    <i class="pi pi-search"></i>
+                    <input type="search" pInputText placeholder="Search by Name">
+                </span>
+            </div>
+        </ng-template>
+        <ng-template let-product pTemplate="gridItem">
+
+            <div class="col-4 md:col-10">
+                <div class="product-grid-item card">
+                    <div class="product-grid-item-top">
+                        <div>
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="product-category">{{product.pratoTipo}}</span>
+                        </div>
+                        <span [class]="'product-badge status- xxx'"></span>
+                    </div>
+                    <div class="product-grid-item-content">
+                        <img [src]="product.prato_imagem"/>
+                        <div class="product-name">{{product.prato_nome}}</div>
+                        <div class="product-description"></div>
+                        <div></div>
+                    </div>
+                    <div class="product-grid-item-bottom">
+                        <span class="product-price">{{product.prato_preco}} €</span>
+                        <p-button icon="pi pi-shopping-cart" ></p-button>
+                    </div>
+                </div>
+            </div>
+            
+        </ng-template>
+    </p-dataView>
+</div>

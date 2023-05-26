@@ -38,10 +38,15 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { MeunItemsComponent } from './meun-items/meun-items.component';
 import { MenuAddComponent } from './menu-add/menu-add.component';
+import { ComprarComponent } from './comprar/comprar.component';
+import {PaginatorModule} from 'primeng/paginator';
+import {PanelModule} from 'primeng/panel';
+import {RatingModule} from 'primeng/rating';
 
 
 const appRoute: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path: 'comprar', component: ComprarComponent},
   {path: 'home', component: MainComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -71,9 +76,13 @@ const appRoute: Routes = [
     MenusAdminComponent,
     PratoAdminComponent,
     MeunItemsComponent,
-    MenuAddComponent
+    MenuAddComponent,
+    ComprarComponent
   ],
   imports: [
+    RatingModule,
+    PanelModule,
+    PaginatorModule,
     InputNumberModule,
     FileUploadModule,
     DataViewModule,
