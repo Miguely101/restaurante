@@ -11,6 +11,8 @@ require('dotenv').config();
 
 
 //Menus
+router.put('/menu/:id',MenuController.editMenu);
+router.post('/menudelete',MenuController.deleteMenu);
 router.post('/menu',MenuController.CreateMenus);
 router.get('/menu',MenuController.getAllmenus);
 router.get('/menuitems/:id',MenuController.getItemsMenu);

@@ -12,6 +12,10 @@ interface ListItem {
   prato_preco:any,
 }
 
+interface ListItem2 {
+ menu_id:any
+}
+
 @Component({
   selector: 'app-menus-admin',
   templateUrl: './menus-admin.component.html',
@@ -25,7 +29,7 @@ export class MenusAdminComponent implements OnInit {
   
 
     list1!: ListItem[];
-    list2!: any[];
+    list2!: ListItem2[];
     selecteds!: any[];
     selecteds2!: any[];
     ref!: DynamicDialogRef;
@@ -107,6 +111,7 @@ show3() {
 load(){
   this.list1= [];
   this.list2 =[];
+
   this.service.getAllPratos().subscribe((response) => {
     this.list1 = this.list1 =(response);
     console.log(response)
@@ -127,6 +132,16 @@ async delete(){
   // Remove the deleted objects from the list
   this.list1 = this.list1.filter((obj: { prato_id: any }) => !pratos.includes(obj.prato_id));
   this.selecteds = [];
+}
+
+async delete2(){
+  const menus = this.selecteds2.map((obj: {menu_id: any; }) => obj.menu_id);
+  await this.service.deleteMenu(menus).subscribe((response) => {
+    console.log(response)
+   })
+   this.messageService.add({severity:'warn', summary: 'Apagado', detail: this.selecteds2.length + " - Menu apagados."});
+   this.list2 = this.list2.filter((obj: { menu_id: any }) => !menus.includes(obj.menu_id));
+   this.selecteds2 = [];
 }
 
 }

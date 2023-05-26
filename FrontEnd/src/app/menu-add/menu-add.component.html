@@ -9,6 +9,8 @@ sourceFilterPlaceholder="Nome do prato" targetFilterPlaceholder="Nome do prato">
         <div>{{x.prato_nome}} - {{x.prato_preco}} €</div>
     </ng-template>
 </p-pickList> 
+
 <div style="display: flex; justify-content: center;">
     <button (click)="send()" pButton pRipple type="button" label="Terminar" class="p-button-raised" [style]="{'min-width': '90%', 'margin': '30px'}"  ></button>
 </div>
+<th style="display: flex; justify-content: center;">{{msg}}</th>

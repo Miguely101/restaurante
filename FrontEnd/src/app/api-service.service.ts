@@ -100,4 +100,11 @@ export class ApIServiceService {
   makeMenu(body:any): Observable<any> {
     return this.http.post(`${this.baseUrl}/menu`,body);
   }
+  deleteMenu(body:any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/menudelete`,body);
+  }
+
+    editMenu(body:any,id:any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/menu/${id}`,body);
+  }
 }

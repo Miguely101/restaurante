@@ -11,14 +11,22 @@ export class MeunItemsComponent implements OnInit {
 
   list1:any[] = []
   list2:any[] = []
+  
   constructor(private service:ApIServiceService,public config: DynamicDialogConfig, public ref: DynamicDialogRef) { }
 
   ngOnInit(): void {
+    this.list1= [];
+    this.list2= [];
     this.load()
   }
 
   send(){
-    
+
+    const ids: number[] = this.list2.map(item => item.prato_id);
+    this.service.editMenu(ids,this.config.data.ids).subscribe((response) => {
+      console.log(response)
+     })
+     this.ref.close(true);
   }
 
   load(){

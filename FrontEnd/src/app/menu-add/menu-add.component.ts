@@ -12,6 +12,7 @@ export class MenuAddComponent implements OnInit {
   valor!:any;
   list1: any[] = []
   list2: any[] = []
+  msg:string = "";
   constructor(private service:ApIServiceService,public ref: DynamicDialogRef) { }
 
   ngOnInit(): void {
@@ -19,6 +20,10 @@ export class MenuAddComponent implements OnInit {
   }
 
   send(){
+    if(this.valor == null || this.menu_nomes == null){
+      this.msg = "Valor e nome obrigatorio."
+      return;
+    }
     const ids: number[] = this.list2.map(item => item.prato_id);
      var body = {menu_nome: this.menu_nomes,menu_preco: this.valor,ids: ids}
     this.service.makeMenu(body).subscribe((response) => {
