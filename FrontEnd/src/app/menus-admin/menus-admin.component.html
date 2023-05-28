@@ -3,11 +3,12 @@
     <div class="row">
         <div class="col-6" style="margin-top: 20px;width: 50%;">
 
-            <p-table [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds">
-                <ng-template pTemplate="caption">
+            <p-table #dv filerBy="prato_nome" [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds" [globalFilterFields]="['prato_nome']">
+                <ng-template pTemplate="caption" >
                     <h2>Pratos</h2>
                     <button pButton pRipple (click)="show()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
                     <button pButton  [disabled]="(selecteds ?? []).length == 0" (click)="delete()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
+                    <input style="margin-left: 10px;" pInputText type="text" (input)="dv.filterGlobal($any($event.target).value, 'contains')" placeholder="Nome" />
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
@@ -51,12 +52,12 @@
 
 
         <div class="col-6" style="margin-top: 20px; width: 50%;">
-            <p-table [value]="list2" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds2">
+            <p-table #dv2 [value]="list2" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds2" [globalFilterFields]="['menu_nome']" filerBy="menu_nome">
                 <ng-template pTemplate="caption">
                     <h2>Menus</h2>
                     <button pButton pRipple (click)="show3()" type="button" label="Adicionar" icon="pi pi-plus" iconPos="right" class="p-button-success" style="margin-right: 20px;"></button>
                     <button pButton  [disabled]="(selecteds2 ?? []).length == 0" (click)="delete2()" type="button" label="Apagar" icon="pi pi-minus" iconPos="right"class="p-button-danger"></button>
-                    
+                    <input style="margin-left: 10px;" pInputText type="text" (input)="dv2.filterGlobal($any($event.target).value, 'contains')" placeholder="Nome" />
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
