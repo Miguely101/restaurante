@@ -1,10 +1,11 @@
 <div class="card">
-    <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="prato_nome" layout="grid">
+    <p-dataView #dv   [lazy]="true" [loading]="loading"   [value]="products" [paginator]="true" [rows]="9" filterBy="prato_nome" layout="grid">
         <ng-template pTemplate="header">
             <div class="flex flex-column md:flex-row md:justify-content-between">
                 <span class="p-input-icon-left mb-2 md:mb-0">
                     <i class="pi pi-search"></i>
                     <input pInputText type="text" (input)="dv.filter($any($event.target).value, 'contains')" placeholder="Nome"/>
+                    <p-button  icon="pi pi-shopping-cart"  (click)="show()" ></p-button> Carrinho - {{precoTotal}}€            
                 </span>
             </div>
         </ng-template>
@@ -27,7 +28,7 @@
                     </div>
                     <div class="product-grid-item-bottom">
                         <span class="product-price">{{product.prato_preco}} €</span>
-                        <p-button icon="pi pi-shopping-cart" ></p-button>
+                        <p-button icon="pi pi-shopping-cart" (click)="addItem(product)" ></p-button>
                     </div>
                 </div>
             </div>
