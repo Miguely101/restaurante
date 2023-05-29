@@ -42,6 +42,7 @@ import { ComprarComponent } from './comprar/comprar.component';
 import {PaginatorModule} from 'primeng/paginator';
 import {PanelModule} from 'primeng/panel';
 import {RatingModule} from 'primeng/rating';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 const appRoute: Routes = [
@@ -77,7 +78,8 @@ const appRoute: Routes = [
     PratoAdminComponent,
     MeunItemsComponent,
     MenuAddComponent,
-    ComprarComponent
+    ComprarComponent,
+    CarrinhoComponent
   ],
   imports: [
     RatingModule,
