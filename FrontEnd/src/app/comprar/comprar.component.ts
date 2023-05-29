@@ -63,6 +63,7 @@ export class ComprarComponent implements OnInit {
   }
 
   conta(){
+    this.precoTotal =  0
     this.list1.forEach((item) => {
       const itemPrice = item.prato_preco * item.prato_quant;
       this.precoTotal += itemPrice;

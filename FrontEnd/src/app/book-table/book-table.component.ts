@@ -72,6 +72,7 @@ export class BookTableComponent implements OnInit {
 
   makeReserva(){
     const index = this.restaurantes.findIndex(p => p.value == this.selectedResc);
+    console.log(this.selectedData)
     const body = {
       restaurante_id: this.selectedResc,
       reserva_data: this.selectedData,

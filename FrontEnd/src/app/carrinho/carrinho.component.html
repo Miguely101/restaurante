@@ -1,6 +1,7 @@
 <p-table #dv filerBy="prato_nome" [value]="list1" [tableStyle]="{'width': '100%'}"  [globalFilterFields]="['prato_nome']">
     <ng-template pTemplate="header">
         <tr>
+            <th></th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Categoria</th>
@@ -9,10 +10,13 @@
     </ng-template>
     <ng-template pTemplate="body" let-x>
         <tr>
-            <th>{{x.prato_nome}}</th>
-            <th>{{x.prato_preco}}</th>
-            <th>{{x.pratoTipo}}</th>
-            <th>{{x.prato_quant}}</th>
+            <td>x</td>
+            <td>{{x.prato_nome}}</td>
+            <td>{{x.prato_preco}}€</td>
+            <td>{{x.pratoTipo}}</td>
+            <td>{{x.prato_quant}}</td>
+            <td><button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-text"></button></td>
+            <td><button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-secondary p-button-text"></button></td>
         </tr>
     </ng-template>
 </p-table>
