@@ -60,6 +60,9 @@ export class ComprarComponent implements OnInit {
       }
       
   });
+  this.ref.onClose.subscribe((data) => {
+    this.conta();
+  })
   }
 
   conta(){

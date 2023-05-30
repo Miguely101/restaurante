@@ -10,13 +10,22 @@
     </ng-template>
     <ng-template pTemplate="body" let-x>
         <tr>
-            <td>x</td>
+            <td (click)="deletes(x)" class="clickClass" >x</td>
             <td>{{x.prato_nome}}</td>
             <td>{{x.prato_preco}}€</td>
             <td>{{x.pratoTipo}}</td>
-            <td>{{x.prato_quant}}</td>
-            <td><button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-text"></button></td>
-            <td><button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-secondary p-button-text"></button></td>
+           <td pEditableColumn>
+            <p-cellEditor>
+                <ng-template pTemplate="input">
+                    <p-inputNumber (onFocus)="startChange(x)"[(ngModel)]="valor" [min]= "1" aria-placeholder="Quantidade" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="1"
+                decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                 class="p-inputnumber p-col-12" (onBlur)="saveChange(x)"></p-inputNumber>
+                  </ng-template>
+                <ng-template pTemplate="output" >
+                  <td (click)="startChange(x)">{{x.prato_quant}}</td>
+                </ng-template>
+            </p-cellEditor>
+           </td>  
         </tr>
     </ng-template>
 </p-table>
