@@ -56,6 +56,7 @@ export class ComprarComponent implements OnInit {
       contentStyle: {"max-height": "500px", "overflow": "auto","min-height": "200px"},
       baseZIndex: 10000,
       data: {
+        valor2: this.precoTotal,
         items: this.list1,
       }
       

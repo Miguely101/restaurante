@@ -20,7 +20,7 @@ router.post('/menu',MenuController.CreateMenus);
 router.get('/menu',MenuController.getAllmenus);
 router.get('/menuitems/:id',MenuController.getItemsMenu);
 //Encomenda
-router.post('encomenda',EncomendaController.CreateEncomenda);
+router.post('/encomenda',authenticateToken,EncomendaController.CreateEncomenda);
 //Pratos
 router.post('/pratos',PratosController.createPrato);
 router.get('/pratos',PratosController.getAllpratos);

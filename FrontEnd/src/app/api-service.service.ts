@@ -107,4 +107,9 @@ export class ApIServiceService {
     editMenu(body:any,id:any): Observable<any> {
     return this.http.put(`${this.baseUrl}/menu/${id}`,body);
   }
+  Encomenda(body:any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(`${this.baseUrl}/encomenda`,body,{ headers });
+  }
 }

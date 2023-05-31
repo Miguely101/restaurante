@@ -2,35 +2,44 @@ const connection = require('./connection');
 const sql = require('mssql');
 require("dotenv").config();
 
-const CreateEncomenda  = async (menu) =>{
-    const pool = await connection;
-    const insertResult = await pool
-    const result = await pool.request()
-    .input('restaurante_id', sql.Int, menu.menu_nome)
-    .input('utilizador_id', sql.Int, menu.menu_preco)
-    .input('encomenda_data', sql.Numeric(10,2), menu.menu_preco)
-    .input('encomenda_hora', sql.Int, menu.menu_preco)
-    .input('encomenda_valor', sql.Numeric(10,2), menu.menu_preco)
-    .input('estado_id', sql.Int,1)
-    .query('INSERT INTO tbl_menus(menu_nome,menu_preco) VALUES (@menu_nome,@menu_preco)');
+const CreateEncomenda = async (ecomenda, id) => {
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  var formattedDate = new Date(year, month - 1, day); // Convert to Date object
+  var hour = currentDate.getHours();
 
-    const selectResult = await pool
+  const pool = await connection;
+  const insertResult = await pool;
+
+  const result = await pool
+    .request()
+    .input('restaurante_id', sql.Int, ecomenda.restaurante_id)
+    .input('utilizador_id', sql.Int, id)
+    .input('encomenda_data', sql.Date, formattedDate)
+    .input('encomenda_hora', sql.Int, hour)
+    .input('encomenda_valor', sql.Numeric(10, 2), ecomenda.valorTotal)
+    .input('estado_id', sql.Int, 1)
+    .query('INSERT INTO tbl_encomendas(restaurante_id,utilizador_id,encomenda_data,encomenda_hora,encomenda_valor,estado_id) VALUES (@restaurante_id,@utilizador_id,@encomenda_data,@encomenda_hora,@encomenda_valor,@estado_id)');
+
+  const selectResult = await pool.request().query('SELECT MAX(encomenda_id) AS max_id FROM tbl_encomendas');
+  const insertedMenuId = selectResult.recordset[0].max_id;
+
+  for (let i = 0; i < ecomenda.pratos.length; i++) {
+    const { prato_id, prato_quant } = ecomenda.pratos[i];
+    const result = await pool
       .request()
-      .query('SELECT MAX(menu_id) AS max_menu_id FROM tbl_menus');
-     const insertedMenuId = selectResult.recordset[0].max_menu_id;
+      .input('encomenda_id', sql.Int, insertedMenuId)
+      .input('prato_id', sql.Int, prato_id)
+      .input('relEncomenda_quantidade', sql.Int, prato_quant)
+      .query('INSERT INTO tbl_relEncomenda (encomenda_id, prato_id,relEncomenda_quantidade) values (@encomenda_id, @prato_id,@relEncomenda_quantidade)');
+  }
 
-
-    for (let i = 0; i < menu.ids.length; i++) {
-        const prato_id  = menu.ids[i];
-        const result = await pool.request()
-        .input('menu_id', sql.Int, insertedMenuId)
-        .input('prato_id', sql.Int, prato_id)
-        .query('INSERT INTO tbl_relMenu (menu_id, prato_id) values (@menu_id, @prato_id)')    
-      }
-
-      let resp ={code:200, message:"Menu criado com sucesso"}
-      return(resp)
+  let resp = { code: 200, message: "encomenda criada com sucesso" };
+  return resp;
 };
+
 
 
 module.exports = {
