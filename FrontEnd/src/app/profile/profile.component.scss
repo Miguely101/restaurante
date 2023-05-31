@@ -1,14 +1,6 @@
-.mouseHover{
-    cursor: pointer;
+.aceite{
+    background-color: rgba(210, 245, 210, 0.692);
 }
-.container {
-    display: flex;
-  }
-  
-  .info-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .info-container p {
-    flex: 0 0 50%;
-  }
+.pendente{
+    background-color: rgba(180, 180, 180, 0.692);
+}

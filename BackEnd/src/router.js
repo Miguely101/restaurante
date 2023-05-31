@@ -41,5 +41,6 @@ router.put('/user',AuthController.updateUsers)
 router.post('/login',AuthController.login);
 router.post('/register',AuthController.register);
 router.get('/usercheck',authenticateToken ,AuthController.userCheck);
+router.get('/userinfos',authenticateToken ,AuthController.getInfos);
 //21
 module.exports = router;

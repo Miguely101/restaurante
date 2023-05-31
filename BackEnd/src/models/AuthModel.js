@@ -5,7 +5,11 @@ const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
 const getInfos = async(user)=>{
+   const pool = await connection;
+   const result2 = await pool.request()
+   .query(`EXEC getinfo @utilizador_id = ${user.id};`);
 
+   return(result2.recordset)
 }
 
 const register  = async (user) =>{
@@ -83,6 +87,7 @@ const updateUser = async (user) =>{
 }
   
 module.exports = {
+   getInfos,
    updateUser,
    getAllusers,
    login,

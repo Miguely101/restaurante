@@ -112,4 +112,10 @@ export class ApIServiceService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.post(`${this.baseUrl}/encomenda`,body,{ headers });
   }
+
+  getInfos(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.baseUrl}/userinfos`,{ headers });
+  }
 }
