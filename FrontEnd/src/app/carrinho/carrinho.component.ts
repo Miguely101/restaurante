@@ -27,4 +27,7 @@ export class CarrinhoComponent implements OnInit {
       this.list1.splice(index, 1); 
     }
   }
+  send(){
+    
+  }
 }
