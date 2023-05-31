@@ -43,6 +43,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import {PanelModule} from 'primeng/panel';
 import {RatingModule} from 'primeng/rating';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { NavbarsComponent } from './navbars/navbars.component';
 
 
 const appRoute: Routes = [
@@ -79,7 +80,8 @@ const appRoute: Routes = [
     MeunItemsComponent,
     MenuAddComponent,
     ComprarComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    NavbarsComponent
   ],
   imports: [
     RatingModule,

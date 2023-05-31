@@ -1,5 +1,6 @@
-<div class="card">
-    <p-dataView #dv   [lazy]="true" [loading]="loading"   [value]="products" [paginator]="true" [rows]="9" filterBy="prato_nome" layout="grid">
+<app-navbars></app-navbars>
+<div class="card" style="margin-top:55px">
+    <p-dataView #dv  [value]="products" [paginator]="true" [rows]="9" filterBy="prato_nome" layout="grid">
         <ng-template pTemplate="header">
             <div class="flex flex-column md:flex-row md:justify-content-between">
                 <span class="p-input-icon-left mb-2 md:mb-0">

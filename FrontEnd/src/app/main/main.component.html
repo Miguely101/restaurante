@@ -1,28 +1,5 @@
-<header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-       <a href="" class="logo d-flex align-items-center me-auto me-lg-0">
-          <h1>Menu do Chefe<span>.</span></h1>
-       </a>
-       <nav id="navbar" class="navbar">
-          <ul>
-             <li><a href="#hero">Home</a></li>
-             <li><a href="#about">Sobre</a></li>
-             <li><a href="#menu">Menu</a></li>
-             <li><a href="#gallery">Galeria</a></li>
-             <li *ngIf="admincheck()"><a href="/admin">Admin</a></li>
-          </ul>
-       </nav>
 
-      <a *ngIf="!isLoggedIn()" class="btn-book-a-table" href="/login">Login</a>
-      <div *ngIf="isLoggedIn()">
-         <a class="fs-4 fw-semibold">[{{username}}]</a>
-      <a class="btn-book-a-table" (click)="logout()" href="/login">Logout</a>   
-      </div>
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-       
-    </div>
-  </header>
+  <app-navbars></app-navbars>
   <section id="hero" class="hero d-flex align-items-center section-bg">
     <div class="container">
        <div class="row justify-content-between gy-5">
@@ -31,7 +8,7 @@
              <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
              <div class="d-flex" data-aos="fade-up" data-aos-delay="200"> <a (click)="show()" class="btn-book-a-table">Reserva</a> </div> 
                <br>         
-             <div class="d-flex" data-aos="fade-up" data-aos-delay="200"> <a (click)="show()" class="btn-book-a-table">Encomendar</a> </div>
+             <div class="d-flex" data-aos="fade-up" data-aos-delay="200"> <a href="/comprar" class="btn-book-a-table">Encomendar</a> </div>
           </div>
           <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start"> <img src="assets/img/hero-img.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300"></div>
        </div>
