@@ -1,0 +1,18 @@
+<app-navbars ></app-navbars>
+<div [style]="{'margin': '10rem' }"></div>
+
+<p-carousel [value]="cards" [numVisible]="4" [numScroll]="1" [showIndicators]="false">
+    <ng-template let-car pTemplate="item">
+        <p-card header="{{infoUser.nome}}" [style]="{'width': '25rem'}" >
+            <ng-template pTemplate="header">
+                <img alt="Card" src="../../assets/img/about-2.jpg">
+            </ng-template>
+            <p class="mouseHover">Email: {{infoUser.email}} <i class="pi pi-pencil"></i></p> 
+            <p class="mouseHover">Telefone: {{infoUser.numero}} <i class="pi pi-pencil"></i></p> 
+            <p class="mouseHover">Morada: {{infoUser.morada}} <i class="pi pi-pencil"></i></p> 
+            <p class="mouseHover">Senha: *****</p>
+        </p-card>
+    </ng-template>
+</p-carousel>
+
+

@@ -44,7 +44,9 @@ import {PanelModule} from 'primeng/panel';
 import {RatingModule} from 'primeng/rating';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { NavbarsComponent } from './navbars/navbars.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import {CardModule} from 'primeng/card';
+import {CarouselModule} from 'primeng/carousel';
 
 const appRoute: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -52,6 +54,7 @@ const appRoute: Routes = [
   {path: 'home', component: MainComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'profile', component: ProfileComponent},
   {
     path: 'admin',
     component: AdminHomeComponent,
@@ -81,9 +84,12 @@ const appRoute: Routes = [
     MenuAddComponent,
     ComprarComponent,
     CarrinhoComponent,
-    NavbarsComponent
+    NavbarsComponent,
+    ProfileComponent
   ],
   imports: [
+    CarouselModule,
+    CardModule,
     RatingModule,
     PanelModule,
     PaginatorModule,

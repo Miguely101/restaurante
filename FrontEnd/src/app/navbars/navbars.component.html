@@ -1,4 +1,4 @@
-<header id="header" class="header fixed-top d-flex align-items-center">
+<header id="header" class="header fixed-top d-flex align-items-center shadow">
     <div class="container d-flex align-items-center justify-content-between">
        <a href="" class="logo d-flex align-items-center me-auto me-lg-0">
           <h1>Menu do Chefe<span>.</span></h1>
@@ -15,7 +15,7 @@
 
       <a *ngIf="!isLoggedIn()" class="btn-book-a-table" href="/login">Login</a>
       <div *ngIf="isLoggedIn()">
-         <a class="fs-4 fw-semibold">[{{username}}]</a>
+         <a class="anime fs-4 fw-semibold" href="/profile">[{{username}}]</a>
       <a class="btn-book-a-table" (click)="logout()" href="/login">Logout</a>   
       </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

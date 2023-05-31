@@ -3,6 +3,7 @@ import { ApIServiceService } from '../api-service.service';
 import { Table } from 'primeng/table'
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CarrinhoComponent } from '../carrinho/carrinho.component';
+import { MessageService } from 'primeng/api';
 
 interface ListItem {
   prato_id: any,
@@ -15,11 +16,11 @@ interface ListItem {
   selector: 'app-comprar',
   templateUrl: './comprar.component.html',
   styleUrls: ['./comprar.component.scss'],
-  providers:[DialogService]
+  providers:[DialogService,MessageService]
 })
 export class ComprarComponent implements OnInit {
 
-  constructor(private service:ApIServiceService,public dialogService: DialogService) { }
+  constructor(private service:ApIServiceService,public dialogService: DialogService,private messageService: MessageService) { }
   products:any[] = []
   list1:ListItem[] = []
   ref!: DynamicDialogRef;
@@ -62,6 +63,10 @@ export class ComprarComponent implements OnInit {
       
   });
   this.ref.onClose.subscribe((data) => {
+    if(data == true){
+      this.list1 = []
+      this.messageService.add({severity:'success', summary: 'Encomenda feita', detail: "Preço -" +this.precoTotal + "€"});
+    }
     this.conta();
   })
   }

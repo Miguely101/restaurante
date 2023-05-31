@@ -73,9 +73,12 @@ export class BookTableComponent implements OnInit {
   makeReserva(){
     const index = this.restaurantes.findIndex(p => p.value == this.selectedResc);
     console.log(this.selectedData)
+    const selectedDate = new Date(this.selectedData);
+    selectedDate.setDate(selectedDate.getDate() + 1); // Add one day
+
     const body = {
       restaurante_id: this.selectedResc,
-      reserva_data: this.selectedData,
+      reserva_data: selectedDate,
       reserva_hora: this.selectedHora,
       reserva_pessoas: this.selectedPessoas
     }

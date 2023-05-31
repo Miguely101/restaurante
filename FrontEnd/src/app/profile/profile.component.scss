@@ -1,0 +1,14 @@
+.mouseHover{
+    cursor: pointer;
+}
+.container {
+    display: flex;
+  }
+  
+  .info-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .info-container p {
+    flex: 0 0 50%;
+  }

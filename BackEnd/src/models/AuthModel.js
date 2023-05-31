@@ -4,6 +4,10 @@ const sql = require('mssql');
 const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
+const getInfos = async(user)=>{
+
+}
+
 const register  = async (user) =>{
  const pool = await connection;
  const hashedPassowrd = await bcrypt.hash(user.password,10);
