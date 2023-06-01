@@ -1,7 +1,7 @@
 <app-navbars ></app-navbars>
 <div [style]="{'margin': '10rem' }"></div>
-
-<p-carousel [value]="infos" [numVisible]="4" [numScroll]="4" [showIndicators]="false">
+<p-toast></p-toast>
+<p-carousel [value]="infos" [numVisible]="3" [numScroll]="3" [showIndicators]="false">
     <ng-template let-x pTemplate="item">
         <div>
             <p-card header="{{x.tipo}} - {{x.id}}" [style]="{'width': '25rem'}" >

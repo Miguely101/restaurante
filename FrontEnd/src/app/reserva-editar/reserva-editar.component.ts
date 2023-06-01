@@ -25,6 +25,12 @@ export class ReservaEditarComponent implements OnInit {
   isDisabled = true;
 
   ngOnInit(): void {
+    this.socketService.listenToServer("foi").subscribe((data)=>{
+      console.log(data)
+    })
+    
+    this.socketService.emitToServer("test","test");
+
     this.counts = this.config.data.pessoas
     this.service.getMesasById(this.config.data.selectedResc,this.config.data.ids).subscribe((response) => {
       this.list1 = response;
@@ -42,6 +48,7 @@ export class ReservaEditarComponent implements OnInit {
       console.log(this.config.data.ids)
       console.log(response)
      })
+     this.socketService.emitToServer("reserva-aceite", "foi enviado");
      this.ref.close();
   }
   count(){
