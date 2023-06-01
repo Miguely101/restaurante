@@ -55,6 +55,8 @@ export class ReservasComponent implements OnInit {
       console.log(data)
     })
     
+    this.socketService.emitToServer("test","test");
+
     this.service.getReservasById(this.number).subscribe((response) => {
       this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
   
