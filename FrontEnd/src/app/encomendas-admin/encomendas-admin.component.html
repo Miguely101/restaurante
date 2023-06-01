@@ -16,7 +16,7 @@
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-x>
-                    <tr>
+                    <tr (click)="show(x.encomenda_id)">
                         <td>{{x.res}}</td>
                         <td>{{x.utilizador_nome}}</td>
                         <td>{{x.utilizador_numero}}</td>

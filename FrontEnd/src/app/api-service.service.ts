@@ -119,4 +119,7 @@ export class ApIServiceService {
   getAllEncomendasById(ids:any): Observable<any[]>{
     return this.http.get<any[]>(`${this.baseUrl}/encomenda/${ids}`);
   }
+  getAllEncomendasItems(ids:any): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/encomendaitems/${ids}`);
+  }
 }

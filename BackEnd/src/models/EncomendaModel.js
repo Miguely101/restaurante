@@ -48,9 +48,15 @@ const getEncomenda = async (id) => {
   return(result2.recordset)
 };
 
-
+const getEncomendItems = async (id) => {
+  const pool = await connection;
+  const result2 = await pool.request()
+  .query(`SELECT tbl_relEncomenda.encomenda_id,tbl_relEncomenda.relEncomenda_quantidade,tbl_pratos.prato_nome, tbl_estadoEncomendas.estado_id FROM tbl_relEncomenda JOIN tbl_pratos ON tbl_relEncomenda.prato_id = tbl_pratos.prato_id JOIN tbl_encomendas ON tbl_relEncomenda.encomenda_id = tbl_encomendas.encomenda_id JOIN tbl_estadoEncomendas ON tbl_encomendas.estado_id = tbl_estadoEncomendas.estado_id WHERE tbl_relEncomenda.encomenda_id = ${id};`);
+  return(result2.recordset)
+};
 
 module.exports = {
+  getEncomendItems,
   getEncomenda,
   CreateEncomenda
 };

@@ -28,18 +28,23 @@ interface Reserva {
 export class ReservasComponent implements OnInit {
 
   calendarOptions: CalendarOptions = {
+   
+    eventClick(arg) {
+        console.log(arg.event._def.title.slice(8))
+    },
     plugins: [dayGridPlugin,timeGridPlugin],
 
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridDay'
+                    right: 'dayGridMonth,timeGridDay',
                 },
                 editable: false,
-                selectable:false,
+                selectable:true,
                 selectMirror: false,
                 dayMaxEvents: false,
-  };
+  }
+
   events: { title: string, date: string }[] = [];
   reservas!:[];
   restaurantes!: any[];
@@ -54,7 +59,7 @@ export class ReservasComponent implements OnInit {
     this.socketService.listenToServer("foi").subscribe((data)=>{
       console.log(data)
     })
-    
+
     this.socketService.emitToServer("test","test");
 
     this.changeLoc()
@@ -71,7 +76,9 @@ export class ReservasComponent implements OnInit {
     });
 
   }
-
+  handleDateClick(x:any) {
+    alert('date click! ' + x)
+  }
   changeLoc() {
     this.service.getReservasById(this.selectedResc).subscribe((response) => {
 
