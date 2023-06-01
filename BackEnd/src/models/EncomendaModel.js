@@ -40,8 +40,17 @@ const CreateEncomenda = async (ecomenda, id) => {
   return resp;
 };
 
+const getEncomenda = async (id) => {
+  const pool = await connection;
+  const result2 = await pool.request()
+  .query(`EXEC encomendasRestaurante @id = ${id};`);
+
+  return(result2.recordset)
+};
+
 
 
 module.exports = {
+  getEncomenda,
   CreateEncomenda
 };

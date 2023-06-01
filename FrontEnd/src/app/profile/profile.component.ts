@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
       this.messageService.add({severity:'success', summary: 'Reserva', detail: "A sua reserva foi aceite!"});
       setTimeout(() => {
         this.load();
-       }, 650); 
+       }, 1000); 
       console.log(data);
     });
   }

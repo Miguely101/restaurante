@@ -1,0 +1,28 @@
+
+
+            <p-dropdown  [options]="restaurantes" [(ngModel)]="selectedResc" [style]="{'margin': '1px','width': '100%'}" (onChange)="changeLoc()"></p-dropdown>
+            <p-table #dv filerBy="utilizador_nome" [value]="list1" [tableStyle]="{'width': '100%'}"  [(selection)]="selecteds" [globalFilterFields]="['utilizador_nome']">
+                <ng-template pTemplate="caption" >
+                    <input style="margin-left: 10px;" pInputText type="text" (input)="dv.filterGlobal($any($event.target).value, 'contains')" placeholder="Nome" />
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Restaurante</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Data/Hora</th>
+                        <th>Preço</th>
+                        <th>Estado</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-x>
+                    <tr>
+                        <td>{{x.res}}</td>
+                        <td>{{x.utilizador_nome}}</td>
+                        <td>{{x.utilizador_numero}}</td>
+                        <td>{{x.encomenda_data}}/{{x.encomenda_hora}}:00</td>
+                        <td>{{x.encomenda_valor}}€</td>
+                        <td>{{x.estado_nome}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>

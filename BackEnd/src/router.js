@@ -21,6 +21,7 @@ router.get('/menu',MenuController.getAllmenus);
 router.get('/menuitems/:id',MenuController.getItemsMenu);
 //Encomenda
 router.post('/encomenda',authenticateToken,EncomendaController.CreateEncomenda);
+router.get('/encomenda/:id',EncomendaController.getEncomenda)
 //Pratos
 router.post('/pratos',PratosController.createPrato);
 router.get('/pratos',PratosController.getAllpratos);

@@ -57,30 +57,7 @@ export class ReservasComponent implements OnInit {
     
     this.socketService.emitToServer("test","test");
 
-    this.service.getReservasById(this.number).subscribe((response) => {
-      this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
-  
-  
-      response.forEach((item: Reserva) => {
-        if (item.reservas_estado === 'Aceite') {
-          const date = new Date(item.reserva_data);
-          const year = date.getFullYear();
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const day = String(date.getDate()).padStart(2, '0');
-          const hour = String(item.reserva_hora).padStart(2, '0');
-  
-          const event = {
-            title: `Reserva ${item.reserva_id}`,
-            date: `${year}-${month}-${day}T${hour}:00`,
-          };
-          this.events.push(event);
-        }
-      });
-  
-      // Update the calendar options with the updated events array
-      this.calendarOptions = { ...this.calendarOptions, ...{ events: this.events } };
-    });
-
+    this.changeLoc()
 
     this.service.getRestaurantes().subscribe((response) => {
       this.restaurantes = response.map((item) => {
@@ -97,29 +74,29 @@ export class ReservasComponent implements OnInit {
 
   changeLoc() {
     this.service.getReservasById(this.selectedResc).subscribe((response) => {
-      this.reservas = [];
-      this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
-  
-      // Clear the events array before populating it with new events
-      this.events = [];
 
+        this.reservas = [];
+        this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
+        this.events = [];
+  
+  
+        response.forEach((item: Reserva) => {
+          if (item.reservas_estado === 'Aceite') {
+            const date = new Date(item.reserva_data);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hour = String(item.reserva_hora).padStart(2, '0');
+    
+            const event = {
+              title: `Reserva ${item.reserva_id}`,
+              date: `${year}-${month}-${day}T${hour}:00`,
+            };
+            this.events.push(event);
+          }
+        });
 
-      response.forEach((item: Reserva) => {
-        if (item.reservas_estado === 'Aceite') {
-          const date = new Date(item.reserva_data);
-          const year = date.getFullYear();
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const day = String(date.getDate()).padStart(2, '0');
-          const hour = String(item.reserva_hora).padStart(2, '0');
-  
-          const event = {
-            title: `Reserva ${item.reserva_id}`,
-            date: `${year}-${month}-${day}T${hour}:00`,
-          };
-          this.events.push(event);
-        }
-      });
-  
+    
       // Update the calendar options with the updated events array
       this.calendarOptions = { ...this.calendarOptions, ...{ events: this.events } };
     });
@@ -145,7 +122,9 @@ export class ReservasComponent implements OnInit {
     });
 
     this.ref.onClose.subscribe(() => {
-      this.changeLoc(); 
+      setTimeout(() => {
+          this.changeLoc();
+       }, 1000); 
     });
 
   }

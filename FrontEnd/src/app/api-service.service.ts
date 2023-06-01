@@ -63,13 +63,10 @@ export class ApIServiceService {
   }
   
   getMesasById(ids:any,ids2:any): Observable<any> {
-    console.log(ids2)
     return this.http.get<any>(`${this.baseUrl}/mesas/${ids}/${ids2}`);
   }
   
   setMesas(array:any,ids:any): Observable<any> {
-    console.log(array)
-    console.log(ids)
     return this.http.put<any>(`${this.baseUrl}/reserva/${ids}`,array);
   }
 
@@ -117,5 +114,9 @@ export class ApIServiceService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.baseUrl}/userinfos`,{ headers });
+  }
+
+  getAllEncomendasById(ids:any): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/encomenda/${ids}`);
   }
 }
