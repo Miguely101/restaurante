@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ReservaEditarComponent } from '../reserva-editar/reserva-editar.component';
 import { ThisReceiver } from '@angular/compiler';
+import { SocketIoService } from '../socket-io.service';
 
 interface Reserva {
   reserva_id: number;
@@ -46,11 +47,14 @@ export class ReservasComponent implements OnInit {
   number = 1;
   ref!: DynamicDialogRef;
  
-  constructor(private service:ApIServiceService ,private datePipe: DatePipe,public dialogService: DialogService) { }
+  constructor(private socketService:SocketIoService,private service:ApIServiceService ,private datePipe: DatePipe,public dialogService: DialogService) { }
 
 
   ngOnInit(): void {
-
+    this.socketService.listenToServer("foi").subscribe((data)=>{
+      console.log(data)
+    })
+    
     this.service.getReservasById(this.number).subscribe((response) => {
       this.reservas = response.filter((item: Reserva) => item.reservas_estado === 'Pendente');
   

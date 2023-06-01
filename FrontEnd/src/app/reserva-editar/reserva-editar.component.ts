@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import {DynamicDialogRef} from 'primeng/dynamicdialog';
 import {DynamicDialogConfig} from 'primeng/dynamicdialog';
 import { ApIServiceService } from '../api-service.service';
+import { SocketIoService } from '../socket-io.service';
 
 @Component({
   selector: 'app-reserva-editar',
@@ -11,7 +12,8 @@ import { ApIServiceService } from '../api-service.service';
 export class ReservaEditarComponent implements OnInit {
   selectedResc!: any;
 
-  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig,private service:ApIServiceService) { }
+  constructor(private socketService:SocketIoService, public ref: DynamicDialogRef, public config: DynamicDialogConfig,private service:ApIServiceService) { 
+  }
   
   list1: any[] = [];
 
@@ -29,6 +31,10 @@ export class ReservaEditarComponent implements OnInit {
       this.list1count = this.list1.length * 2;
      })
     
+  }
+
+  onChange(change:any){
+    this.ref.close();
   }
 
   send(){
