@@ -8,6 +8,8 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ReservaEditarComponent } from '../reserva-editar/reserva-editar.component';
 import { ThisReceiver } from '@angular/compiler';
 import { SocketIoService } from '../socket-io.service';
+import{ HttpClient, HttpHeaders} from '@angular/common/http';
+import { ReservaMesasComponent } from '../reserva-mesas/reserva-mesas.component';
 
 interface Reserva {
   reserva_id: number;
@@ -26,11 +28,11 @@ interface Reserva {
   
 })
 export class ReservasComponent implements OnInit {
-
+  private componentRef: ReservasComponent = this;
   calendarOptions: CalendarOptions = {
    
-    eventClick(arg) {
-        console.log(arg.event._def.title.slice(8))
+    eventClick: (arg) => {
+      this.handleDateClick(arg.event._def.title.slice(8));
     },
     plugins: [dayGridPlugin,timeGridPlugin],
 
@@ -76,8 +78,20 @@ export class ReservasComponent implements OnInit {
     });
 
   }
+  
   handleDateClick(x:any) {
-    alert('date click! ' + x)
+    this.service.getMesas(x).subscribe((response) => {
+      this.ref = this.dialogService.open(ReservaMesasComponent, {
+        header: 'Mesas',
+        width: '70%',
+        contentStyle: {"max-height": "500px", "overflow": "auto", "min-height": "500px"},
+        baseZIndex: 10000,
+        data: {
+          mesas:response
+        }
+      });
+
+    })
   }
   changeLoc() {
     this.service.getReservasById(this.selectedResc).subscribe((response) => {

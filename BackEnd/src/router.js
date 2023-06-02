@@ -37,6 +37,7 @@ router.get('/mesas/:id/:id2',ReservaController.getAllMessasOnById);
 router.get('/reserva',ReservaController.getAllReserva);
 router.put('/reserva/:id',ReservaController.setMesasReservas);
 router.get('/reserva/:id',ReservaController.getAllReservaById);
+router.get('/reservaMesas/:id',ReservaController.getMesas);
 //Client
 router.get('/user',AuthController.getAllusers);
 router.put('/user',AuthController.updateUsers)
@@ -44,5 +45,5 @@ router.post('/login',AuthController.login);
 router.post('/register',AuthController.register);
 router.get('/usercheck',authenticateToken ,AuthController.userCheck);
 router.get('/userinfos',authenticateToken ,AuthController.getInfos);
-//21
+//26
 module.exports = router;

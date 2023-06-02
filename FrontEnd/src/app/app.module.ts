@@ -49,6 +49,7 @@ import {CardModule} from 'primeng/card';
 import {CarouselModule} from 'primeng/carousel';
 import { EncomendasAdminComponent } from './encomendas-admin/encomendas-admin.component';
 import { EncomendasItemsComponent } from './encomendas-items/encomendas-items.component';
+import { ReservaMesasComponent } from './reserva-mesas/reserva-mesas.component';
 
 const appRoute: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -90,7 +91,8 @@ const appRoute: Routes = [
     NavbarsComponent,
     ProfileComponent,
     EncomendasAdminComponent,
-    EncomendasItemsComponent
+    EncomendasItemsComponent,
+    ReservaMesasComponent
   ],
   imports: [
     CarouselModule,

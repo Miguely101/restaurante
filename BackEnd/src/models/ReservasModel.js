@@ -66,7 +66,16 @@ const  setMesasReservas = async (array,id) =>{
 
       return ("Reserva Confirmada")
 };
+
+const  getMesas  = async (id) =>{
+    const pool = await connection;
+   
+    const result = await pool.request()
+    .query(`SELECT * FROM tbl_reservaMesas where reserva_id = ${id}`);
+    return (result.recordset);
+};
 module.exports = {
+    getMesas,
     setMesasReservas,
     getAllReservaById,
     getAllMessasOnById,
