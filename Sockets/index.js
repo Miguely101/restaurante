@@ -18,19 +18,25 @@ io.on("connection", (socket) => {
   });
 
   socket.on("reserva-cancelada", (namespace) => {
-    socket.emit("reserva","A sua reserva foi cancelada");
+    io.emit("Lreserva-cancelada","A sua reserva foi cancelada");
   });
 
-  socket.on("encomenda1", (namespace) => {
-    socket.emit("foi","A sua encomenda está a caminho");
-  });
-
-  socket.on("encomenda2", (namespace) => {
-    socket.emit("foi","A sua encomenda chegou");
-  });
-
-  socket.on("encomenda3", (namespace) => {
-    socket.emit("foi","A sua encomenda foi cancelada");
+  socket.on("encomenda", (namespace) => {
+    if(namespace == "aceite"){
+      io.emit("Lencomenda","A sua encomenda está a aceite");
+    }
+    if(namespace == "cancelar"){
+      io.emit("Lencomenda","A sua encomenda está cancelada");
+    }
+    if(namespace == "entregue"){
+      io.emit("Lencomenda","A sua encomenda está entregue");
+    }
+    if(namespace == "acaminho"){
+      io.emit("Lencomenda","A sua encomenda está a caminho");
+    }
+    if(namespace == "preparar"){
+      io.emit("Lencomenda","A sua encomenda está a preparar");
+    }
   });
 });
 

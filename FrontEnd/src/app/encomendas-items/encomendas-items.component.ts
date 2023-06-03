@@ -11,26 +11,45 @@ export class EncomendasItemsComponent implements OnInit {
 
   constructor(private service:ApIServiceService, public ref: DynamicDialogRef,public config: DynamicDialogConfig) { }
   list1:any[] = [];
-  valor:any = 2
-  valorBtn:any = 0;
+  valor:any;
 
-  ngOnInit(): void {
-    this.service.getAllEncomendasItems(this.config.data.ids).subscribe((response:any) => {
-      this.list1 = response
-      this.valor = response[0].estado_id
-      if(response[0].estado_id == 1){this.valor++}
-      this.valorBtn = this.valor + 1
-      console.log(this.valorBtn)
-    }) 
+  async ngOnInit(): Promise<void> {
+    this.service.getAllEncomendasItems(this.config.data.ids).subscribe(async (response: any) => {
+      this.list1 = await response;
+      this.valor = await response[0].estado_id;
+  
+      if (this.valor == 5 || this.valor == 6) {
+        this.valor = 8;
+      }
+  
+      console.log(this.valor); // Move the console.log here
+    });
   }
+  
 
   plus(x:any){
+
     if(!x){
       this.valor = 6;
     }
-    this.service.setEstadoEncomenda(this.config.data.ids,this.valor).subscribe((response)=>{
-    })
+    if(this.valor == 5){
+      this.valor = 8;
+    }
+
     this.valor++;
-    this.valorBtn = this.valor +1;
+    
+    this.service.setEstadoEncomenda(this.config.data.ids,this.valor).subscribe((response)=>{
+      console.log(response)
+    })
+
+    if(this.valor == 5){
+      this.valor = 8;
+    }
+
+
+    if(!x){
+      this.valor = 8;
+    }
+
   }
 }
