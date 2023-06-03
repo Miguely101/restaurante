@@ -26,11 +26,11 @@ export class EncomendasItemsComponent implements OnInit {
 
   plus(x:any){
     if(!x){
-      this.valor = 6
+      this.valor = 6;
     }
     this.service.setEstadoEncomenda(this.config.data.ids,this.valor).subscribe((response)=>{
     })
-    this.valor++
-    this.valorBtn = this.valor +1
+    this.valor++;
+    this.valorBtn = this.valor +1;
   }
 }
