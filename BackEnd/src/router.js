@@ -23,6 +23,7 @@ router.get('/menuitems/:id',MenuController.getItemsMenu);
 router.post('/encomenda',authenticateToken,EncomendaController.CreateEncomenda);
 router.get('/encomenda/:id',EncomendaController.getEncomenda)
 router.get('/encomendaitems/:id',EncomendaController.getEncomendItems)
+router.get('/encomendaestado/:id/:id2',EncomendaController.setencomendaEstado)
 //Pratos
 router.post('/pratos',PratosController.createPrato);
 router.get('/pratos',PratosController.getAllpratos);

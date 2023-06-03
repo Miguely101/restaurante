@@ -55,7 +55,15 @@ const getEncomendItems = async (id) => {
   return(result2.recordset)
 };
 
+const setencomendaEstado = async (id,id2)=>{
+  const pool = await connection;
+  const result2 = await pool.request()
+  .query(`UPDATE tbl_encomendas SET estado_id = ${id2} where encomenda_id = ${id}`);
+  return(result2.recordset)
+}
+
 module.exports = {
+  setencomendaEstado,
   getEncomendItems,
   getEncomenda,
   CreateEncomenda

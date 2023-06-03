@@ -11,14 +11,26 @@ export class EncomendasItemsComponent implements OnInit {
 
   constructor(private service:ApIServiceService, public ref: DynamicDialogRef,public config: DynamicDialogConfig) { }
   list1:any[] = [];
-  valor:any = 1
+  valor:any = 2
+  valorBtn:any = 0;
+
   ngOnInit(): void {
     this.service.getAllEncomendasItems(this.config.data.ids).subscribe((response:any) => {
       this.list1 = response
       this.valor = response[0].estado_id
+      if(response[0].estado_id == 1){this.valor++}
+      this.valorBtn = this.valor + 1
+      console.log(this.valorBtn)
     }) 
   }
-  plus(){
+
+  plus(x:any){
+    if(!x){
+      this.valor = 6
+    }
+    this.service.setEstadoEncomenda(this.config.data.ids,this.valor).subscribe((response)=>{
+    })
     this.valor++
+    this.valorBtn = this.valor +1
   }
 }

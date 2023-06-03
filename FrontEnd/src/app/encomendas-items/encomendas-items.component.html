@@ -13,8 +13,8 @@
         </tr>
     </ng-template>
 </p-table>
-<button [disabled]="valor != 1" pButton pRipple type="button" label="Aceite" class="p-button-raised" (click)="plus()"></button>
-<button [disabled]="valor != 2" pButton pRipple type="button" label="Preparar" class="p-button-raised" (click)="plus()"></button>
-<button [disabled]="valor != 3" pButton pRipple type="button" label="A Caminho" class="p-button-raised" (click)="plus()"></button>
-<button [disabled]="valor != 4" pButton pRipple type="button" label="Entregue" class="p-button-raised" (click)="plus()"></button>
-<button [disabled]="valor == 5" pButton pRipple type="button" label="Cancelar" class="p-button-raised" (click)="plus()"></button>
+<button [disabled]="valorBtn != 2" pButton pRipple type="button" label="Aceite" class="p-button-raised" (click)="plus(true)"></button>
+<button [disabled]="valorBtn != 3" pButton pRipple type="button" label="Preparar" class="p-button-raised" (click)="plus(true)"></button>
+<button [disabled]="valorBtn != 4" pButton pRipple type="button" label="A Caminho" class="p-button-raised" (click)="plus(true)"></button>
+<button [disabled]="valorBtn != 5" pButton pRipple type="button" label="Entregue" class="p-button-raised" (click)="plus(true)"></button>
+<button [disabled]="valorBtn == 7" pButton pRipple type="button" label="Cancelar" class="p-button-raised" (click)="plus(false)"></button>

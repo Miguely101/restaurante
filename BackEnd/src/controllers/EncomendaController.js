@@ -16,7 +16,12 @@ const getEncomendItems = async(request,response)=>{
     return response.status(201).json(data)
 }
 
+const  setencomendaEstado = async(request,response)=>{
+    let data = await PostModel.setencomendaEstado(request.params.id,request.params.id2);
+    return response.status(201).json(data)
+}
 module.exports = {
+    setencomendaEstado,
     getEncomendItems,
     getEncomenda ,
     CreateEncomenda,

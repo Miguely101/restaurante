@@ -125,4 +125,7 @@ export class ApIServiceService {
   getMesas(ids:any): Observable<any[]>{
     return this.http.get<any[]>(`${this.baseUrl}/reservaMesas/${ids}`);
   }
+  setEstadoEncomenda(id1:any,id2:any): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/encomendaestado/${id1}/${id2}`);
+  }
 }
