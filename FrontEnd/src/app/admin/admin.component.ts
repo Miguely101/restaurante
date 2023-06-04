@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
       this.service.getUsers().subscribe((response) => {
        this.Users = this.Users.concat(response);
       })
- 
+      
       this.perms = [{label: 'Cliente', value: '1'},{label: 'Funcionario', value: '2'},{label: 'Admin', value: '3'}]
       
   }
@@ -49,6 +49,16 @@ export class AdminComponent implements OnInit {
     this.service.userUpdate(user).subscribe((response) => {
         console.log(response);
     })
+
+    setTimeout(() => {
+      this.Users = [];
+
+      this.service.getUsers().subscribe((response) => {
+        this.Users = this.Users.concat(response);
+        console.log(response)
+       })
+ 
+    },500)
 
     this.msgs1 = [{severity:'success', summary:'Edição', detail:'A permissão de ' +  user.utilizador_nome + " foi atualizada"}]
 }

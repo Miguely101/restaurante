@@ -66,7 +66,10 @@ const login  = async (user) =>{
 const getAllusers = async()=>{
    const pool = await connection;
    const email = await pool.request()
-   .query('SELECT * FROM tbl_utilizadores');
+   .query(`SELECT tbl_utilizadores.*, tbl_permissoes.perm_nome
+   FROM tbl_utilizadores
+   JOIN tbl_permissoes ON tbl_utilizadores.perm_id = tbl_permissoes.perm_id;
+   `);
    const data = email.recordset;
    return data;
 }
