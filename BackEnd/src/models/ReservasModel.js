@@ -49,7 +49,7 @@ const  getAllReservaById  = async (id) =>{
     return (result.recordset);
 };
 
-const  setMesasReservas = async (array,id) =>{
+const  setMesasReservas = async (array,id,id2) =>{
     const pool = await connection;
     for (let i = 0; i < array.length; i++) {
         const { mesa_id } = array[i];
@@ -59,9 +59,15 @@ const  setMesasReservas = async (array,id) =>{
         .query('INSERT INTO tbl_reservaMesas (reserva_id, mesa_id) values (@reserva_id, @mesa_id)')
     
       }
+      var text = "Aceite"
+      if(id2 == 1){text = "Cancelada"}
+
+        
+
+
       const result2 = await pool.request()
       .input('reserva_id', sql.Int, id)
-      .input('reserva_estado',sql.VarChar(50), "Aceite")
+      .input('reserva_estado',sql.VarChar(50), text)
       .query('UPDATE tbl_reservas SET reservas_estado = @reserva_estado where reserva_id=@reserva_id ');  
 
       return ("Reserva Confirmada")

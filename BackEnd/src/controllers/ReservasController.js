@@ -23,7 +23,7 @@ const getAllMessasOnById  = async(request, response) =>{
     return response.status(201).json(resp);
 };
 const setMesasReservas  = async(request, response) =>{
-    let resp = await PostModel.setMesasReservas(request.body,request.params.id);
+    let resp = await PostModel.setMesasReservas(request.body,request.params.id,request.params.id2);
     return response.status(201).json(resp);
 };
 const getMesas = async(request, response) =>{

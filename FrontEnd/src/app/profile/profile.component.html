@@ -13,16 +13,13 @@
                 </ng-template>
                 <p class="mouseHover"> <b>Data/Hora:</b>  {{x.data}} / {{x.hora}}:00 </p> 
                 <p class="mouseHover"> <b>Restaurante:</b>  {{x.restaurante_morada}} - {{x.restaurante_localidade}} </p> 
-                <p class="mouseHover" [ngClass]="{'aceite': x.estado === 'Aceite','pendente': x.estado == 'Pendente'}"> <b>Estado:</b>  {{x.estado}} 
+                <p class="mouseHover" [ngClass]="{'aceite': x.estado === 'Aceite' || x.estado ==='Entregue','pendente': x.estado == 'Pendente','cancelado': x.estado == 'Cancelada'}"> <b>Estado:</b>  {{x.estado}} 
                     <i [ngClass]="{'pi pi-clock': x.estado === 'Pendente'}"></i> 
-                    <i [ngClass]="{'pi pi-check': x.estado === 'Aceite'}"></i>
-                    <i [ngClass]="{'pi pi-ban': x.estado === 'Cancelado'}"></i>
+                    <i [ngClass]="{'pi pi-check': x.estado === 'Aceite' || x.estado === 'Entregue'}"></i>
+                    <i [ngClass]="{'pi pi-ban': x.estado === 'Cancelada'}"></i>
                 </p>  
                 <p *ngIf="x.tipo == 'Encomenda'" class="mouseHover"> <b>Valor:</b> {{x.valorTotal}} €</p>
                 <p *ngIf="x.tipo == 'Reserva'" class="mouseHover"> <b>Pessoas:</b> {{x.pessoas}} <i class="pi pi-users"></i></p>
-                <div class="mouseHover" style="display: flex; justify-content: center;">
-                    <button  [ngClass]="{'p-button-danger': x.estado === 'Aceite'}" [disabled]="(x.estado === 'Aceite')" pButton pRipple type="button" label="Ver" class="p-button-raised" [style]="{'min-width': '100%'}"  ></button>
-                </div>
             </p-card>
         </div>
     </ng-template>

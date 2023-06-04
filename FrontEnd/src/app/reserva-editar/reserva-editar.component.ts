@@ -43,12 +43,17 @@ export class ReservaEditarComponent implements OnInit {
     this.ref.close();
   }
 
-  send(){
-    this.service.setMesas(this.list2,this.config.data.ids).subscribe((response) => {
+  send(x:any){
+    this.service.setMesas(this.list2,this.config.data.ids,x).subscribe((response) => {
       console.log(this.config.data.ids)
       console.log(response)
      })
-     this.socketService.emitToServer("reserva-aceite", "foi enviado");
+     if(x == 0){
+      this.socketService.emitToServer("reserva", "aceite");
+     }else{
+      this.socketService.emitToServer("reserva", "cancelada");
+     }
+
      this.ref.close();
   }
   count(){
