@@ -53,6 +53,7 @@ export class EncomendasAdminComponent implements OnInit {
       });
   
       this.ref.onClose.subscribe((data:any) => {
+        this.changeLoc()
       });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ApIServiceService } from '../api-service.service';
 import { SocketIoService } from '../socket-io.service';
+import { dA } from '@fullcalendar/core/internal-common';
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +21,14 @@ export class ProfileComponent implements OnInit {
     this.load()
     this.socketService.listenToServer("Lreserva-aceite").subscribe((data) => {
       this.messageService.add({severity:'success', summary: 'Reserva', detail: "A sua reserva foi aceite!"});
+      setTimeout(() => {
+        this.load();
+       }, 1000); 
+      console.log(data);
+    });
+
+    this.socketService.listenToServer("Lencomenda").subscribe((data) => {
+      this.messageService.add({severity:'success', summary: 'encomenda', detail: "" +  data});
       setTimeout(() => {
         this.load();
        }, 1000); 

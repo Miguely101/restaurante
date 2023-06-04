@@ -22,6 +22,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("encomenda", (namespace) => {
+    console.log(namespace)
     if(namespace == "aceite"){
       io.emit("Lencomenda","A sua encomenda está a aceite");
     }
