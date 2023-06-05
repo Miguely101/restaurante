@@ -51,7 +51,7 @@ export class AdminComponent implements OnInit {
     })
 
     setTimeout(() => {
-      this.Users = [];
+      this.Users = []
 
       this.service.getUsers().subscribe((response) => {
         this.Users = this.Users.concat(response);
