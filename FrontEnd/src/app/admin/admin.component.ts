@@ -60,6 +60,6 @@ export class AdminComponent implements OnInit {
  
     },500)
 
-    this.msgs1 = [{severity:'success', summary:'Edição', detail:'A permissão de ' +  user.utilizador_nome + " foi atualizada"}]
+    this.msgs1 = [{severity:'success', summary:'Edição', detail:'A permissão de ' +  user.utilizador_nome + " foi atualizada"}];
 }
 }
