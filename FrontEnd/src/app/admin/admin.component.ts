@@ -38,7 +38,7 @@ export class AdminComponent implements OnInit {
        this.Users = this.Users.concat(response);
       })
       
-      this.perms = [{label: 'Cliente', value: '1'},{label: 'Funcionario', value: '2'},{label: 'Admin', value: '3'}]
+      this.perms = [{label: 'Cliente', value: '1'},{label: 'Funcionario', value: '2'},{label: 'Admin', value: '3'}];
       
   }
 
