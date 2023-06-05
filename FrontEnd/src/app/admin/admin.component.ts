@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit {
   }
 
   onRowEditSave(user: User) {
-    const index = this.Users.findIndex(p => p.utilizador_id == user.utilizador_id);
+    const index = this.Users.findIndex(p => p.utilizador_id == user.utilizador_id)
     this.Users[index].perm_id =this.selectedPerm;
    
     this.service.userUpdate(user).subscribe((response) => {
