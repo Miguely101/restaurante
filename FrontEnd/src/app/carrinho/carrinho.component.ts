@@ -67,4 +67,8 @@ export class CarrinhoComponent implements OnInit {
       this.valorTotal += itemPrice;
     });
   }
+
+  doar(){
+    this.service.donate();
+  }
 }

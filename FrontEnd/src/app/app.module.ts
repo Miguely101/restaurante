@@ -50,6 +50,7 @@ import {CarouselModule} from 'primeng/carousel';
 import { EncomendasAdminComponent } from './encomendas-admin/encomendas-admin.component';
 import { EncomendasItemsComponent } from './encomendas-items/encomendas-items.component';
 import { ReservaMesasComponent } from './reserva-mesas/reserva-mesas.component';
+import { DoarComponent } from './doar/doar.component';
 
 const appRoute: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -62,6 +63,7 @@ const appRoute: Routes = [
     path: 'admin',
     component: AdminHomeComponent,
     children: [
+      {path:'',redirectTo:'/admin/users',pathMatch:'full'},
       {path: 'encomendas', component: EncomendasAdminComponent},
       {path: 'users', component: AdminComponent},
       {path: 'reservas', component: ReservasComponent},
@@ -92,7 +94,8 @@ const appRoute: Routes = [
     ProfileComponent,
     EncomendasAdminComponent,
     EncomendasItemsComponent,
-    ReservaMesasComponent
+    ReservaMesasComponent,
+    DoarComponent
   ],
   imports: [
     CarouselModule,

@@ -128,4 +128,12 @@ export class ApIServiceService {
   setEstadoEncomenda(id1:any,id2:any): Observable<any[]>{
     return this.http.get<any[]>(`${this.baseUrl}/encomendaestado/${id1}/${id2}`);
   }
+  donate(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(`${this.baseUrl}/donations`,{ headers });
+  }
+  getDonate(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/donations`);
+  }
 }

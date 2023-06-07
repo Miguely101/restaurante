@@ -5,6 +5,7 @@ const ReservaController = require('./controllers/ReservasController')
 const PratosController = require('./controllers/PratosController')
 const MenuController = require('./controllers/MenuController')
 const EncomendaController = require('./controllers/EncomendaController')
+const DonationController = require('./controllers/DonationsController')
 
 const { authenticateToken } = require('./models/TokenModel');
 const router = express.Router();
@@ -46,5 +47,8 @@ router.post('/login',AuthController.login);
 router.post('/register',AuthController.register);
 router.get('/usercheck',authenticateToken ,AuthController.userCheck);
 router.get('/userinfos',authenticateToken ,AuthController.getInfos);
+//Doar
+router.get('/donations',DonationController.getDonations);
+router.post('/donations',authenticateToken ,DonationController.donate);
 //26
 module.exports = router;

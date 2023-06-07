@@ -31,5 +31,6 @@
     </ng-template>
 </p-table>
 <div  *ngIf="list1.length > 0" style="display: flex; justify-content: center;" >
-    <button (click)="send()" pButton pRipple type="button" label="Encomendar - {{valorTotal}}€" class="p-button-raised" [style]="{'min-width': '90%', 'margin': '30px'}"  ></button>
+    <button (click)="send()" pButton pRipple type="button" label="Encomendar - {{valorTotal}}€" class="p-button-raised" [style]="{'min-width': '80%', 'margin': '15px'}"  ></button>
+    <button (click)="doar()" pButton pRipple type="button" label="Doar + 1€" class="p-button-raised p-button-danger" [style]="{'min-width': '10%', 'margin': '15px'}"  ></button>
 </div>
