@@ -47,7 +47,6 @@ export class AdminComponent implements OnInit {
     this.Users[index].perm_id =this.selectedPerm;
    
     this.service.userUpdate(user).subscribe((response) => {
-        console.log(response);
     })
 
     setTimeout(() => {
@@ -55,7 +54,6 @@ export class AdminComponent implements OnInit {
 
       this.service.getUsers().subscribe((response) => {
         this.Users = this.Users.concat(response);
-        console.log(response)
        })
  
     },500)
