@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ApIServiceService } from '../api-service.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-carrinho',
   templateUrl: './carrinho.component.html',
-  styleUrls: ['./carrinho.component.scss']
+  styleUrls: ['./carrinho.component.scss'],
+  providers:[MessageService]
 })
 export class CarrinhoComponent implements OnInit {
 
-  constructor(private service:ApIServiceService,public config: DynamicDialogConfig, public ref: DynamicDialogRef) { }
+  constructor(private messageService: MessageService,private service:ApIServiceService,public config: DynamicDialogConfig, public ref: DynamicDialogRef) { }
   list1:any[] =  [];
   valor:any = 0;
   valorTotal:any = 0;
@@ -69,6 +71,9 @@ export class CarrinhoComponent implements OnInit {
   }
 
   doar(){
-    this.service.donate();
+    this.service.donate().subscribe((response) => {
+      console.log(response);
+      this.messageService.add({severity:'success', summary: 'Doação feita!', detail: "Obrigado por doar 1€"});
+     })
   }
 }

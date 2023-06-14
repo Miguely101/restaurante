@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
 const donate = async(user)=>{
+   console.log('x')
    const pool = await connection;
    const result2 = await pool.request()
    .query(`INSERT INTO tbl_relaDoa (utilizador_id,id_doacao,valor) values (${user.id},1,1)`);

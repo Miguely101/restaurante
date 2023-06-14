@@ -131,7 +131,7 @@ export class ApIServiceService {
   donate(): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post(`${this.baseUrl}/donations`,{ headers });
+    return this.http.post(`${this.baseUrl}/donations`,null,{ headers });
   }
   getDonate(): Observable<any> {
     return this.http.get(`${this.baseUrl}/donations`);
