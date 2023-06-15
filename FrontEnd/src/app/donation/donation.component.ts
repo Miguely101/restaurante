@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApIServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-donation',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./donation.component.scss']
 })
 export class DonationComponent implements OnInit {
-
-  constructor() { }
+  user: any[] = []
+  constructor(private service:ApIServiceService) { }
 
   ngOnInit(): void {
+    this.service.getDonate().subscribe((response) => {
+      this.user = response
+      console.log(this.user)
+    })
   }
 
 }

@@ -9,14 +9,16 @@
              </div>
           </div>
           <div class="col-lg-8 d-flex align-items-center">
+            
              <div class="row gy-4">
-                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
-                   <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                      <i class="bi bi-person-circle"></i>
-                      <h4>Miguel Nome</h4>
-                      <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                   </div>
-                </div>
+
+               <div *ngFor="let x of user"  class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                     <i class="bi bi-person-circle"></i>
+                     <h4>{{x.utilizador_nome}}</h4>
+                     <p>{{x.mensagem}}</p>
+                  </div>
+               </div>
          
              </div>
           </div>
