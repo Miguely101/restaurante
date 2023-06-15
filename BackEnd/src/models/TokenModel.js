@@ -6,7 +6,6 @@ const authenticateToken = async(request, response,next) =>{
 
     const authHeader = request.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
-    console.log(token)
     if(token == null) return response.sendStatus(401)
     jwt.verify(token,process.env.ACCESS_TOKEN, (err,user) =>{
         if(err) return response.sendStatus(403)
