@@ -35,7 +35,9 @@ export class AdminComponent implements OnInit {
     });
 
       this.service.getUsers().subscribe((response) => {
+
        this.Users = this.Users.concat(response);
+       console.log(this.Users)
       })
       
       this.perms = [{label: 'Cliente', value: '1'},{label: 'Funcionario', value: '2'},{label: 'Admin', value: '3'}];
