@@ -24,7 +24,7 @@ const donate = async(user)=>{
          model:"text-davinci-003",
          prompt:prompt,
          temperature: 1,
-         max_tokens:50
+         max_tokens:100
       });
       const x = completion.data.choices[0].text
       const result2 = await pool.request()
@@ -42,11 +42,10 @@ const donate = async(user)=>{
 const getDonations = async(user)=>{
     const pool = await connection;
     const result2 = await pool.request()
-    .query(`SELECT utilizador_nome, mensagem, COUNT(tbl_relaDoa.utilizador_id) AS vezes
+    .query(`SELECT utilizador_nome, mensagem,tbl_relaDoa.relaDoa_id
     FROM tbl_relaDoa
     INNER JOIN tbl_utilizadores ON tbl_relaDoa.utilizador_id = tbl_utilizadores.utilizador_id
-    GROUP BY tbl_relaDoa.utilizador_id, utilizador_nome, mensagem
-    ORDER BY tbl_relaDoa.utilizador_id DESC
+    ORDER BY tbl_relaDoa.relaDoa_id DESC
     OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
     `);
     return(result2.recordset)

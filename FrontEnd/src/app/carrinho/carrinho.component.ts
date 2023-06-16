@@ -71,9 +71,8 @@ export class CarrinhoComponent implements OnInit {
   }
 
   doar(){
+    this.messageService.add({severity:'success', summary: 'Doação feita!', detail: "Obrigado por doar 1€"});
     this.service.donate().subscribe((response) => {
-      console.log(response);
-      this.messageService.add({severity:'success', summary: 'Doação feita!', detail: "Obrigado por doar 1€"});
      })
   }
 }
