@@ -1,0 +1,17 @@
+.bg{
+display: flex;
+justify-content: flex-end;
+width: 100%;
+align-items: center;
+height: 120px;
+max-height: 120px;
+background-color: var(--color-primary);
+flex-direction: row;
+
+img{
+    height: 100%;
+    width: 150px;
+    filter: brightness(99999);
+    margin-right: 20%;
+}
+}
