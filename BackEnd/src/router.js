@@ -42,6 +42,7 @@ router.get('/reserva/:id',ReservaController.getAllReservaById);
 router.get('/reservaMesas/:id',ReservaController.getMesas);
 //Client
 router.get('/user',AuthController.getAllusers);
+router.delete('/user/:id',AuthController.delteUser)
 router.put('/user',AuthController.updateUsers)
 router.post('/login',AuthController.login);
 router.post('/register',AuthController.register);

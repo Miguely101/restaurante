@@ -34,7 +34,13 @@ const updateUsers =  async(request,response)=>{
     return response.status(201).json(data)
 }
 
+const delteUser = async(request,response)=>{
+    let data = await PostModel.delteUser(request.params.id);
+    return response.status(201).json(data)
+}
+
 module.exports = {
+    delteUser,
     getInfos,
     updateUsers,
     getAllusers,

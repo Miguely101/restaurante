@@ -52,6 +52,8 @@ import { EncomendasItemsComponent } from './encomendas-items/encomendas-items.co
 import { ReservaMesasComponent } from './reserva-mesas/reserva-mesas.component';
 import { DoarComponent } from './doar/doar.component';
 import { DonationComponent } from './donation/donation.component';
+import { EncomendaInfoComponent } from './encomenda-info/encomenda-info.component';
+import { ApagarConfirmarComponent } from './apagar-confirmar/apagar-confirmar.component';
 
 const appRoute: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -97,7 +99,9 @@ const appRoute: Routes = [
     EncomendasItemsComponent,
     ReservaMesasComponent,
     DoarComponent,
-    DonationComponent
+    DonationComponent,
+    EncomendaInfoComponent,
+    ApagarConfirmarComponent
   ],
   imports: [
     CarouselModule,

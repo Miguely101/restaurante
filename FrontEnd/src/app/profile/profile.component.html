@@ -7,7 +7,7 @@
             <p-card header="{{x.tipo}} - {{x.id}}" [style]="{'width': '25rem'}" >
                 <ng-template pTemplate="header">
                 <div [ngClass]="{'img-pendente': x.estado === 'Pendente'}">
-                    <img class="my-image" *ngIf="x.tipo == 'Encomenda'" alt="Card" src="../../assets/img/about-2.jpg">
+                    <img class="my-image" *ngIf="x.tipo == 'Encomenda'" alt="Card" src="../../assets/img/about-2.jpg" (click)="show(x.id)">
                     <img *ngIf="x.tipo == 'Reserva'" alt="Card" src="../../assets/img/about.jpg">
                 </div>
                 </ng-template>

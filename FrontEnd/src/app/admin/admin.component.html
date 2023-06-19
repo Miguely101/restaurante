@@ -1,6 +1,9 @@
-<p-dropdown  [options]="restaurantes" [(ngModel)]="selectedResc" [style]="{'margin': '50px','width': '90%'}"></p-dropdown>
+<p-toast></p-toast>
 <div class="card">
-    <p-table [value]="Users" [tableStyle]="{ 'min-width': '20rem' }"  [scrollable]="true" scrollHeight="50rem" [virtualScroll]="true" [virtualScrollItemSize]="46">
+    <p-table [value]="Users" [tableStyle]="{ 'min-width': '20rem' }"  [scrollable]="true" scrollHeight="50rem" [virtualScroll]="true" [virtualScrollItemSize]="46" #dv filerBy="perm_nome"[globalFilterFields]="['perm_nome']">
+      <ng-template pTemplate="caption" >
+        <input style="margin-left: 10px;" pInputText type="text" (input)="dv.filterGlobal($any($event.target).value, 'contains')" placeholder="Permissão" />
+      </ng-template>
       <ng-template pTemplate="header">
         <tr>
           <th>Id</th>
@@ -9,6 +12,7 @@
           <th>Morada</th>
           <th>Nome</th>
           <th>Telemovel</th>
+          <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
@@ -30,6 +34,7 @@
           <td>{{ user.utilizador_morada }}</td>
           <td>{{ user.utilizador_nome }}</td>
           <td>{{ user.utilizador_numero }} </td>
+          <td><button (click)="show(user.utilizador_id)" pButton pRipple type="button" label="Apagar" class="p-button-danger p-button-text"></button></td>
         </tr>
       </ng-template>
     </p-table>

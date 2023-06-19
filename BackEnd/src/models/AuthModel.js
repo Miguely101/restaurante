@@ -88,8 +88,17 @@ const updateUser = async (user) =>{
    .query('UPDATE tbl_utilizadores SET perm_id = @perm_id, utilizador_nome = @utilizador_nome, utilizador_email = @utilizador_email, utilizador_numero = @utilizador_numero, utilizador_morada = @utilizador_morada WHERE utilizador_id = @utilizador_id');
    return ("Sucesso");
 }
-  
+
+
+const delteUser = async (x) =>{
+
+   const pool = await connection;
+   const result = await pool.request()
+   .query(`DELETE FROM tbl_utilizadores where utilizador_id =${x}`);
+   return ("Sucesso");
+}  
 module.exports = {
+   delteUser,
    getInfos,
    updateUser,
    getAllusers,

@@ -136,4 +136,7 @@ export class ApIServiceService {
   getDonate(): Observable<any> {
     return this.http.get(`${this.baseUrl}/donations`);
   }
+  deleteUser(x:any): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/user/${x}`);
+  }
 }
