@@ -1,3 +1,9 @@
-<div class="bg shadow">
-<img  src="../../assets/img/pngegg.png" alt="">
-</div>
+<p-carousel [value]="menus" [numVisible]="1" [numScroll]="1" [showIndicators]="false">
+    <ng-template let-x pTemplate="item">
+        <div class="bg shadow">
+            <h2>{{x.menu_nome}}</h2>
+              <img src="../../assets/img/pngegg.png" alt="">
+              <h3>{{x.menu_preco}}€</h3>
+          </div>    
+    </ng-template>
+</p-carousel>

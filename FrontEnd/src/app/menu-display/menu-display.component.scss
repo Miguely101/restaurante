@@ -1,17 +1,30 @@
-.bg{
-display: flex;
-justify-content: flex-end;
-width: 100%;
-align-items: center;
-height: 120px;
-max-height: 120px;
-background-color: var(--color-primary);
-flex-direction: row;
+.bg {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+    height: 120px;
+    max-height: 120px;
+    background-color: var(--color-primary);
+    flex-direction: row;
+  }
+  
+  h2 {
+    color: white;
+    text-align: center;
+    margin-right: 5%;
+  }
+  
 
-img{
+  
+  h3 {
+    transform: translate(-210px,-2px);
+  }
+  
+  img {
+    margin-right: 100px;
     height: 100%;
     width: 150px;
     filter: brightness(99999);
-    margin-right: 20%;
-}
-}
+  }
+  
