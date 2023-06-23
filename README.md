@@ -8,7 +8,7 @@ O sistema de restaurante desenvolvido possui funcionalidades que permitem aos us
 O objetivo principal deste projeto foi criar uma solução completa e funcional para atender às necessidades de um restaurante, proporcionando uma experiência agradável tanto para os clientes quanto para os proprietários.
 # Manual de Instalação do Projeto
 
-#Backend:
+# Backend:
 
 Crie um arquivo chamado .env na pasta do seu projeto backend.
 No arquivo .env, defina os seguintes campos para se conectar ao banco de dados SQL Server:
@@ -43,7 +43,7 @@ npm run dev
 
 Se todas as etapas foram seguidas corretamente, você verá a mensagem "Host ready" e "Connected to database" indicando que o backend está pronto e conectado ao banco de dados.
 
-#Frontend:
+# Frontend:
 
 Certifique-se de ter o Angular versão 14.0 instalado em seu sistema. Caso não tenha, instale-o antes de prosseguir.
 Abra um terminal na pasta do projeto frontend e execute o seguinte comando para instalar as dependências:
@@ -55,11 +55,11 @@ Após a instalação das dependências, execute o seguinte comando para iniciar 
 ng serve
 Isso iniciará o servidor da aplicação frontend.
 
-#Sockets:
+# Sockets:
 
 Abra um terminal na pasta do projeto dos sockets e execute o seguinte comando para instalar as dependências:
 
-npm i
+<b>npm i</b>
 
 Após a instalação das dependências, execute o seguinte comando para iniciar o servidor dos sockets:
 
