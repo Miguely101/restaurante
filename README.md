@@ -83,4 +83,4 @@ node index.js
 Se tudo estiver instalado corretamente, você verá a mensagem "Ligado à porta 3337", indicando que o projeto está pronto.
 Certifique-se de ter seguido todos os passos corretamente para garantir a instalação adequada do projeto.
 # MILANOTE
-A documentação do projeto está aqui: https://app.milanote.com/1PRAPF1efHfW1h/restaurante-md16?p=K0ZMvi2kBI
+A documentação do projeto está aqui: https://app.milanote.com/1PRAPF1efHfW1h?p=K0ZMvi2kBID
