@@ -9,17 +9,17 @@ O objetivo principal deste projeto foi criar uma solução completa e funcional 
 
 # SQL SERVER
 Para instalar a base de dados utilizando o SQL Server e executar o script com todas as tabelas, siga os passos abaixo:
-1 - Certifique-se de ter o SQL Server instalado e configurado corretamente em seu sistema.
-2 - Abra o SQL Server Management Studio (SSMS) ou qualquer outra ferramenta de administração do SQL Server.
-3 - Crie um novo banco de dados para o seu projeto, caso ainda não tenha feito isso.
-4 - Abra o arquivo de script SQL que contém todas as tabelas do seu projeto. Verifique se o arquivo possui a extensão .sql.
-5 - Copie o conteúdo do arquivo de script SQL.
-6 - Conecte-se ao servidor do SQL Server usando o SSMS ou a ferramenta de administração escolhida.
-7 - Selecione o banco de dados que você criou para o projeto.
-8 - Abra uma nova consulta no SSMS ou na ferramenta de administração.
-9 - Cole o conteúdo do script SQL na nova consulta.
-10 - Execute a consulta pressionando o botão de execução ou usando o atalho de teclado adequado (geralmente F5).
-11 - Aguarde a conclusão da execução do script. Isso criará todas as tabelas e estruturas de banco de dados necessárias para o seu projeto.
+1 - Certifique-se de ter o SQL Server instalado e configurado corretamente em seu sistema.<br>
+2 - Abra o SQL Server Management Studio (SSMS) ou qualquer outra ferramenta de administração do SQL Server.<br>
+3 - Crie um novo banco de dados para o seu projeto, caso ainda não tenha feito isso.<br>
+4 - Abra o arquivo de script SQL que contém todas as tabelas do seu projeto. Verifique se o arquivo possui a extensão .sql.<br>
+5 - Copie o conteúdo do arquivo de script SQL.<br>
+6 - Conecte-se ao servidor do SQL Server usando o SSMS ou a ferramenta de administração escolhida.<br>
+7 - Selecione o banco de dados que você criou para o projeto.<br>
+8 - Abra uma nova consulta no SSMS ou na ferramenta de administração.<br>
+9 - Cole o conteúdo do script SQL na nova consulta.<br>
+10 - Execute a consulta pressionando o botão de execução ou usando o atalho de teclado adequado (geralmente F5).<br>
+11 - Aguarde a conclusão da execução do script. Isso criará todas as tabelas e estruturas de banco de dados necessárias para o seu projeto.<br>
 
 Após seguir esses passos, você terá a base de dados configurada com todas as tabelas necessárias para o funcionamento do seu 
 projeto. Certifique-se de verificar se não ocorreram erros durante a execução do script SQL.
