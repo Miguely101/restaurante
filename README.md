@@ -1,4 +1,4 @@
-# RESTAURANTE
+# MANUAL DE INSTALAÇÃO DO RESTAURANTE
 Este projeto foi desenvolvido durante o último período de estadia na Escola Bento Jesus Caraça. Foi solicitada a criação de um sistema de restaurante com recursos de reserva, pedidos, login, API e painel administrativo.
 
 Para a implementação do projeto, utilizamos as seguintes tecnologias: sockets.io, primeng, Angular e Node.js. O projeto foi concluído em aproximadamente um mês, com alguns dias adicionais para ajustes e melhorias.
@@ -6,9 +6,25 @@ Para a implementação do projeto, utilizamos as seguintes tecnologias: sockets.
 O sistema de restaurante desenvolvido possui funcionalidades que permitem aos usuários fazer reservas, fazer pedidos, realizar login e inclui uma API para integração com outras aplicações. Além disso, foi criado um painel administrativo (backoffice) para facilitar a gestão do restaurante.
 
 O objetivo principal deste projeto foi criar uma solução completa e funcional para atender às necessidades de um restaurante, proporcionando uma experiência agradável tanto para os clientes quanto para os proprietários.
-# Manual de Instalação do Projeto
 
-# Backend:
+# SQL SERVER
+Para instalar a base de dados utilizando o SQL Server e executar o script com todas as tabelas, siga os passos abaixo:
+1 - Certifique-se de ter o SQL Server instalado e configurado corretamente em seu sistema.
+2 - Abra o SQL Server Management Studio (SSMS) ou qualquer outra ferramenta de administração do SQL Server.
+3 - Crie um novo banco de dados para o seu projeto, caso ainda não tenha feito isso.
+4 - Abra o arquivo de script SQL que contém todas as tabelas do seu projeto. Verifique se o arquivo possui a extensão .sql.
+5 - Copie o conteúdo do arquivo de script SQL.
+6 - Conecte-se ao servidor do SQL Server usando o SSMS ou a ferramenta de administração escolhida.
+7 - Selecione o banco de dados que você criou para o projeto.
+8 - Abra uma nova consulta no SSMS ou na ferramenta de administração.
+9 - Cole o conteúdo do script SQL na nova consulta.
+10 - Execute a consulta pressionando o botão de execução ou usando o atalho de teclado adequado (geralmente F5).
+11 - Aguarde a conclusão da execução do script. Isso criará todas as tabelas e estruturas de banco de dados necessárias para o seu projeto.
+
+Após seguir esses passos, você terá a base de dados configurada com todas as tabelas necessárias para o funcionamento do seu 
+projeto. Certifique-se de verificar se não ocorreram erros durante a execução do script SQL.
+
+# BACKEND:
 
 Crie um arquivo chamado .env na pasta do seu projeto backend.
 No arquivo .env, defina os seguintes campos para se conectar ao banco de dados SQL Server:
@@ -43,7 +59,7 @@ npm run dev
 
 Se todas as etapas foram seguidas corretamente, você verá a mensagem "Host ready" e "Connected to database" indicando que o backend está pronto e conectado ao banco de dados.
 
-# Frontend:
+# fRONTEND:
 
 Certifique-se de ter o Angular versão 14.0 instalado em seu sistema. Caso não tenha, instale-o antes de prosseguir.
 Abra um terminal na pasta do projeto frontend e execute o seguinte comando para instalar as dependências:
@@ -55,7 +71,7 @@ Após a instalação das dependências, execute o seguinte comando para iniciar 
 ng serve
 Isso iniciará o servidor da aplicação frontend.
 
-# Sockets:
+# SOCKETS:
 
 Abra um terminal na pasta do projeto dos sockets e execute o seguinte comando para instalar as dependências:
 
