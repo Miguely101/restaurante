@@ -59,7 +59,7 @@ npm run dev
 
 Se todas as etapas foram seguidas corretamente, você verá a mensagem "Host ready" e "Connected to database" indicando que o backend está pronto e conectado ao banco de dados.
 
-# fRONTEND:
+# FRONTEND:
 
 Certifique-se de ter o Angular versão 14.0 instalado em seu sistema. Caso não tenha, instale-o antes de prosseguir.
 Abra um terminal na pasta do projeto frontend e execute o seguinte comando para instalar as dependências:
