@@ -28,8 +28,7 @@ projeto. Certifique-se de verificar se não ocorreram erros durante a execução
 
 Crie um arquivo chamado .env na pasta do seu projeto backend.
 No arquivo .env, defina os seguintes campos para se conectar ao banco de dados SQL Server:
-arduino
-Copy code
+
 MYSQL_HOST= [endereço do servidor MySQL]
 MYSQL_USER= [usuário do banco de dados]
 MYSQL_PASSWORD= [senha do banco de dados]
