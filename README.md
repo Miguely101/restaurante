@@ -29,10 +29,10 @@ projeto. Certifique-se de verificar se não ocorreram erros durante a execução
 Crie um arquivo chamado .env na pasta do seu projeto backend.
 No arquivo .env, defina os seguintes campos para se conectar ao banco de dados SQL Server:
 
-MYSQL_HOST= [endereço do servidor MySQL]
-MYSQL_USER= [usuário do banco de dados]
-MYSQL_PASSWORD= [senha do banco de dados]
-MYSQL_DB= [nome do banco de dados]
+SQLSERVER_HOST= [endereço do servidor MySQL]<br>
+SQLSERVER_USER= [usuário do banco de dados]<br>
+SQLSERVER_PASSWORD= [senha do banco de dados]<br>
+SQLSERVER_DB= [nome do banco de dados]<br>
 
 Certifique-se de preencher corretamente as informações acima.
 Gere um salt de 24 caracteres para utilizar na criptografia do website. Você pode usar um gerador de senhas seguro para criar o salt.
