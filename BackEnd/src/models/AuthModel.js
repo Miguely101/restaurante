@@ -34,7 +34,6 @@ const register  = async (user) =>{
       .input('utilizador_senha', sql.VarChar(250), hashedPassowrd)
       .input('utilizador_numero', sql.VarChar(20), user.numero)
       .input('utilizador_morada', sql.VarChar(100), user.morada)
-      .input('restaurante_id', sql.Int, 1)
       .query('INSERT INTO tbl_utilizadores (restaurante_id,perm_id, utilizador_nome, utilizador_email, utilizador_senha, utilizador_numero, utilizador_morada) VALUES (@restaurante_id,@perm_id, @utilizador_nome, @utilizador_email, @utilizador_senha, @utilizador_numero, @utilizador_morada)');
       let resp ={code:200, message:"Registado com sucesso"}
       return (resp);
