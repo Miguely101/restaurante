@@ -52,5 +52,5 @@ export class MainComponent implements OnInit {
     localStorage.removeItem('token');
   }
 
-
+  
 }
