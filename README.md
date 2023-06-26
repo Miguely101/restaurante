@@ -25,6 +25,7 @@ Após seguir esses passos, você terá a base de dados configurada com todas as 
 projeto. Certifique-se de verificar se não ocorreram erros durante a execução do script SQL.
 
 # BACKEND:
+![image](https://github.com/Miguely101/restaurante/assets/81967205/c2004121-4d9c-4169-88fa-436621d070b7)
 
 Crie um arquivo chamado .env na pasta do seu projeto backend.
 No arquivo .env, defina os seguintes campos para se conectar ao banco de dados SQL Server:
