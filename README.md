@@ -51,7 +51,11 @@ OPENAI_API_KEY= [chave de API do OpenAI]
 Certifique-se de que possui permissões adequadas para usar a API do OpenAI.
 Abra um terminal na pasta do projeto backend e execute o seguinte comando para instalar todas as bibliotecas necessárias:
 
+<div style="background-color: white; color: green;">
+
 npm i
+
+</div>
 
 Após a conclusão da instalação das bibliotecas, execute o seguinte comando para iniciar o servidor:
 
