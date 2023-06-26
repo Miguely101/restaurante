@@ -55,6 +55,7 @@ import { DonationComponent } from './donation/donation.component';
 import { EncomendaInfoComponent } from './encomenda-info/encomenda-info.component';
 import { ApagarConfirmarComponent } from './apagar-confirmar/apagar-confirmar.component';
 import { MenuDisplayComponent } from './menu-display/menu-display.component';
+import { MenuItemsClienteComponent } from './menu-items-cliente/menu-items-cliente.component';
 
 const appRoute: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -103,7 +104,8 @@ const appRoute: Routes = [
     DonationComponent,
     EncomendaInfoComponent,
     ApagarConfirmarComponent,
-    MenuDisplayComponent
+    MenuDisplayComponent,
+    MenuItemsClienteComponent
   ],
   imports: [
     CarouselModule,
