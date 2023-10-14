@@ -1,5 +1,5 @@
 # MANUAL DE INSTALAÇÃO DO RESTAURANTE
-Este projeto foi desenvolvido durante o último período de estadia na Escola Bento Jesus Caraça. Foi solicitada a criação de um sistema de restaurante com recursos de reserva, pedidos, login, API e painel administrativo.
+Foi solicitada a criação de um sistema de restaurante com recursos de reserva, pedidos, login, API e painel administrativo.
 
 Para a implementação do projeto, utilizamos as seguintes tecnologias: sockets.io, primeng, Angular e Node.js. O projeto foi concluído em aproximadamente um mês, com alguns dias adicionais para ajustes e melhorias.
 
